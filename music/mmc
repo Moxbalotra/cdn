@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Coming Soon</title>
+    <style>
+      /* CSS for styling the page */
+      body {
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 4em;
+        margin: 20px 0;
+      }
+
+      p {
+        font-size: 1.5em;
+        margin: 20px 0;
+      }
+
+      form {
+        margin: 20px 0;
+      }
+
+      input[type="email"] {
+        padding: 10px;
+        font-size: 1.2em;
+        margin-right: 10px;
+      }
+
+      input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        font-size: 1.2em;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+  <audio src="https://cdn.moxrathore.com/music/music.mp3" autoplay="true"></audio>
+    <h1>Coming Soon</h1>
+    <p>Our website is under construction, but we'll be here soon with our new awesome site.</p>
+    <form>
+      <input type="email" placeholder="Enter your email">
+      <input type="submit" value="Notify me">
+    </form>
+  </body>
+</html>
