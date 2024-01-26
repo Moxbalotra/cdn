@@ -22,7 +22,17 @@
 <a href="https://www.youtube.com/moxrathore" target="blank"><img align="left" src="https://cdn.moxrathore.com/social/3.svg" alt="moxrathore" height="30" width="40" /></a>
   <a href="https://www.fb.com/moxrathore" target="blank"><img align="left" src="https://cdn.moxrathore.com/social/2.svg" alt="moxrathore" height="30" width="40" /></a>
   <a href="https://api.whatsapp.com/send/?phone=916375324945" target="blank"><img align="left" src="https://cdn.moxrathore.com/social/5.svg" alt="moxrathore" height="30" width="40" /></a>
+  
 <!---
 Moxrathore/Moxrathore is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
 --->
+
+    <script 
+      type="text/javascript"
+      src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
+      id="aisensy-wa-widget"
+      widget-id="FCjqdC"
+    >
+    </script>
+	
