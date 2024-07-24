@@ -17,13 +17,11 @@ This project presents a fun, CID-themed login system where users are entertained
 - Timelaspe of CID FUNNY LOGIN CREATION : 
 - CID FUNNY LOGIN Full Video : 
 ## Images
-![image](https://github.com/BOSS294/CID-FUNNY-LOGIN/assets/72921622/07872cde-d55f-4d3e-b5cd-7281e51c872e)
+![image](CID/assets/72921622/07872cde-d55f-4d3e-b5cd-7281e51c872e)
 
 ## Developed By 
-- **MAYANK CHAWDHARI**
-## Special Thanks to
-- **Kishan Kumar**
-- **Vedant**
+- **Mox Rathore**
+
 ## User Guide
 
 ### Predefined Credentials
