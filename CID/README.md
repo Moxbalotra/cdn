@@ -17,7 +17,7 @@ This project presents a fun, CID-themed login system where users are entertained
 - Timelaspe of CID FUNNY LOGIN CREATION : 
 - CID FUNNY LOGIN Full Video : 
 ## Images
-![image](/https:cdn.moxrathore.com/CID/FUNNY-CID-LOGIN.png)
+![image](/https:cdn.moxrathore.com/CID/FUNNY%20CID%20LOGIN.png)
 
 ## Developed By 
 - **Mox Rathore**
