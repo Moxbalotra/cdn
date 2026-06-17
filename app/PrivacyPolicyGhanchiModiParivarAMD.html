@@ -1,167 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - GhanchiModiParivarAMD</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | GhanchiModiParivarAMD</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#f5f7fa,#e4ecff);
+    color:#333;
+    line-height:1.8;
+}
+
+header{
+    background:linear-gradient(135deg,#ff6b6b,#ff8e53);
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.container{
+    max-width:1100px;
+    margin:40px auto;
+    padding:0 20px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+h2{
+    color:#1f3c88;
+    margin-bottom:15px;
+}
+
+ul{
+    padding-left:25px;
+}
+
+footer{
+    background:#111827;
+    color:#fff;
+    text-align:center;
+    padding:40px 20px;
+    margin-top:50px;
+}
+
+.footer-text{
+    font-size:18px;
+    letter-spacing:1px;
+}
+
+.footer-text span{
+    color:#ff4d6d;
+    animation:heart 1s infinite;
+}
+
+.creator{
+    margin-top:15px;
+    font-size:20px;
+    font-weight:600;
+    background:linear-gradient(90deg,#ff9966,#ff5e62);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+@keyframes heart{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.3);}
+    100%{transform:scale(1);}
+}
+
+.fade{
+    opacity:0;
+    transform:translateY(30px);
+    transition:1s;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+</style>
 </head>
 <body>
 
-    <h1>Privacy Policy for GhanchiModiParivarAMD</h1>
+<header>
+    <h1>Privacy Policy</h1>
+    <p>GhanchiModiParivarAMD</p>
+</header>
 
-    <p><strong>Last updated:</strong> March 07, 2026</p>
+<div class="container">
 
-    <p>
-        This Privacy Policy describes Our policies and procedures on the collection,
-        use and disclosure of Your information when You use the Service and tells You
-        about Your privacy rights and how the law protects You.
+<div class="card fade">
+<h2>Introduction</h2>
+<p>
+This Privacy Policy describes Our policies and procedures on the collection,
+use and disclosure of Your information when You use the Service.
+</p>
+</div>
+
+<div class="card fade">
+<h2>Personal Data We Collect</h2>
+<ul>
+<li>Email Address</li>
+<li>First Name and Last Name</li>
+<li>Phone Number</li>
+<li>Address and Location Information</li>
+<li>Usage Data</li>
+</ul>
+</div>
+
+<div class="card fade">
+<h2>How We Use Your Data</h2>
+<ul>
+<li>Provide and maintain our services.</li>
+<li>Manage your account.</li>
+<li>Send notifications and updates.</li>
+<li>Improve user experience.</li>
+<li>Provide support and communication.</li>
+</ul>
+</div>
+
+<div class="card fade">
+<h2>Security</h2>
+<p>
+We strive to protect your Personal Data using commercially acceptable means,
+however no method of transmission over the Internet is 100% secure.
+</p>
+</div>
+
+<div class="card fade">
+<h2>Contact Us</h2>
+<p>
+📧 Email : ghanchisamajahmedabad@gmail.com<br>
+📞 Phone : +91 94272 12990
+</p>
+</div>
+
+</div>
+
+<footer>
+    <div class="footer-text">
+        Made with <span>❤</span>
+    </div>
+
+    <div class="creator">
+        ✨ Crafted & Designed by Mox Rathore ✨
+    </div>
+
+    <br>
+
+    <p style="color:#9ca3af;">
+        Bringing ideas to life with creativity, code & passion 🚀
     </p>
+</footer>
 
-    <p>
-        We use Your Personal Data to provide and improve the Service. By using the Service,
-        You agree to the collection and use of information in accordance with this Privacy Policy.
-    </p>
+<script>
 
-    <h2>Interpretation and Definitions</h2>
+// Scroll Animation
+const elements=document.querySelectorAll(".fade");
 
-    <h3>Interpretation</h3>
+function reveal(){
+    elements.forEach(el=>{
+        const top=el.getBoundingClientRect().top;
+        const height=window.innerHeight;
 
-    <p>
-        The words whose initial letters are capitalized have meanings defined under
-        the following conditions. The following definitions shall have the same meaning
-        regardless of whether they appear in singular or in plural.
-    </p>
+        if(top<height-100){
+            el.classList.add("show");
+        }
+    });
+}
 
-    <h3>Definitions</h3>
+window.addEventListener("scroll",reveal);
+reveal();
 
-    <ul>
-        <li><strong>Account</strong> means a unique account created for You to access our Service.</li>
+// Dynamic Year
+document.querySelector("footer").innerHTML +=
+`<p style="margin-top:20px;color:#6b7280;">© ${new Date().getFullYear()} All Rights Reserved.</p>`;
 
-        <li><strong>Affiliate</strong> means an entity that controls, is controlled by, or is under common control with a party.</li>
-
-        <li><strong>Application</strong> refers to GhanchiModiParivarAMD.</li>
-
-        <li><strong>Company</strong> refers to GhanchiModiParivarAMD.</li>
-
-        <li><strong>Country</strong> refers to Gujarat, India.</li>
-
-        <li><strong>Device</strong> means any device that can access the Service such as a computer, cell phone or tablet.</li>
-
-        <li><strong>Personal Data</strong> means any information that relates to an identified or identifiable individual.</li>
-
-        <li><strong>Service</strong> refers to the Application.</li>
-
-        <li><strong>Service Provider</strong> means third-party companies or individuals employed by the Company.</li>
-
-        <li><strong>Usage Data</strong> refers to data collected automatically.</li>
-
-        <li><strong>You</strong> means the individual accessing or using the Service.</li>
-    </ul>
-
-    <h2>Collecting and Using Your Personal Data</h2>
-
-    <h3>Types of Data Collected</h3>
-
-    <h4>Personal Data</h4>
-
-    <p>
-        While using Our Service, We may ask You to provide Us with certain personally
-        identifiable information including:
-    </p>
-
-    <ul>
-        <li>Email address</li>
-        <li>First name and last name</li>
-        <li>Phone number</li>
-        <li>Address, State, Province, ZIP/Postal code, City</li>
-        <li>Usage Data</li>
-    </ul>
-
-    <h4>Information Collected while Using the Application</h4>
-
-    <p>
-        We may collect pictures and other information from your Device's camera and photo library
-        with Your permission.
-    </p>
-
-    <h2>Use of Your Personal Data</h2>
-
-    <ul>
-        <li>To provide and maintain our Service.</li>
-        <li>To manage Your Account.</li>
-        <li>For the performance of contracts.</li>
-        <li>To contact You via email, phone, SMS or notifications.</li>
-        <li>To provide promotional offers and updates.</li>
-        <li>To manage Your requests.</li>
-        <li>For business transfers.</li>
-        <li>For analytics, improvements and marketing.</li>
-    </ul>
-
-    <h2>Retention of Your Personal Data</h2>
-
-    <p>
-        We retain Your Personal Data only for as long as necessary to fulfill the
-        purposes outlined in this Privacy Policy and to comply with legal obligations.
-    </p>
-
-    <h2>Transfer of Your Personal Data</h2>
-
-    <p>
-        Your information may be processed and stored in locations outside Your state
-        or country where data protection laws may differ.
-    </p>
-
-    <h2>Delete Your Personal Data</h2>
-
-    <p>
-        You have the right to delete or request deletion of the Personal Data that We have collected about You.
-    </p>
-
-    <h2>Disclosure of Your Personal Data</h2>
-
-    <h3>Business Transactions</h3>
-    <p>
-        In case of a merger, acquisition or asset sale, Your Personal Data may be transferred.
-    </p>
-
-    <h3>Law Enforcement</h3>
-    <p>
-        We may disclose Your Personal Data when required by law.
-    </p>
-
-    <h2>Security of Your Personal Data</h2>
-
-    <p>
-        We strive to protect Your Personal Data but cannot guarantee absolute security.
-    </p>
-
-    <h2>Children's Privacy</h2>
-
-    <p>
-        Our Service does not address anyone under the age of 16 and we do not knowingly collect
-        information from children.
-    </p>
-
-    <h2>Links to Other Websites</h2>
-
-    <p>
-        Our Service may contain links to third-party websites. We are not responsible for their privacy practices.
-    </p>
-
-    <h2>Changes to this Privacy Policy</h2>
-
-    <p>
-        We may update Our Privacy Policy from time to time. Changes become effective when posted on this page.
-    </p>
-
-    <h2>Contact Us</h2>
-
-    <p>If you have any questions about this Privacy Policy, You can contact us:</p>
-
-    <ul>
-        <li><strong>Email:</strong> ghanchisamajahmedabad@gmail.com</li>
-        <li><strong>Phone:</strong> +91 94272 12990</li>
-    </ul>
+</script>
 
 </body>
 </html>
