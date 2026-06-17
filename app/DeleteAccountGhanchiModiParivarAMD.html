@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Account | GhanchiModiParivarAMD</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    max-width:800px;
+    width:100%;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:25px;
+    padding:40px;
+    color:white;
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+    animation:fadeIn 1s ease;
+}
+
+h1{
+    text-align:center;
+    color:#ff4d6d;
+    margin-bottom:20px;
+}
+
+p{
+    color:#d1d5db;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+ul{
+    margin-left:25px;
+    color:#f1f5f9;
+    line-height:2;
+}
+
+.email-box{
+    background:#111827;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    margin:25px 0;
+}
+
+.email-box a{
+    color:#ff4d6d;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.btn{
+    display:block;
+    width:100%;
+    border:none;
+    padding:18px;
+    border-radius:15px;
+    background:linear-gradient(135deg,#ff4d6d,#ff6b6b);
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.success{
+    margin-top:20px;
+    text-align:center;
+    color:#4ade80;
+    display:none;
+}
+
+footer{
+    margin-top:30px;
+    text-align:center;
+    color:#94a3b8;
+}
+
+.creator{
+    margin-top:10px;
+    font-size:18px;
+    background:linear-gradient(90deg,#ff9966,#ff5e62);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>🗑 Delete Account & Data</h1>
+
+<p>
+If you wish to permanently delete your account and all associated personal data from <strong>GhanchiModiParivarAMD</strong>, please send a request from your registered email address.
+</p>
+
+<p>Please include the following details:</p>
+
+<ul>
+<li>Full Name</li>
+<li>Registered Email Address</li>
+<li>Registered Mobile Number</li>
+<li>Reason for Deletion (Optional)</li>
+</ul>
+
+<div class="email-box">
+📧
+<br><br>
+<a href="mailto:hello@moxrathore.com">
+hello@moxrathore.com
+</a>
+</div>
+
+<button class="btn" onclick="sendMail()">
+Send Email Request
+</button>
+
+<div class="success" id="msg">
+✓ Opening your email application...
+</div>
+
+<footer>
+Made with ❤️
+
+<div class="creator">
+✨ Crafted & Designed by Mox Rathore ✨
+</div>
+
+<p>
+Bringing ideas to life with creativity, code & passion 🚀
+</p>
+
+<p id="year"></p>
+
+</footer>
+
+</div>
+
+</div>
+
+<script>
+
+document.getElementById("year").innerHTML =
+"© " + new Date().getFullYear() + " All Rights Reserved.";
+
+function sendMail(){
+
+document.getElementById("msg").style.display="block";
+
+window.location.href =
+"mailto:hello@moxrathore.com?subject=Account Deletion Request&body=Full Name:%0ARegistered Email:%0AMobile Number:%0AReason:%0A";
+
+}
+
+</script>
+
+</body>
+</html>
