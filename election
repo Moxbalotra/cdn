@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nagar Parishad Election 2026</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#07111f;
+    --panel:#0d1b2e;
+    --panel2:#10243b;
+    --text:#f5f7fa;
+    --muted:#91a1b5;
+    --accent:#f5b942;
+    --accent2:#ff7a18;
+    --border:rgba(255,255,255,.09);
+    --shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(245,185,66,.12),transparent 30%),
+        radial-gradient(circle at 90% 80%,rgba(255,122,24,.10),transparent 30%),
+        var(--bg);
+    color:var(--text);
+    min-height:100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(18px);
+    background:rgba(7,17,31,.82);
+    border-bottom:1px solid var(--border);
+}
+
+.header-inner{
+    max-width:1400px;
+    margin:auto;
+    padding:16px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-icon{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#111;
+    font-size:24px;
+    font-weight:900;
+    box-shadow:0 8px 25px rgba(245,185,66,.25);
+}
+
+.logo-text h1{
+    font-size:19px;
+    line-height:1.2;
+}
+
+.logo-text span{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.nav-btn{
+    border:1px solid transparent;
+    background:transparent;
+    color:#b9c5d3;
+    padding:11px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-btn:hover{
+    color:white;
+    background:rgba(255,255,255,.06);
+}
+
+.nav-btn.active{
+    color:#111;
+    background:linear-gradient(135deg,var(--accent),#ffd979);
+    box-shadow:0 8px 22px rgba(245,185,66,.20);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main{
+    max-width:1400px;
+    margin:auto;
+    padding:30px 24px 60px;
+}
+
+.page{
+    display:none;
+    animation:fade .35s ease;
+}
+
+.page.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    border:1px solid var(--border);
+    border-radius:24px;
+    overflow:hidden;
+    min-height:380px;
+    position:relative;
+    background:#111;
+    box-shadow:var(--shadow);
+    margin-bottom:25px;
+}
+
+.hero img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    display:block;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(90deg,
+        rgba(0,0,0,.85),
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.05));
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    padding:45px;
+    max-width:650px;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 12px;
+    border-radius:50px;
+    background:rgba(245,185,66,.15);
+    color:var(--accent);
+    border:1px solid rgba(245,185,66,.25);
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+.hero h2{
+    font-size:clamp(32px,5vw,58px);
+    line-height:1.02;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#d4dbe4;
+    line-height:1.7;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.section-title{
+    margin:25px 0 16px;
+}
+
+.section-title h2{
+    font-size:25px;
+}
+
+.section-title p{
+    color:var(--muted);
+    margin-top:5px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.stat-card{
+    background:linear-gradient(145deg,var(--panel),var(--panel2));
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:22px;
+    box-shadow:var(--shadow);
+}
+
+.stat-icon{
+    font-size:26px;
+    margin-bottom:15px;
+}
+
+.stat-number{
+    font-size:30px;
+    font-weight:800;
+}
+
+.stat-label{
+    color:var(--muted);
+    margin-top:5px;
+    font-size:13px;
+}
+
+/* =========================
+   BANNER GRID
+========================= */
+
+.banner-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.banner-card{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:18px;
+    overflow:hidden;
+    transition:.25s;
+}
+
+.banner-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(245,185,66,.4);
+}
+
+.banner-card img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+    display:block;
+}
+
+.banner-info{
+    padding:15px;
+}
+
+.banner-info h3{
+    font-size:16px;
+}
+
+.banner-info p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* =========================
+   WARD SELECTOR
+========================= */
+
+.ward-toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.ward-selector{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--panel);
+    padding:10px;
+    border-radius:14px;
+    border:1px solid var(--border);
+}
+
+.ward-selector label{
+    color:var(--muted);
+    font-size:13px;
+    padding-left:7px;
+}
+
+select{
+    background:#13263e;
+    color:white;
+    border:1px solid var(--border);
+    padding:10px 14px;
+    border-radius:9px;
+    outline:none;
+    cursor:pointer;
+}
+
+.ward-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+}
+
+.ward-btn{
+    background:var(--panel);
+    border:1px solid var(--border);
+    color:white;
+    border-radius:14px;
+    padding:17px 10px;
+    cursor:pointer;
+    transition:.2s;
+    text-align:center;
+}
+
+.ward-btn:hover{
+    border-color:var(--accent);
+    transform:translateY(-3px);
+}
+
+.ward-btn.active{
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#111;
+    border-color:transparent;
+    font-weight:800;
+}
+
+/* =========================
+   PDF CARD
+========================= */
+
+.voter-card{
+    margin-top:22px;
+    background:linear-gradient(145deg,var(--panel),var(--panel2));
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.voter-left{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.pdf-icon{
+    width:58px;
+    height:58px;
+    border-radius:15px;
+    background:#c62828;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+}
+
+.voter-left h3{
+    margin-bottom:5px;
+}
+
+.voter-left p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.open-btn{
+    text-decoration:none;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#111;
+    padding:12px 18px;
+    border-radius:10px;
+    font-weight:800;
+    font-size:13px;
+    white-space:nowrap;
+}
+
+/* =========================
+   MAP
+========================= */
+
+.map-container{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:20px;
+    overflow:hidden;
+    min-height:550px;
+    box-shadow:var(--shadow);
+}
+
+.map-container iframe{
+    width:100%;
+    height:550px;
+    border:0;
+}
+
+/* =========================
+   COMING SOON
+========================= */
+
+.coming-soon{
+    min-height:500px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(circle at center,rgba(245,185,66,.10),transparent 35%),
+        var(--panel);
+    border:1px solid var(--border);
+    border-radius:24px;
+}
+
+.coming-icon{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    background:rgba(245,185,66,.1);
+    border:1px solid rgba(245,185,66,.25);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:38px;
+    margin:0 auto 20px;
+}
+
+.coming-soon h2{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.coming-soon p{
+    color:var(--muted);
+    max-width:450px;
+    line-height:1.6;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    padding:25px;
+    border-top:1px solid var(--border);
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+.mobile-menu{
+    display:none;
+    background:transparent;
+    border:1px solid var(--border);
+    color:white;
+    border-radius:9px;
+    padding:9px 12px;
+    cursor:pointer;
+    font-size:20px;
+}
+
+@media(max-width:1000px){
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .banner-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .ward-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    nav{
+        display:none;
+        position:absolute;
+        top:80px;
+        left:15px;
+        right:15px;
+        background:#0b1829;
+        padding:12px;
+        border:1px solid var(--border);
+        border-radius:15px;
+        box-shadow:var(--shadow);
+    }
+
+    nav.open{
+        display:flex;
+        flex-direction:column;
+    }
+
+    .mobile-menu{
+        display:block;
+    }
+}
+
+@media(max-width:650px){
+
+    .header-inner{
+        padding:12px 15px;
+    }
+
+    main{
+        padding:20px 15px 40px;
+    }
+
+    .logo-text h1{
+        font-size:15px;
+    }
+
+    .logo-icon{
+        width:40px;
+        height:40px;
+    }
+
+    .hero,
+    .hero img{
+        min-height:420px;
+        height:420px;
+    }
+
+    .hero-content{
+        padding:25px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .banner-grid{
+        grid-template-columns:1fr;
+    }
+
+    .ward-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .voter-card{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .open-btn{
+        width:100%;
+        text-align:center;
+    }
+
+    .map-container,
+    .map-container iframe{
+        min-height:450px;
+        height:450px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="header-inner">
+
+    <div class="logo">
+        <div class="logo-icon">🏛️</div>
+
+        <div class="logo-text">
+            <h1 id="siteTitle">नगर परिषद चुनाव 2026</h1>
+            <span id="siteSubtitle">Digital Election Portal</span>
+        </div>
+    </div>
+
+    <nav id="mainNav">
+
+        <button class="nav-btn active" onclick="showPage('dashboard',this)">
+            🏠 Dashboard
+        </button>
+
+        <button class="nav-btn" onclick="showPage('map',this)">
+            🗺️ Ward Map
+        </button>
+
+        <button class="nav-btn" onclick="showPage('voters',this)">
+            📋 Ward Voter List
+        </button>
+
+        <button class="nav-btn" onclick="showPage('candidate',this)">
+            👤 Candidate
+        </button>
+
+        <button class="nav-btn" onclick="showPage('result',this)">
+            🗳️ Election Result
+        </button>
+
+    </nav>
+
+    <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+
+</div>
+
+</header>
+
+
+<main>
+
+<!-- =========================
+     DASHBOARD
+========================= -->
+
+<section id="dashboard" class="page active">
+
+    <div class="hero">
+
+        <img id="heroBanner" src="" alt="Election Banner">
+
+        <div class="hero-overlay">
+
+            <div class="hero-content">
+
+                <span class="badge">MUNICIPAL ELECTION 2026</span>
+
+                <h2 id="heroTitle">
+                    नगर परिषद चुनाव 2026
+                </h2>
+
+                <p id="heroDescription">
+                    अपने वार्ड की जानकारी, मतदाता सूची, वार्ड मैप
+                    और चुनाव परिणाम एक ही डिजिटल प्लेटफॉर्म पर देखें।
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <div class="stat-icon">🏘️</div>
+            <div class="stat-number">55</div>
+            <div class="stat-label">कुल वार्ड</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📄</div>
+            <div class="stat-number">55</div>
+            <div class="stat-label">Voter Lists</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🗺️</div>
+            <div class="stat-number">01</div>
+            <div class="stat-label">Ward Map</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🗳️</div>
+            <div class="stat-number">2026</div>
+            <div class="stat-label">Election Year</div>
+        </div>
+
+    </div>
+
+
+    <div class="section-title">
+        <h2>Election Highlights</h2>
+        <p>Latest election information and updates</p>
+    </div>
+
+    <div class="banner-grid" id="bannerGrid"></div>
+
+</section>
+
+
+<!-- =========================
+     WARD MAP
+========================= -->
+
+<section id="map" class="page">
+
+    <div class="section-title">
+        <h2>🗺️ Ward Map</h2>
+        <p>नगर परिषद के सभी वार्ड का डिजिटल मैप</p>
+    </div>
+
+    <div class="map-container">
+
+        <!-- अपना Google Map / Map Embed यहां डालें -->
+
+        <div id="mapEmbed"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     VOTER LIST
+========================= -->
+
+<section id="voters" class="page">
+
+    <div class="section-title">
+
+        <h2>📋 Ward Voter List</h2>
+
+        <p>
+            अपना Ward चुनें और संबंधित मतदाता सूची PDF खोलें।
+        </p>
+
+    </div>
+
+
+    <div class="ward-toolbar">
+
+        <div class="ward-selector">
+
+            <label for="wardSelect">
+                Select Ward
+            </label>
+
+            <select id="wardSelect" onchange="selectWard(this.value)">
+            </select>
+
+        </div>
+
+        <div style="color:#91a1b5;font-size:13px;">
+            कुल 55 Ward उपलब्ध
+        </div>
+
+    </div>
+
+
+    <div class="ward-grid" id="wardGrid"></div>
+
+
+    <div class="voter-card">
+
+        <div class="voter-left">
+
+            <div class="pdf-icon">
+                📄
+            </div>
+
+            <div>
+
+                <h3 id="selectedWardTitle">
+                    Ward 1 Voter List
+                </h3>
+
+                <p id="selectedWardText">
+                    Ward 1 की मतदाता सूची PDF
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <a
+            id="pdfButton"
+            class="open-btn"
+            href="#"
+            target="_blank"
+        >
+            📥 Open Voter List
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CANDIDATE
+========================= -->
+
+<section id="candidate" class="page">
+
+    <div class="section-title">
+
+        <h2>👤 Candidate</h2>
+
+        <p>
+            नगर परिषद चुनाव 2026 के उम्मीदवारों की जानकारी
+        </p>
+
+    </div>
+
+
+    <div class="coming-soon">
+
+        <div>
+
+            <div class="coming-icon">
+                👤
+            </div>
+
+            <h2>Coming Soon</h2>
+
+            <p>
+                उम्मीदवारों की विस्तृत जानकारी जल्द ही
+                इस पोर्टल पर उपलब्ध होगी।
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RESULT
+========================= -->
+
+<section id="result" class="page">
+
+    <div class="section-title">
+
+        <h2>🗳️ Election Result</h2>
+
+        <p>
+            नगर परिषद चुनाव 2026 के परिणाम
+        </p>
+
+    </div>
+
+
+    <div class="coming-soon">
+
+        <div>
+
+            <div class="coming-icon">
+                🏆
+            </div>
+
+            <h2>Coming Soon</h2>
+
+            <p>
+                चुनाव परिणाम घोषित होने के बाद
+                यहां Ward-wise Election Result उपलब्ध होगा।
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    © 2026 Nagar Parishad Election Portal
+    <br>
+    Digital Election Information System
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   CONFIGURATION
+   यहां से पूरा portal आसानी से customize करें
+===================================================== */
+
+const CONFIG = {
+
+    /* Website Title */
+
+    siteTitle: "नगर परिषद चुनाव 2026",
+
+    siteSubtitle: "Digital Election Portal",
+
+
+    /* Dashboard Hero Banner */
+
+    heroBanner:
+        "https://yourwebsite.com/images/main-banner.jpg",
+
+
+    heroTitle:
+        "नगर परिषद चुनाव 2026",
+
+    heroDescription:
+        "अपने वार्ड की जानकारी, मतदाता सूची, वार्ड मैप और चुनाव परिणाम एक ही डिजिटल प्लेटफॉर्म पर देखें.",
+
+
+    /* Dashboard JPG Banners */
+
+    banners: [
+
+        {
+            image:
+            "https://yourwebsite.com/images/banner-1.jpg",
+
+            title:
+            "नगर परिषद चुनाव 2026",
+
+            description:
+            "चुनाव संबंधी महत्वपूर्ण जानकारी"
+        },
+
+        {
+            image:
+            "https://yourwebsite.com/images/banner-2.jpg",
+
+            title:
+            "मतदाता जागरूकता",
+
+            description:
+            "अपने मत का सही उपयोग करें"
+        },
+
+        {
+            image:
+            "https://yourwebsite.com/images/banner-3.jpg",
+
+            title:
+            "आपका वार्ड",
+
+            description:
+            "अपने Ward की जानकारी देखें"
+        }
+
+    ],
+
+
+    /* =================================================
+       WARD VOTER PDF LINKS
+
+       नीचे हर Ward की PDF का link डालें
+    ================================================= */
+
+    voterLists: {
+
+        1: "https://yourwebsite.com/pdf/ward-1.pdf",
+        2: "https://yourwebsite.com/pdf/ward-2.pdf",
+        3: "https://yourwebsite.com/pdf/ward-3.pdf",
+        4: "https://yourwebsite.com/pdf/ward-4.pdf",
+        5: "https://yourwebsite.com/pdf/ward-5.pdf",
+        6: "https://yourwebsite.com/pdf/ward-6.pdf",
+        7: "https://yourwebsite.com/pdf/ward-7.pdf",
+        8: "https://yourwebsite.com/pdf/ward-8.pdf",
+        9: "https://yourwebsite.com/pdf/ward-9.pdf",
+        10: "https://yourwebsite.com/pdf/ward-10.pdf",
+
+        11: "https://yourwebsite.com/pdf/ward-11.pdf",
+        12: "https://yourwebsite.com/pdf/ward-12.pdf",
+        13: "https://yourwebsite.com/pdf/ward-13.pdf",
+        14: "https://yourwebsite.com/pdf/ward-14.pdf",
+        15: "https://yourwebsite.com/pdf/ward-15.pdf",
+        16: "https://yourwebsite.com/pdf/ward-16.pdf",
+        17: "https://yourwebsite.com/pdf/ward-17.pdf",
+        18: "https://yourwebsite.com/pdf/ward-18.pdf",
+        19: "https://yourwebsite.com/pdf/ward-19.pdf",
+        20: "https://yourwebsite.com/pdf/ward-20.pdf",
+
+        21: "https://yourwebsite.com/pdf/ward-21.pdf",
+        22: "https://yourwebsite.com/pdf/ward-22.pdf",
+        23: "https://yourwebsite.com/pdf/ward-23.pdf",
+        24: "https://yourwebsite.com/pdf/ward-24.pdf",
+        25: "https://yourwebsite.com/pdf/ward-25.pdf",
+        26: "https://yourwebsite.com/pdf/ward-26.pdf",
+        27: "https://yourwebsite.com/pdf/ward-27.pdf",
+        28: "https://yourwebsite.com/pdf/ward-28.pdf",
+        29: "https://yourwebsite.com/pdf/ward-29.pdf",
+        30: "https://yourwebsite.com/pdf/ward-30.pdf",
+
+        31: "https://yourwebsite.com/pdf/ward-31.pdf",
+        32: "https://yourwebsite.com/pdf/ward-32.pdf",
+        33: "https://yourwebsite.com/pdf/ward-33.pdf",
+        34: "https://yourwebsite.com/pdf/ward-34.pdf",
+        35: "https://yourwebsite.com/pdf/ward-35.pdf",
+        36: "https://yourwebsite.com/pdf/ward-36.pdf",
+        37: "https://yourwebsite.com/pdf/ward-37.pdf",
+        38: "https://yourwebsite.com/pdf/ward-38.pdf",
+        39: "https://yourwebsite.com/pdf/ward-39.pdf",
+        40: "https://yourwebsite.com/pdf/ward-40.pdf",
+
+        41: "https://yourwebsite.com/pdf/ward-41.pdf",
+        42: "https://yourwebsite.com/pdf/ward-42.pdf",
+        43: "https://yourwebsite.com/pdf/ward-43.pdf",
+        44: "https://yourwebsite.com/pdf/ward-44.pdf",
+        45: "https://yourwebsite.com/pdf/ward-45.pdf",
+        46: "https://yourwebsite.com/pdf/ward-46.pdf",
+        47: "https://yourwebsite.com/pdf/ward-47.pdf",
+        48: "https://yourwebsite.com/pdf/ward-48.pdf",
+        49: "https://yourwebsite.com/pdf/ward-49.pdf",
+        50: "https://yourwebsite.com/pdf/ward-50.pdf",
+
+        51: "https://yourwebsite.com/pdf/ward-51.pdf",
+        52: "https://yourwebsite.com/pdf/ward-52.pdf",
+        53: "https://yourwebsite.com/pdf/ward-53.pdf",
+        54: "https://yourwebsite.com/pdf/ward-54.pdf",
+        55: "https://yourwebsite.com/pdf/ward-55.pdf"
+
+    },
+
+
+    /* =================================================
+       WARD MAP EMBED CODE
+
+       यहां अपना पूरा iframe embed code डालें
+    ================================================= */
+
+    mapEmbed: `
+        <iframe
+            src="https://www.google.com/maps/embed?pb=YOUR_MAP_CODE"
+            loading="lazy"
+            allowfullscreen>
+        </iframe>
+    `
+};
+
+
+/* =====================================================
+   INITIALIZE WEBSITE
+===================================================== */
+
+document.getElementById("siteTitle").textContent =
+    CONFIG.siteTitle;
+
+document.getElementById("siteSubtitle").textContent =
+    CONFIG.siteSubtitle;
+
+document.getElementById("heroBanner").src =
+    CONFIG.heroBanner;
+
+document.getElementById("heroTitle").textContent =
+    CONFIG.heroTitle;
+
+document.getElementById("heroDescription").textContent =
+    CONFIG.heroDescription;
+
+
+/* =====================================================
+   DASHBOARD BANNERS
+===================================================== */
+
+const bannerGrid =
+    document.getElementById("bannerGrid");
+
+CONFIG.banners.forEach((banner) => {
+
+    const card = document.createElement("div");
+
+    card.className = "banner-card";
+
+    card.innerHTML = `
+
+        <img
+            src="${banner.image}"
+            alt="${banner.title}"
+            loading="lazy"
+        >
+
+        <div class="banner-info">
+
+            <h3>${banner.title}</h3>
+
+            <p>${banner.description}</p>
+
+        </div>
+    `;
+
+    bannerGrid.appendChild(card);
+
+});
+
+
+/* =====================================================
+   MAP
+===================================================== */
+
+document.getElementById("mapEmbed").innerHTML =
+    CONFIG.mapEmbed;
+
+
+/* =====================================================
+   CREATE 55 WARDS
+===================================================== */
+
+const wardGrid =
+    document.getElementById("wardGrid");
+
+const wardSelect =
+    document.getElementById("wardSelect");
+
+
+for(let i = 1; i <= 55; i++){
+
+    /* Ward Button */
+
+    const button =
+        document.createElement("button");
+
+    button.className = "ward-btn";
+
+    button.textContent =
+        "Ward " + i;
+
+    button.onclick = function(){
+
+        selectWard(i);
+
+    };
+
+    wardGrid.appendChild(button);
+
+
+    /* Dropdown */
+
+    const option =
+        document.createElement("option");
+
+    option.value = i;
+
+    option.textContent =
+        "Ward " + i;
+
+    wardSelect.appendChild(option);
+}
+
+
+/* =====================================================
+   WARD SELECT
+===================================================== */
+
+function selectWard(wardNumber){
+
+    wardNumber =
+        Number(wardNumber);
+
+
+    /* Update dropdown */
+
+    wardSelect.value =
+        wardNumber;
+
+
+    /* Update buttons */
+
+    document
+        .querySelectorAll(".ward-btn")
+        .forEach((button,index)=>{
+
+            button.classList.toggle(
+                "active",
+                index + 1 === wardNumber
+            );
+
+        });
+
+
+    /* Update title */
+
+    document.getElementById(
+        "selectedWardTitle"
+    ).textContent =
+        "Ward " + wardNumber + " Voter List";
+
+
+    document.getElementById(
+        "selectedWardText"
+    ).textContent =
+        "Ward " + wardNumber +
+        " की मतदाता सूची PDF";
+
+
+    /* PDF */
+
+    const pdfButton =
+        document.getElementById("pdfButton");
+
+    const pdfLink =
+        CONFIG.voterLists[wardNumber];
+
+
+    pdfButton.href =
+        pdfLink;
+
+
+    /* अगर link मौजूद नहीं है */
+
+    if(!pdfLink){
+
+        pdfButton.textContent =
+            "PDF उपलब्ध नहीं";
+
+        pdfButton.style.pointerEvents =
+            "none";
+
+        pdfButton.style.opacity =
+            ".5";
+
+    }else{
+
+        pdfButton.textContent =
+            "📥 Open Voter List";
+
+        pdfButton.style.pointerEvents =
+            "auto";
+
+        pdfButton.style.opacity =
+            "1";
+
+    }
+
+}
+
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+function showPage(pageId,button){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page=>{
+            page.classList.remove("active");
+        });
+
+
+    document
+        .getElementById(pageId)
+        .classList.add("active");
+
+
+    document
+        .querySelectorAll(".nav-btn")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
+
+    button.classList.add("active");
+
+
+    /* Mobile menu close */
+
+    document
+        .getElementById("mainNav")
+        .classList.remove("open");
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+function toggleMenu(){
+
+    document
+        .getElementById("mainNav")
+        .classList.toggle("open");
+
+}
+
+
+/* =====================================================
+   DEFAULT WARD
+===================================================== */
+
+selectWard(1);
+
+</script>
+
+</body>
+</html>
