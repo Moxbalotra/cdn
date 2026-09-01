@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,31 +6,48 @@
 
 <title>Dugasta Global Earth | Natural Mineral Products</title>
 
-<meta name="description"
-content="Dugasta Global Earth offers premium Bentonite Powder, Kaolin Clay Powder, Multani Mitti Powder and Natural Mineral Products.">
+<meta name="description" content="Premium Natural Mineral Products Supplier and Trader">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================================
-   ROOT
-========================================= */
+/* =====================================================
+   ROOT COLORS
+===================================================== */
 
 :root{
-    --green:#596a34;
-    --dark-green:#37451f;
-    --gold:#a88945;
-    --gold-light:#c0a45f;
-    --cream:#f6f4ef;
+    --primary:#062c5f;
+    --primary-dark:#041c3e;
+    --blue:#075bb5;
+    --blue-light:#1687ef;
+    --sky:#eaf5ff;
+
+    --cream:#faf7f1;
+    --cream-dark:#f1eadf;
+
     --white:#ffffff;
-    --text:#333333;
-    --gray:#777777;
-    --border:#dddddd;
+    --text:#1d2b3a;
+    --gray:#687586;
+
+    --border:#dce5ee;
+
+    --gradient:
+    linear-gradient(
+        135deg,
+        #041c3e 0%,
+        #062c5f 35%,
+        #075bb5 70%,
+        #1687ef 100%
+    );
 }
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
@@ -44,9 +60,9 @@ html{
 }
 
 body{
-    font-family:"Montserrat",sans-serif;
+    font-family:"Manrope",sans-serif;
+    background:var(--cream);
     color:var(--text);
-    background:#fff;
     overflow-x:hidden;
 }
 
@@ -72,944 +88,1571 @@ select{
     margin:auto;
 }
 
-
-/* =========================================
+/* =====================================================
    TOP BAR
-========================================= */
+===================================================== */
 
 .top-bar{
-    background:var(--green);
-    color:#fff;
+    background:#041c3e;
+    color:#ffffff;
     font-size:11px;
 }
 
 .top-bar-wrap{
-    min-height:34px;
+    min-height:38px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
 }
 
-.top-contact{
+.top-left{
     display:flex;
     gap:25px;
-    align-items:center;
 }
 
-.top-contact span{
-    opacity:.95;
-}
-
-
-/* =========================================
+/* =====================================================
    HEADER
-========================================= */
+===================================================== */
 
 header{
-    background:#fff;
     position:sticky;
     top:0;
     z-index:1000;
-    border-bottom:1px solid #eeeeee;
+
+    background:rgba(255,255,255,.98);
+
+    border-bottom:1px solid #e7edf3;
+
+    transition:.3s;
 }
 
 .navbar{
-    min-height:72px;
+    min-height:78px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     gap:30px;
 }
 
 .logo img{
-    width:180px;
-    max-height:58px;
+    width:190px;
+    max-height:60px;
     object-fit:contain;
 }
 
 .nav-links{
     display:flex;
     align-items:center;
+
     gap:30px;
+
     list-style:none;
 }
 
 .nav-links a{
     font-size:12px;
-    font-weight:600;
+
+    font-weight:800;
+
+    color:#243447;
+
     transition:.3s;
 }
 
 .nav-links a:hover{
-    color:var(--gold);
+    color:var(--blue);
 }
 
-.enquiry-nav{
-    background:var(--gold);
-    color:#fff!important;
-    padding:11px 18px;
+.nav-enquiry{
+    background:var(--gradient);
+
+    color:white!important;
+
+    padding:12px 20px;
+
+    border-radius:4px;
+
+    box-shadow:
+    0 8px 20px
+    rgba(7,91,181,.18);
 }
 
 .menu-btn{
     display:none;
-    background:none;
+
     border:none;
+
+    background:none;
+
     font-size:28px;
+
     cursor:pointer;
+
+    color:var(--primary);
 }
 
-
-/* =========================================
-   HERO SLIDER
-========================================= */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
-    background:#0e1831;
     position:relative;
+
+    background:var(--gradient);
+
     overflow:hidden;
 }
 
-.hero-inner{
-    min-height:420px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
+.hero::before{
 
-.slider{
-    width:100%;
-    overflow:hidden;
-    position:relative;
-}
-
-.slides{
-    display:flex;
-    transition:.6s ease;
-}
-
-.slide{
-    min-width:100%;
-    padding:35px 0;
-}
-
-.slider-products{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:35px;
-    align-items:center;
-}
-
-.hero-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:5px;
-    border:2px solid rgba(255,255,255,.25);
-    background:#fff;
-    height:270px;
-}
-
-.hero-card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.5s;
-}
-
-.hero-card:hover img{
-    transform:scale(1.07);
-}
-
-.hero-card::after{
     content:"";
+
     position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    height:40%;
-    background:linear-gradient(transparent,rgba(0,0,0,.85));
-}
 
-.hero-card span{
-    position:absolute;
-    bottom:18px;
-    left:0;
-    width:100%;
-    text-align:center;
-    color:#fff;
-    z-index:2;
-    font-size:13px;
-    font-weight:600;
-}
+    width:500px;
+    height:500px;
 
-.slider-dots{
-    display:flex;
-    justify-content:center;
-    gap:7px;
-    padding-bottom:25px;
-}
-
-.dot{
-    width:8px;
-    height:8px;
     border-radius:50%;
-    background:#bbb;
-    cursor:pointer;
+
+    background:
+    rgba(255,255,255,.05);
+
+    top:-250px;
+    right:-120px;
 }
 
-.dot.active{
-    background:var(--gold);
-    transform:scale(1.2);
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.04);
+
+    bottom:-180px;
+    left:-100px;
 }
 
+.hero-wrap{
+    position:relative;
 
-/* =========================================
-   COMMON SECTION
-========================================= */
+    z-index:2;
 
-section{
-    padding:70px 0;
+    padding:65px 0 55px;
 }
 
-.section-heading{
+.hero-title{
     text-align:center;
-    margin-bottom:40px;
+
+    color:white;
+
+    margin-bottom:35px;
 }
 
-.section-heading h2{
-    font-family:"Playfair Display",serif;
-    color:var(--green);
-    font-size:30px;
+.hero-title h1{
+
+    font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+    font-size:38px;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+
     margin-bottom:12px;
 }
 
-.section-heading p{
-    max-width:750px;
+.hero-title p{
+
+    max-width:700px;
+
     margin:auto;
-    color:#666;
-    font-size:12px;
+
+    font-size:13px;
+
+    opacity:.85;
+
     line-height:1.8;
 }
 
+/* =====================================================
+   HERO PRODUCTS
+===================================================== */
 
-/* =========================================
+.hero-products{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+}
+
+.hero-product{
+
+    height:300px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:10px;
+
+    background:white;
+
+    border:
+    1px solid
+    rgba(255,255,255,.3);
+
+    box-shadow:
+    0 20px 40px
+    rgba(0,0,0,.2);
+}
+
+.hero-product img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.hero-product:hover img{
+
+    transform:
+    scale(1.08);
+}
+
+.hero-product::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:45%;
+
+    background:
+
+    linear-gradient(
+        transparent,
+        rgba(0,0,0,.8)
+    );
+}
+
+.hero-product span{
+
+    position:absolute;
+
+    bottom:20px;
+
+    left:0;
+
+    width:100%;
+
+    text-align:center;
+
+    color:white;
+
+    font-weight:800;
+
+    font-size:14px;
+
+    z-index:2;
+}
+
+/* =====================================================
+   COMMON SECTION
+===================================================== */
+
+section{
+
+    padding:85px 0;
+}
+
+.section-heading{
+
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.section-heading span{
+
+    display:inline-block;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    color:var(--blue);
+
+    margin-bottom:10px;
+}
+
+.section-heading h2{
+
+    font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+    font-size:32px;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+}
+
+.section-heading p{
+
+    max-width:750px;
+
+    margin:auto;
+
+    font-size:12px;
+
+    line-height:1.9;
+
+    color:var(--gray);
+}
+
+/* =====================================================
    PRODUCTS
-========================================= */
+===================================================== */
 
 .products-section{
-    background:#f7f7f7;
+
+    background:
+
+    linear-gradient(
+        180deg,
+        #ffffff,
+        var(--cream)
+    );
 }
 
 .products-grid{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:55px 45px;
 }
 
-.product-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-    align-items:center;
+.product-card{
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:
+
+    0 15px 40px
+    rgba(10,45,90,.08);
+
+    border:
+    1px solid
+    var(--border);
+
+    transition:.3s;
 }
 
-.product-row:nth-child(even){
-    direction:rtl;
-}
+.product-card:hover{
 
-.product-row:nth-child(even) .product-info{
-    direction:ltr;
+    transform:
+    translateY(-6px);
+
+    box-shadow:
+
+    0 25px 50px
+    rgba(10,45,90,.13);
 }
 
 .product-image{
+
+    height:310px;
+
+    position:relative;
+
     overflow:hidden;
-    background:#eee;
+
+    background:#edf4fa;
+}
+
+/* =====================================================
+   IMAGE IDENTIFICATION LABEL
+   IMAGE NAME YAHAN CLEAR DIKHAYEGA
+===================================================== */
+
+.image-name-label{
+
+    position:absolute;
+
+    top:12px;
+
+    left:12px;
+
+    z-index:3;
+
+    background:
+    rgba(4,28,62,.88);
+
+    color:white;
+
+    padding:
+    7px 12px;
+
+    border-radius:4px;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:.7px;
 }
 
 .product-image img{
+
     width:100%;
-    height:300px;
+
+    height:100%;
+
     object-fit:cover;
+
+    transition:.5s;
 }
 
-.product-info h3{
-    color:var(--gold);
-    font-family:"Playfair Display",serif;
-    font-size:22px;
+.product-card:hover img{
+
+    transform:
+    scale(1.05);
+}
+
+.product-content{
+
+    padding:28px;
+}
+
+.product-content h3{
+
+    font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+    color:var(--primary);
+
+    font-size:21px;
+
+    font-weight:800;
+
     margin-bottom:20px;
 }
 
-.product-info ul{
+.product-details{
+
     list-style:none;
+
+    margin-bottom:22px;
 }
 
-.product-info li{
-    font-size:11px;
-    padding:6px 0;
-    border-bottom:1px solid #eee;
+.product-details li{
+
+    font-size:10px;
+
+    padding:7px 0;
+
+    border-bottom:
+    1px solid #edf1f5;
+
+    color:#617082;
 }
 
-.product-info li strong{
-    font-weight:700;
+.product-details strong{
+
+    color:#25364a;
 }
 
 .product-buttons{
+
     display:flex;
-    gap:8px;
-    margin-top:20px;
+
+    gap:10px;
 }
 
 .btn{
+
     border:none;
+
     cursor:pointer;
-    padding:11px 20px;
-    font-size:11px;
-    font-weight:600;
-    transition:.3s;
+
     display:inline-flex;
+
     justify-content:center;
+
     align-items:center;
+
+    padding:12px 20px;
+
+    border-radius:4px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    transition:.3s;
 }
 
-.btn-gold{
-    background:var(--gold);
-    color:#fff;
+.btn-primary{
+
+    background:var(--gradient);
+
+    color:white;
+
+    box-shadow:
+
+    0 8px 18px
+    rgba(7,91,181,.15);
 }
 
-.btn-gold:hover{
-    background:#8d7137;
-}
+.btn-primary:hover{
 
-.btn-green{
-    background:var(--green);
-    color:#fff;
-}
-
-.btn-green:hover{
-    background:var(--dark-green);
+    transform:
+    translateY(-2px);
 }
 
 .btn-outline{
-    background:#fff;
-    border:1px solid var(--green);
-    color:var(--green);
+
+    border:
+    1px solid
+    #cbd8e5;
+
+    background:white;
+
+    color:var(--primary);
 }
 
-
-/* =========================================
+/* =====================================================
    ABOUT
-========================================= */
+===================================================== */
 
 .about{
-    background:#fff;
+
+    background:var(--cream);
 }
 
 .about-grid{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:60px;
+
     align-items:center;
 }
 
 .about-content h2{
-    font-family:"Playfair Display",serif;
-    color:var(--green);
-    margin-bottom:20px;
-    font-size:30px;
+
+    font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+    color:var(--primary);
+
+    font-size:34px;
+
+    font-weight:800;
+
+    margin-bottom:25px;
 }
 
 .about-content p{
-    color:#555;
+
     font-size:12px;
+
+    color:#59697a;
+
     line-height:2;
+
     margin-bottom:15px;
 }
 
+.about-points{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:12px;
+
+    margin:
+    25px 0;
+}
+
+.about-point{
+
+    background:white;
+
+    border-left:
+    4px solid
+    var(--blue);
+
+    padding:14px;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    color:var(--primary);
+}
+
 .about-image{
+
     position:relative;
 }
 
 .about-image img{
+
     width:100%;
-    height:420px;
+
+    height:440px;
+
     object-fit:cover;
+
+    border-radius:10px;
 }
 
 .about-image::after{
+
     content:"";
+
     position:absolute;
-    right:-12px;
-    bottom:-12px;
-    width:45%;
-    height:45%;
-    border-right:8px solid var(--gold);
-    border-bottom:8px solid var(--gold);
-    pointer-events:none;
+
+    width:140px;
+
+    height:140px;
+
+    right:-18px;
+
+    bottom:-18px;
+
+    border-right:
+    7px solid
+    var(--blue);
+
+    border-bottom:
+    7px solid
+    var(--blue);
 }
 
-
-/* =========================================
+/* =====================================================
    GLIMPSE
-========================================= */
+===================================================== */
 
 .glimpse{
-    background:#f3f3f3;
+
+    background:white;
 }
 
 .info-grid{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:18px;
 }
 
 .info-card{
-    background:#fff;
-    padding:25px 12px;
+
+    min-height:165px;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #f4f8fc
+    );
+
+    border:
+    1px solid
+    #e2eaf2;
+
+    border-radius:8px;
+
+    padding:25px 15px;
+
     text-align:center;
-    border:1px solid #e5e5e5;
-    min-height:145px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+
+    transition:.3s;
+}
+
+.info-card:hover{
+
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+
+    0 15px 30px
+    rgba(0,40,90,.08);
 }
 
 .info-icon{
-    width:46px;
-    height:46px;
+
+    width:48px;
+
+    height:48px;
+
+    margin:
+    0 auto 15px;
+
     border-radius:50%;
-    border:1px solid #ddd;
+
     display:flex;
-    align-items:center;
+
     justify-content:center;
+
+    align-items:center;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #eaf5ff,
+        white
+    );
+
+    border:
+    1px solid
+    #d7e5f2;
+
+    color:var(--blue);
+
     font-size:20px;
-    margin-bottom:13px;
 }
 
 .info-card h4{
+
     font-size:11px;
-    margin-bottom:7px;
-    font-weight:600;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+    margin-bottom:8px;
 }
 
 .info-card p{
-    font-size:10px;
-    color:#777;
+
+    font-size:9px;
+
+    color:var(--gray);
 }
 
-
-/* =========================================
+/* =====================================================
    TESTIMONIAL
-========================================= */
+===================================================== */
 
-.testimonial-section{
-    background:#777;
-    padding:70px 0;
+.testimonials{
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #041c3e,
+        #075bb5
+    );
+
+    position:relative;
+
+    overflow:hidden;
 }
 
-.testimonial-box{
-    max-width:600px;
+.testimonials .section-heading h2{
+
+    color:white;
+}
+
+.testimonials .section-heading span{
+
+    color:#b9dcff;
+}
+
+.testimonials .section-heading p{
+
+    color:
+    rgba(255,255,255,.75);
+}
+
+.testimonial-slider{
+
+    overflow:hidden;
+
+    max-width:1100px;
+
     margin:auto;
-    background:#fff;
-    border:8px solid rgba(255,255,255,.35);
-    padding:45px;
-    text-align:center;
 }
 
-.testimonial-icon{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    border:1px solid #ccc;
+.testimonial-track{
+
     display:flex;
-    justify-content:center;
+
+    transition:
+    transform .6s ease;
+}
+
+.testimonial-slide{
+
+    min-width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:25px;
+}
+
+.testimonial-card{
+
+    background:white;
+
+    padding:32px;
+
+    border-radius:10px;
+
+    box-shadow:
+
+    0 15px 35px
+    rgba(0,0,0,.15);
+}
+
+.stars{
+
+    color:#f5b301;
+
+    letter-spacing:3px;
+
+    font-size:19px;
+
+    margin-bottom:18px;
+}
+
+.review-text{
+
+    font-size:12px;
+
+    line-height:1.9;
+
+    color:#5d6977;
+
+    margin-bottom:25px;
+}
+
+.reviewer{
+
+    display:flex;
+
     align-items:center;
-    margin:0 auto 20px;
-    font-size:25px;
-    color:#777;
+
+    gap:13px;
+
+    border-top:
+    1px solid
+    #eef1f5;
+
+    padding-top:18px;
 }
 
-.testimonial-box p{
-    font-size:13px;
-    font-style:italic;
-    color:#555;
-    line-height:1.8;
-    margin-bottom:20px;
+.avatar{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    background:var(--gradient);
+
+    font-size:12px;
+
+    font-weight:800;
 }
 
-.testimonial-btn{
-    background:var(--gold);
-    color:#fff;
-    border:none;
-    padding:11px 22px;
-    border-radius:25px;
+.reviewer h4{
+
+    font-size:12px;
+
+    color:var(--primary);
+
+    margin-bottom:4px;
+}
+
+.reviewer span{
+
+    font-size:9px;
+
+    color:#7b8794;
+}
+
+.testimonial-dots{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-top:30px;
+}
+
+.testimonial-dot{
+
+    width:9px;
+
+    height:9px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.35);
+
     cursor:pointer;
-    font-size:11px;
 }
 
+.testimonial-dot.active{
 
-/* =========================================
+    background:white;
+
+    transform:
+    scale(1.25);
+}
+
+/* =====================================================
    QUICK ENQUIRY
-========================================= */
+===================================================== */
 
 .quick-enquiry{
-    position:relative;
+
     background:
-    linear-gradient(rgba(255,255,255,.78),rgba(255,255,255,.82)),
-    url("https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=1800&q=80");
+
+    linear-gradient(
+        rgba(250,247,241,.92),
+        rgba(250,247,241,.95)
+    ),
+
+    url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80");
+
     background-size:cover;
+
     background-position:center;
 }
 
 .enquiry-box{
-    max-width:750px;
+
+    max-width:850px;
+
     margin:auto;
+
+    background:
+    rgba(255,255,255,.85);
+
+    backdrop-filter:
+    blur(10px);
+
+    padding:45px;
+
+    border-radius:12px;
+
+    box-shadow:
+
+    0 20px 50px
+    rgba(0,40,90,.08);
 }
 
 .enquiry-box h2{
+
+    font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
     text-align:center;
-    color:var(--green);
-    font-family:"Playfair Display",serif;
-    margin-bottom:25px;
+
+    color:var(--primary);
+
     font-size:30px;
+
+    margin-bottom:30px;
 }
 
 .enquiry-form{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:16px;
 }
 
-.form-group{
-    width:100%;
-}
+.form-full{
 
-.form-group.full{
-    grid-column:span 2;
+    grid-column:
+    span 2;
 }
 
 input,
-textarea,
-select{
+textarea{
+
     width:100%;
-    border:1px solid #ddd;
-    padding:13px 16px;
-    background:rgba(255,255,255,.9);
-    border-radius:3px;
+
+    border:
+    1px solid
+    #d8e2ec;
+
+    background:white;
+
+    border-radius:5px;
+
+    padding:
+    14px 16px;
+
     outline:none;
+
     font-size:11px;
 }
 
+input:focus,
+textarea:focus{
+
+    border-color:
+    var(--blue);
+
+    box-shadow:
+
+    0 0 0 3px
+    rgba(22,135,239,.1);
+}
+
 textarea{
-    height:110px;
+
+    height:120px;
+
     resize:none;
 }
 
-.form-submit{
-    grid-column:span 2;
+.submit-center{
+
+    grid-column:
+    span 2;
+
     text-align:center;
 }
 
-.form-submit button{
-    padding:13px 45px;
-}
-
-
-/* =========================================
+/* =====================================================
    FOOTER
-========================================= */
+===================================================== */
 
 footer{
-    background:var(--gold);
-    color:#fff;
+
+    background:
+    #041c3e;
+
+    color:white;
 }
 
 .footer-main{
-    padding:55px 0;
+
+    padding:
+    65px 0 45px;
+
     display:grid;
-    grid-template-columns:1.3fr 1fr 1fr;
+
+    grid-template-columns:
+    1.4fr 1fr 1fr;
+
     gap:50px;
 }
 
 .footer-col h3{
-    font-size:14px;
-    margin-bottom:22px;
+
+    font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+    font-size:15px;
+
+    margin-bottom:25px;
+}
+
+.footer-col p,
+.footer-col li{
+
+    font-size:10px;
+
+    line-height:2;
+
+    color:
+    rgba(255,255,255,.7);
+
+    margin-bottom:8px;
 }
 
 .footer-col ul{
+
     list-style:none;
 }
 
 .footer-col li{
-    font-size:11px;
-    margin-bottom:12px;
-    color:#f5f2e9;
+
+    cursor:pointer;
+
+    transition:.3s;
 }
 
-.footer-col p{
-    font-size:11px;
-    line-height:1.9;
-    margin-bottom:10px;
+.footer-col li:hover{
+
+    color:white;
+
+    padding-left:5px;
 }
 
 .footer-bottom{
-    border-top:1px solid rgba(255,255,255,.35);
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.1);
+
     text-align:center;
-    padding:18px;
-    font-size:10px;
+
+    padding:20px;
+
+    font-size:9px;
+
+    color:
+    rgba(255,255,255,.6);
 }
 
-
-/* =========================================
-   FLOATING WHATSAPP
-========================================= */
+/* =====================================================
+   WHATSAPP
+===================================================== */
 
 .whatsapp{
+
     position:fixed;
+
     right:25px;
+
     bottom:25px;
-    background:#1f7a3d;
-    color:#fff;
-    padding:14px 19px;
+
+    z-index:100;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f9d58,
+        #25d366
+    );
+
+    color:white;
+
+    padding:
+    14px 20px;
+
     border-radius:30px;
-    font-size:12px;
-    font-weight:600;
-    z-index:999;
-    box-shadow:0 5px 20px rgba(0,0,0,.2);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    box-shadow:
+
+    0 10px 25px
+    rgba(0,0,0,.2);
 }
 
-
-/* =========================================
-   PRODUCT MODAL
-========================================= */
-
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.6);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    z-index:2000;
-}
-
-.modal.active{
-    display:flex;
-}
-
-.modal-box{
-    width:min(500px,100%);
-    background:#fff;
-    padding:30px;
-    position:relative;
-}
-
-.close-modal{
-    position:absolute;
-    right:15px;
-    top:10px;
-    border:none;
-    background:none;
-    font-size:25px;
-    cursor:pointer;
-}
-
-.modal-box h3{
-    color:var(--green);
-    margin-bottom:20px;
-}
-
-.modal-form{
-    display:grid;
-    gap:12px;
-}
-
-
-/* =========================================
+/* =====================================================
    RESPONSIVE TABLET
-========================================= */
+===================================================== */
 
 @media(max-width:900px){
 
     .top-bar{
+
         display:none;
     }
 
-    .navbar{
-        min-height:65px;
-    }
-
     .menu-btn{
+
         display:block;
     }
 
     .nav-links{
+
         position:absolute;
-        top:65px;
+
         left:0;
+
+        top:78px;
+
         width:100%;
-        background:#fff;
+
+        background:white;
+
         flex-direction:column;
+
         align-items:flex-start;
+
         padding:25px;
-        gap:22px;
+
         display:none;
-        box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+        box-shadow:
+
+        0 15px 30px
+        rgba(0,0,0,.1);
     }
 
     .nav-links.active{
+
         display:flex;
     }
 
-    .slider-products{
+    .hero-products{
+
         gap:15px;
     }
 
-    .hero-card{
+    .hero-product{
+
         height:220px;
     }
 
     .products-grid{
-        gap:35px;
-    }
 
-    .product-row{
-        grid-template-columns:1fr;
-    }
-
-    .product-row:nth-child(even){
-        direction:ltr;
-    }
-
-    .product-image img{
-        height:330px;
+        grid-template-columns:
+        1fr;
     }
 
     .info-grid{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
 }
 
-
-/* =========================================
+/* =====================================================
    MOBILE
-========================================= */
+===================================================== */
 
 @media(max-width:600px){
 
     .container{
+
         width:94%;
     }
 
     section{
-        padding:45px 0;
+
+        padding:55px 0;
+    }
+
+    .navbar{
+
+        min-height:65px;
     }
 
     .logo img{
-        width:145px;
+
+        width:155px;
     }
 
-    .hero-inner{
-        min-height:auto;
+    .nav-links{
+
+        top:65px;
     }
 
-    .slide{
-        padding:20px 0;
+    .hero-wrap{
+
+        padding:
+        45px 0;
     }
 
-    .slider-products{
-        grid-template-columns:repeat(3,1fr);
+    .hero-title h1{
+
+        font-size:25px;
+    }
+
+    .hero-title p{
+
+        font-size:10px;
+    }
+
+    .hero-products{
+
+        grid-template-columns:
+        repeat(3,1fr);
+
         gap:8px;
     }
 
-    .hero-card{
-        height:145px;
+    .hero-product{
+
+        height:150px;
+
+        border-radius:6px;
     }
 
-    .hero-card span{
+    .hero-product span{
+
         font-size:8px;
-        bottom:8px;
+
+        bottom:9px;
+
+        padding:
+        0 4px;
     }
 
     .section-heading{
-        margin-bottom:25px;
+
+        margin-bottom:30px;
     }
 
     .section-heading h2{
-        font-size:21px;
+
+        font-size:24px;
     }
 
     .section-heading p{
+
         font-size:10px;
     }
 
-    .products-grid{
-        grid-template-columns:1fr;
-        gap:25px;
+    .product-image{
+
+        height:250px;
     }
 
-    .product-row{
-        grid-template-columns:120px 1fr;
-        gap:12px;
+    .product-content{
+
+        padding:20px;
     }
 
-    .product-row:nth-child(even){
-        direction:ltr;
+    .product-content h3{
+
+        font-size:18px;
     }
 
-    .product-image img{
-        height:145px;
-    }
+    .product-details li{
 
-    .product-info h3{
-        font-size:16px;
-        margin-bottom:8px;
-    }
-
-    .product-info li{
-        font-size:8px;
-        padding:3px 0;
-    }
-
-    .product-buttons{
-        margin-top:10px;
-        gap:5px;
+        font-size:9px;
     }
 
     .btn{
-        padding:8px 10px;
-        font-size:8px;
+
+        padding:
+        10px 13px;
+
+        font-size:9px;
     }
 
     .about-grid{
-        grid-template-columns:1fr;
-        gap:25px;
+
+        grid-template-columns:
+        1fr;
+
+        gap:30px;
     }
 
     .about-content h2{
-        font-size:23px;
+
+        font-size:25px;
     }
 
     .about-content p{
+
         font-size:10px;
-        line-height:1.8;
     }
 
     .about-image img{
-        height:270px;
+
+        height:280px;
+    }
+
+    .about-points{
+
+        grid-template-columns:
+        1fr;
     }
 
     .info-grid{
-        grid-template-columns:1fr 1fr;
-        gap:8px;
+
+        grid-template-columns:
+        1fr 1fr;
+
+        gap:10px;
     }
 
     .info-card{
-        min-height:120px;
+
+        min-height:135px;
+
         padding:15px 8px;
     }
 
     .info-card h4{
+
         font-size:9px;
     }
 
     .info-card p{
+
         font-size:8px;
     }
 
-    .testimonial-box{
-        padding:30px 20px;
+    .testimonial-slide{
+
+        grid-template-columns:
+        1fr;
     }
 
-    .testimonial-box p{
+    .testimonial-card{
+
+        padding:25px;
+    }
+
+    .review-text{
+
         font-size:11px;
     }
 
-    .enquiry-form{
-        grid-template-columns:1fr;
+    .enquiry-box{
+
+        padding:25px 18px;
     }
 
-    .form-group.full,
-    .form-submit{
-        grid-column:span 1;
+    .enquiry-form{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .form-full,
+    .submit-center{
+
+        grid-column:
+        span 1;
     }
 
     .footer-main{
-        grid-template-columns:1fr;
-        gap:30px;
-        padding:40px 0;
+
+        grid-template-columns:
+        1fr;
+
+        gap:35px;
+
+        padding:
+        45px 0;
     }
 
     .whatsapp{
+
         right:15px;
+
         bottom:15px;
-        padding:11px 15px;
-        font-size:10px;
-    }
 
-}
+        padding:
+        11px 15px;
 
-
-/* EXTRA SMALL MOBILE */
-
-@media(max-width:390px){
-
-    .product-row{
-        grid-template-columns:105px 1fr;
-    }
-
-    .product-image img{
-        height:130px;
-    }
-
-    .product-info h3{
-        font-size:14px;
+        font-size:9px;
     }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-
-<!-- =========================================
-TOP BAR
-========================================= -->
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
 
 <div class="top-bar">
 
     <div class="container top-bar-wrap">
 
-        <div class="top-contact">
+        <div class="top-left">
+
             <span>✉ info@dugastaglobal.com</span>
+
             <span>GST NO : 08GNTPD914N1ZB</span>
+
         </div>
 
-        <div>
-            Send Email
-        </div>
+        <span>Send Enquiry</span>
 
     </div>
 
 </div>
 
 
-<!-- =========================================
-HEADER
-========================================= -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
     <div class="container navbar">
 
+        <!-- COMPANY LOGO -->
+
         <a href="#home" class="logo">
 
             <img
             src="https://dugastaglobal.com/wp-content/uploads/2026/08/dugstalogopng.png"
-            alt="Dugasta Global Earth">
+            alt="Dugasta Global Earth Logo">
 
         </a>
 
@@ -1027,9 +1670,15 @@ HEADER
             <li><a href="#contact">Contact Us</a></li>
 
             <li>
-                <a href="#contact" class="enquiry-nav">
-                    Enquiry
+
+                <a
+                href="#contact"
+                class="nav-enquiry">
+
+                    Send Enquiry
+
                 </a>
+
             </li>
 
         </ul>
@@ -1048,158 +1697,76 @@ HEADER
 </header>
 
 
-<!-- =========================================
-HERO SLIDER
-========================================= -->
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
 
-<section class="hero" id="home">
+<section
+class="hero"
+id="home">
 
-    <div class="container hero-inner">
+    <div class="container hero-wrap">
 
-        <div class="slider">
+        <div class="hero-title">
 
-            <div class="slides" id="slides">
+            <h1>Premium Natural Mineral Products</h1>
 
+            <p>
+                Trusted supplier of premium quality Bentonite,
+                Kaolin Clay and Multani Mitti products for
+                cosmetic, industrial and commercial applications.
+            </p>
 
-                <!-- SLIDE 1 -->
+        </div>
 
-                <div class="slide">
 
-                    <div class="slider-products">
+        <div class="hero-products">
 
-                        <div class="hero-card">
 
-                            <img
-                            src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=800&q=80"
-                            alt="Bentonite Powder">
+            <!-- HERO PRODUCT IMAGE:
+                 BENTONITE POWDER
+                 REPLACE IMAGE SRC BELOW
+            -->
 
-                            <span>Bentonite Powder</span>
+            <div class="hero-product">
 
-                        </div>
+                <img
+                src="YOUR-BENTONITE-HERO-IMAGE.jpg"
+                alt="Bentonite Powder">
 
-
-                        <div class="hero-card">
-
-                            <img
-                            src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&w=800&q=80"
-                            alt="Pink Multani Mitti">
-
-                            <span>Pink Multani Mitti Powder</span>
-
-                        </div>
-
-
-                        <div class="hero-card">
-
-                            <img
-                            src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?auto=format&fit=crop&w=800&q=80"
-                            alt="Multani Mitti Stone">
-
-                            <span>Multani Mitti Stone</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- SLIDE 2 -->
-
-                <div class="slide">
-
-                    <div class="slider-products">
-
-                        <div class="hero-card">
-
-                            <img
-                            src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?auto=format&fit=crop&w=800&q=80"
-                            alt="Natural Mineral">
-
-                            <span>Natural Mineral</span>
-
-                        </div>
-
-
-                        <div class="hero-card">
-
-                            <img
-                            src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=800&q=80"
-                            alt="Kaolin Clay">
-
-                            <span>Kaolin Clay Powder</span>
-
-                        </div>
-
-
-                        <div class="hero-card">
-
-                            <img
-                            src="https://images.unsplash.com/photo-1584473457493-17c4dfdfe1d1?auto=format&fit=crop&w=800&q=80"
-                            alt="Natural Products">
-
-                            <span>Premium Minerals</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- SLIDE 3 -->
-
-                <div class="slide">
-
-                    <div class="slider-products">
-
-                        <div class="hero-card">
-
-                            <img
-                            src="https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=800&q=80"
-                            alt="Industrial Mineral">
-
-                            <span>Industrial Minerals</span>
-
-                        </div>
-
-
-                        <div class="hero-card">
-
-                            <img
-                            src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&w=800&q=80"
-                            alt="Multani Mitti">
-
-                            <span>Natural Clay</span>
-
-                        </div>
-
-
-                        <div class="hero-card">
-
-                            <img
-                            src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=800&q=80"
-                            alt="Kaolin">
-
-                            <span>Kaolin Products</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+                <span>Bentonite Powder</span>
 
             </div>
 
 
-            <div class="slider-dots">
+            <!-- HERO PRODUCT IMAGE:
+                 PINK MULTANI MITTI POWDER
+                 REPLACE IMAGE SRC BELOW
+            -->
 
-                <span class="dot active" onclick="goSlide(0)"></span>
+            <div class="hero-product">
 
-                <span class="dot" onclick="goSlide(1)"></span>
+                <img
+                src="YOUR-PINK-MULTANI-HERO-IMAGE.jpg"
+                alt="Pink Multani Mitti Powder">
 
-                <span class="dot" onclick="goSlide(2)"></span>
+                <span>Pink Multani Mitti</span>
+
+            </div>
+
+
+            <!-- HERO PRODUCT IMAGE:
+                 MULTANI MITTI STONE
+                 REPLACE IMAGE SRC BELOW
+            -->
+
+            <div class="hero-product">
+
+                <img
+                src="YOUR-MULTANI-STONE-HERO-IMAGE.jpg"
+                alt="Multani Mitti Stone">
+
+                <span>Multani Mitti Stone</span>
 
             </div>
 
@@ -1210,21 +1777,25 @@ HERO SLIDER
 </section>
 
 
-<!-- =========================================
-PRODUCTS
-========================================= -->
+<!-- =====================================================
+     PRODUCTS
+===================================================== -->
 
-<section class="products-section" id="products">
+<section
+class="products-section"
+id="products">
 
     <div class="container">
 
         <div class="section-heading">
 
+            <span>OUR PRODUCTS</span>
+
             <h2>Natural Mineral Products</h2>
 
             <p>
-                Offering premium bentonite, kaolin and Multani Mitti
-                products for cosmetics, personal care, ceramics,
+                Explore our premium range of high-quality natural
+                mineral products for cosmetic, skincare,
                 construction and industrial applications.
             </p>
 
@@ -1234,24 +1805,34 @@ PRODUCTS
         <div class="products-grid">
 
 
-            <!-- PRODUCT 1 -->
+            <!-- =================================================
+                 PRODUCT 1
+                 PRODUCT NAME: BENTONITE POWDER
 
-            <div class="product-row">
+                 IMAGE TO ADD:
+                 YOUR-BENTONITE-POWDER-IMAGE.jpg
+            ================================================= -->
+
+            <div class="product-card">
 
                 <div class="product-image">
 
+                    <div class="image-name-label">
+                        PRODUCT IMAGE: BENTONITE POWDER
+                    </div>
+
                     <img
-                    src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=80"
+                    src="YOUR-BENTONITE-POWDER-IMAGE.jpg"
                     alt="Bentonite Powder">
 
                 </div>
 
 
-                <div class="product-info">
+                <div class="product-content">
 
                     <h3>Bentonite Powder</h3>
 
-                    <ul>
+                    <ul class="product-details">
 
                         <li><strong>Color:</strong> Off White</li>
 
@@ -1266,18 +1847,17 @@ PRODUCTS
                     <div class="product-buttons">
 
                         <button
-                        class="btn btn-gold"
+                        class="btn btn-primary"
                         onclick="openEnquiry('Bentonite Powder')">
 
-                            ☎ Enquiry Now
+                            Send Enquiry
 
                         </button>
 
                         <button
-                        class="btn btn-green"
-                        onclick="openEnquiry('Bentonite Powder')">
+                        class="btn btn-outline">
 
-                            ▣ Read More
+                            View Details
 
                         </button>
 
@@ -1288,26 +1868,36 @@ PRODUCTS
             </div>
 
 
-            <!-- PRODUCT 2 -->
+            <!-- =================================================
+                 PRODUCT 2
+                 PRODUCT NAME: KAOLIN CLAY POWDER
 
-            <div class="product-row">
+                 IMAGE TO ADD:
+                 YOUR-KAOLIN-CLAY-IMAGE.jpg
+            ================================================= -->
+
+            <div class="product-card">
 
                 <div class="product-image">
 
+                    <div class="image-name-label">
+                        PRODUCT IMAGE: KAOLIN CLAY POWDER
+                    </div>
+
                     <img
-                    src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=900&q=80"
+                    src="YOUR-KAOLIN-CLAY-IMAGE.jpg"
                     alt="Kaolin Clay Powder">
 
                 </div>
 
 
-                <div class="product-info">
+                <div class="product-content">
 
                     <h3>Kaolin Clay Powder</h3>
 
-                    <ul>
+                    <ul class="product-details">
 
-                        <li><strong>Application:</strong> Ceramics, Paints, Paper, Rubber, Plastics, Cosmetics</li>
+                        <li><strong>Application:</strong> Ceramics, Paints, Paper, Rubber</li>
 
                         <li><strong>Packaging Size:</strong> 25 Kg</li>
 
@@ -1315,25 +1905,22 @@ PRODUCTS
 
                         <li><strong>Raw Material:</strong> Natural Kaolin Clay</li>
 
-                        <li><strong>Form:</strong> Fine Free-Flowing Powder</li>
-
                     </ul>
 
                     <div class="product-buttons">
 
                         <button
-                        class="btn btn-gold"
+                        class="btn btn-primary"
                         onclick="openEnquiry('Kaolin Clay Powder')">
 
-                            ☎ Enquiry Now
+                            Send Enquiry
 
                         </button>
 
                         <button
-                        class="btn btn-green"
-                        onclick="openEnquiry('Kaolin Clay Powder')">
+                        class="btn btn-outline">
 
-                            ▣ Read More
+                            View Details
 
                         </button>
 
@@ -1344,26 +1931,36 @@ PRODUCTS
             </div>
 
 
-            <!-- PRODUCT 3 -->
+            <!-- =================================================
+                 PRODUCT 3
+                 PRODUCT NAME: MULTANI MITTI POWDER
 
-            <div class="product-row">
+                 IMAGE TO ADD:
+                 YOUR-MULTANI-MITTI-POWDER-IMAGE.jpg
+            ================================================= -->
+
+            <div class="product-card">
 
                 <div class="product-image">
 
+                    <div class="image-name-label">
+                        PRODUCT IMAGE: MULTANI MITTI POWDER
+                    </div>
+
                     <img
-                    src="https://images.unsplash.com/photo-1584473457493-17c4dfdfe1d1?auto=format&fit=crop&w=900&q=80"
+                    src="YOUR-MULTANI-MITTI-POWDER-IMAGE.jpg"
                     alt="Multani Mitti Powder">
 
                 </div>
 
 
-                <div class="product-info">
+                <div class="product-content">
 
                     <h3>Multani Mitti Powder</h3>
 
-                    <ul>
+                    <ul class="product-details">
 
-                        <li><strong>Application:</strong> Cosmetics, Skincare, Hair Care</li>
+                        <li><strong>Application:</strong> Cosmetics, Skin & Hair Care</li>
 
                         <li><strong>Color:</strong> Light Brown</li>
 
@@ -1371,25 +1968,22 @@ PRODUCTS
 
                         <li><strong>Packaging:</strong> 25 Kg</li>
 
-                        <li><strong>Appearance:</strong> Fine Flowing Powder</li>
-
                     </ul>
 
                     <div class="product-buttons">
 
                         <button
-                        class="btn btn-gold"
+                        class="btn btn-primary"
                         onclick="openEnquiry('Multani Mitti Powder')">
 
-                            ☎ Enquiry Now
+                            Send Enquiry
 
                         </button>
 
                         <button
-                        class="btn btn-green"
-                        onclick="openEnquiry('Multani Mitti Powder')">
+                        class="btn btn-outline">
 
-                            ▣ Read More
+                            View Details
 
                         </button>
 
@@ -1400,24 +1994,34 @@ PRODUCTS
             </div>
 
 
-            <!-- PRODUCT 4 -->
+            <!-- =================================================
+                 PRODUCT 4
+                 PRODUCT NAME: MULTANI MITTI STONE
 
-            <div class="product-row">
+                 IMAGE TO ADD:
+                 YOUR-MULTANI-MITTI-STONE-IMAGE.jpg
+            ================================================= -->
+
+            <div class="product-card">
 
                 <div class="product-image">
 
+                    <div class="image-name-label">
+                        PRODUCT IMAGE: MULTANI MITTI STONE
+                    </div>
+
                     <img
-                    src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?auto=format&fit=crop&w=900&q=80"
+                    src="YOUR-MULTANI-MITTI-STONE-IMAGE.jpg"
                     alt="Multani Mitti Stone">
 
                 </div>
 
 
-                <div class="product-info">
+                <div class="product-content">
 
                     <h3>Multani Mitti Stone</h3>
 
-                    <ul>
+                    <ul class="product-details">
 
                         <li><strong>Appearance:</strong> Solid Stone</li>
 
@@ -1432,18 +2036,17 @@ PRODUCTS
                     <div class="product-buttons">
 
                         <button
-                        class="btn btn-gold"
+                        class="btn btn-primary"
                         onclick="openEnquiry('Multani Mitti Stone')">
 
-                            ☎ Enquiry Now
+                            Send Enquiry
 
                         </button>
 
                         <button
-                        class="btn btn-green"
-                        onclick="openEnquiry('Multani Mitti Stone')">
+                        class="btn btn-outline">
 
-                            ▣ Read More
+                            View Details
 
                         </button>
 
@@ -1454,32 +2057,40 @@ PRODUCTS
             </div>
 
 
-            <!-- PRODUCT 5 -->
+            <!-- =================================================
+                 PRODUCT 5
+                 PRODUCT NAME: PINK MULTANI MITTI POWDER
 
-            <div class="product-row">
+                 IMAGE TO ADD:
+                 YOUR-PINK-MULTANI-MITTI-IMAGE.jpg
+            ================================================= -->
+
+            <div class="product-card">
 
                 <div class="product-image">
 
+                    <div class="image-name-label">
+                        PRODUCT IMAGE: PINK MULTANI MITTI POWDER
+                    </div>
+
                     <img
-                    src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&w=900&q=80"
-                    alt="Pink Multani Mitti">
+                    src="YOUR-PINK-MULTANI-MITTI-IMAGE.jpg"
+                    alt="Pink Multani Mitti Powder">
 
                 </div>
 
 
-                <div class="product-info">
+                <div class="product-content">
 
                     <h3>Pink Multani Mitti Powder</h3>
 
-                    <ul>
+                    <ul class="product-details">
 
                         <li><strong>Color:</strong> Light Pink</li>
 
                         <li><strong>Purity:</strong> 95-99%</li>
 
                         <li><strong>Packaging:</strong> 25 Kg Bag</li>
-
-                        <li><strong>Appearance:</strong> Fine Flowing Powder</li>
 
                         <li><strong>Mesh Size:</strong> 100-500 Mesh</li>
 
@@ -1488,18 +2099,17 @@ PRODUCTS
                     <div class="product-buttons">
 
                         <button
-                        class="btn btn-gold"
+                        class="btn btn-primary"
                         onclick="openEnquiry('Pink Multani Mitti Powder')">
 
-                            ☎ Enquiry Now
+                            Send Enquiry
 
                         </button>
 
                         <button
-                        class="btn btn-green"
-                        onclick="openEnquiry('Pink Multani Mitti Powder')">
+                        class="btn btn-outline">
 
-                            ▣ Read More
+                            View Details
 
                         </button>
 
@@ -1510,24 +2120,34 @@ PRODUCTS
             </div>
 
 
-            <!-- PRODUCT 6 -->
+            <!-- =================================================
+                 PRODUCT 6
+                 PRODUCT NAME: NATURAL MINERALS
 
-            <div class="product-row">
+                 IMAGE TO ADD:
+                 YOUR-NATURAL-MINERALS-IMAGE.jpg
+            ================================================= -->
+
+            <div class="product-card">
 
                 <div class="product-image">
 
+                    <div class="image-name-label">
+                        PRODUCT IMAGE: NATURAL MINERALS
+                    </div>
+
                     <img
-                    src="https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=900&q=80"
-                    alt="Natural Minerals">
+                    src="YOUR-NATURAL-MINERALS-IMAGE.jpg"
+                    alt="Premium Natural Minerals">
 
                 </div>
 
 
-                <div class="product-info">
+                <div class="product-content">
 
                     <h3>Premium Natural Minerals</h3>
 
-                    <ul>
+                    <ul class="product-details">
 
                         <li><strong>Category:</strong> Industrial Minerals</li>
 
@@ -1542,18 +2162,17 @@ PRODUCTS
                     <div class="product-buttons">
 
                         <button
-                        class="btn btn-gold"
+                        class="btn btn-primary"
                         onclick="openEnquiry('Premium Natural Minerals')">
 
-                            ☎ Enquiry Now
+                            Send Enquiry
 
                         </button>
 
                         <button
-                        class="btn btn-green"
-                        onclick="openEnquiry('Premium Natural Minerals')">
+                        class="btn btn-outline">
 
-                            ▣ Read More
+                            View Details
 
                         </button>
 
@@ -1571,11 +2190,13 @@ PRODUCTS
 </section>
 
 
-<!-- =========================================
-ABOUT
-========================================= -->
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
-<section class="about" id="about">
+<section
+class="about"
+id="about">
 
     <div class="container about-grid">
 
@@ -1584,27 +2205,44 @@ ABOUT
             <h2>About Dugasta Global Earth</h2>
 
             <p>
-                Established in 2026, Dugasta Global Earth is a trusted
-                supplier and trader of premium quality natural minerals
-                and cosmetic clays.
+                Dugasta Global Earth is committed to supplying
+                premium quality natural mineral products to
+                businesses across multiple industries.
             </p>
 
             <p>
-                We are committed to providing high-quality mineral products
-                for the cosmetics, personal care, construction and industrial
-                sectors.
+                Our product range is carefully selected for
+                quality, purity and consistency to meet the
+                requirements of our customers.
             </p>
 
-            <p>
-                Our product portfolio includes Bentonite Powder,
-                Kaolin Clay Powder, Multani Mitti Powder and other
-                natural mineral products.
-            </p>
 
-            <br>
+            <div class="about-points">
 
-            <a href="#contact" class="btn btn-gold">
-                Read More
+                <div class="about-point">
+                    ✓ Premium Quality Products
+                </div>
+
+                <div class="about-point">
+                    ✓ Reliable Supply
+                </div>
+
+                <div class="about-point">
+                    ✓ Pan India Service
+                </div>
+
+                <div class="about-point">
+                    ✓ Professional Support
+                </div>
+
+            </div>
+
+            <a
+            href="#contact"
+            class="btn btn-primary">
+
+                Contact Us
+
             </a>
 
         </div>
@@ -1612,9 +2250,11 @@ ABOUT
 
         <div class="about-image">
 
+            <!-- COMPANY / OFFICE IMAGE -->
+
             <img
-            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
-            alt="Dugasta Global Office">
+            src="YOUR-COMPANY-OFFICE-IMAGE.jpg"
+            alt="Dugasta Global Earth Company">
 
         </div>
 
@@ -1623,15 +2263,17 @@ ABOUT
 </section>
 
 
-<!-- =========================================
-GLIMPSE
-========================================= -->
+<!-- =====================================================
+     GLIMPSE
+===================================================== -->
 
 <section class="glimpse">
 
     <div class="container">
 
         <div class="section-heading">
+
+            <span>COMPANY INFORMATION</span>
 
             <h2>Glimpse Of Our Company</h2>
 
@@ -1642,7 +2284,7 @@ GLIMPSE
 
             <div class="info-card">
 
-                <div class="info-icon">♙</div>
+                <div class="info-icon">◈</div>
 
                 <h4>Nature of Business</h4>
 
@@ -1653,7 +2295,7 @@ GLIMPSE
 
             <div class="info-card">
 
-                <div class="info-icon">♧</div>
+                <div class="info-icon">♙</div>
 
                 <h4>Number of Employees</h4>
 
@@ -1708,7 +2350,7 @@ GLIMPSE
 
             <div class="info-card">
 
-                <div class="info-icon">♘</div>
+                <div class="info-icon">₹</div>
 
                 <h4>Annual Turnover</h4>
 
@@ -1734,30 +2376,370 @@ GLIMPSE
 </section>
 
 
-<!-- =========================================
-TESTIMONIAL
-========================================= -->
+<!-- =====================================================
+     TESTIMONIALS
+===================================================== -->
 
 <section
-class="testimonial-section"
+class="testimonials"
 id="testimonials">
 
     <div class="container">
 
-        <div class="testimonial-box">
+        <div class="section-heading">
 
-            <div class="testimonial-icon">
-                ♙
-            </div>
+            <span>CLIENT REVIEWS</span>
+
+            <h2>What Our Customers Say</h2>
 
             <p>
-                In promotion and advertising, a testimonial consists
-                of a person's experience in written statement.
+                Trusted by customers for product quality,
+                professional service and reliable support.
             </p>
 
-            <button class="testimonial-btn">
-                Post Your Testimonial
-            </button>
+        </div>
+
+
+        <div class="testimonial-slider">
+
+            <div
+            class="testimonial-track"
+            id="testimonialTrack">
+
+
+                <!-- REVIEW 1 -->
+
+                <div class="testimonial-slide">
+
+                    <div class="testimonial-card">
+
+                        <div class="stars">★★★★★</div>
+
+                        <p class="review-text">
+                            Excellent product quality and professional
+                            service. The material was delivered exactly
+                            as promised and packaging was very good.
+                        </p>
+
+                        <div class="reviewer">
+
+                            <div class="avatar">RS</div>
+
+                            <div>
+
+                                <h4>Rajesh Sharma</h4>
+
+                                <span>Verified Customer</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- REVIEW 2 -->
+
+                    <div class="testimonial-card">
+
+                        <div class="stars">★★★★★</div>
+
+                        <p class="review-text">
+                            Very satisfied with the quality of Bentonite
+                            Powder. Professional communication and quick
+                            response from the team.
+                        </p>
+
+                        <div class="reviewer">
+
+                            <div class="avatar">AK</div>
+
+                            <div>
+
+                                <h4>Amit Kumar</h4>
+
+                                <span>Business Customer</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REVIEW 3 + 4 -->
+
+                <div class="testimonial-slide">
+
+                    <div class="testimonial-card">
+
+                        <div class="stars">★★★★★</div>
+
+                        <p class="review-text">
+                            Good quality mineral products and reliable
+                            service. We received our order on time and
+                            the overall experience was excellent.
+                        </p>
+
+                        <div class="reviewer">
+
+                            <div class="avatar">VP</div>
+
+                            <div>
+
+                                <h4>Vikas Patel</h4>
+
+                                <span>Verified Buyer</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="testimonial-card">
+
+                        <div class="stars">★★★★★</div>
+
+                        <p class="review-text">
+                            Premium quality Multani Mitti Powder.
+                            The team understood our requirements
+                            clearly and provided excellent support.
+                        </p>
+
+                        <div class="reviewer">
+
+                            <div class="avatar">SK</div>
+
+                            <div>
+
+                                <h4>Sanjay Kumar</h4>
+
+                                <span>Regular Customer</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REVIEW 5 + 6 -->
+
+                <div class="testimonial-slide">
+
+                    <div class="testimonial-card">
+
+                        <div class="stars">★★★★★</div>
+
+                        <p class="review-text">
+                            Great experience working with Dugasta
+                            Global Earth. Product quality and
+                            customer service were both excellent.
+                        </p>
+
+                        <div class="reviewer">
+
+                            <div class="avatar">MG</div>
+
+                            <div>
+
+                                <h4>Manish Gupta</h4>
+
+                                <span>Verified Customer</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="testimonial-card">
+
+                        <div class="stars">★★★★★</div>
+
+                        <p class="review-text">
+                            Reliable supplier with consistent product
+                            quality. We are happy with the service
+                            and look forward to future business.
+                        </p>
+
+                        <div class="reviewer">
+
+                            <div class="avatar">PP</div>
+
+                            <div>
+
+                                <h4>Pankaj Patel</h4>
+
+                                <span>Business Partner</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REVIEW 7 + 8 -->
+
+                <div class="testimonial-slide">
+
+                    <div class="testimonial-card">
+
+                        <div class="stars">★★★★★</div>
+
+                        <p class="review-text">
+                            Quick response and smooth order process.
+                            The quality of Kaolin Clay Powder was
+                            very good and suitable for our work.
+                        </p>
+
+                        <div class="reviewer">
+
+                            <div class="avatar">RK</div>
+
+                            <div>
+
+                                <h4>Rohit Kumar</h4>
+
+                                <span>Verified Buyer</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="testimonial-card">
+
+                        <div class="stars">★★★★★</div>
+
+                        <p class="review-text">
+                            Excellent packaging and professional
+                            customer support. Product quality
+                            matched our expectations completely.
+                        </p>
+
+                        <div class="reviewer">
+
+                            <div class="avatar">NV</div>
+
+                            <div>
+
+                                <h4>Nitin Verma</h4>
+
+                                <span>Regular Customer</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REVIEW 9 + 10 -->
+
+                <div class="testimonial-slide">
+
+                    <div class="testimonial-card">
+
+                        <div class="stars">★★★★★</div>
+
+                        <p class="review-text">
+                            We appreciate the quality and consistency
+                            of the products. A dependable supplier
+                            for natural mineral requirements.
+                        </p>
+
+                        <div class="reviewer">
+
+                            <div class="avatar">DS</div>
+
+                            <div>
+
+                                <h4>Deepak Singh</h4>
+
+                                <span>Business Customer</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="testimonial-card">
+
+                        <div class="stars">★★★★★</div>
+
+                        <p class="review-text">
+                            Very professional company and excellent
+                            quality products. The entire process
+                            from enquiry to delivery was smooth.
+                        </p>
+
+                        <div class="reviewer">
+
+                            <div class="avatar">AM</div>
+
+                            <div>
+
+                                <h4>Ankit Mehta</h4>
+
+                                <span>Verified Customer</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="testimonial-dots">
+
+                <span
+                class="testimonial-dot active"
+                onclick="testimonialGo(0)">
+                </span>
+
+                <span
+                class="testimonial-dot"
+                onclick="testimonialGo(1)">
+                </span>
+
+                <span
+                class="testimonial-dot"
+                onclick="testimonialGo(2)">
+                </span>
+
+                <span
+                class="testimonial-dot"
+                onclick="testimonialGo(3)">
+                </span>
+
+                <span
+                class="testimonial-dot"
+                onclick="testimonialGo(4)">
+                </span>
+
+            </div>
 
         </div>
 
@@ -1766,9 +2748,9 @@ id="testimonials">
 </section>
 
 
-<!-- =========================================
-QUICK ENQUIRY
-========================================= -->
+<!-- =====================================================
+     QUICK ENQUIRY
+===================================================== -->
 
 <section
 class="quick-enquiry"
@@ -1784,62 +2766,47 @@ id="contact">
             class="enquiry-form"
             onsubmit="sendForm(event)">
 
-                <div class="form-group">
 
-                    <input
-                    type="text"
-                    placeholder="Product / Service Looking For"
-                    required>
-
-                </div>
+                <input
+                type="text"
+                placeholder="Product / Service Looking For"
+                required>
 
 
-                <div class="form-group">
-
-                    <input
-                    type="text"
-                    placeholder="Your Name"
-                    required>
-
-                </div>
+                <input
+                type="text"
+                placeholder="Your Name"
+                required>
 
 
-                <div class="form-group">
-
-                    <input
-                    type="email"
-                    placeholder="Email"
-                    required>
-
-                </div>
+                <input
+                type="email"
+                placeholder="Email Address"
+                required>
 
 
-                <div class="form-group">
-
-                    <input
-                    type="tel"
-                    placeholder="Mobile Number"
-                    required>
-
-                </div>
+                <input
+                type="tel"
+                placeholder="Mobile Number"
+                required>
 
 
-                <div class="form-group full">
+                <div class="form-full">
 
                     <textarea
-                    placeholder="Leave a Message for us"
+                    placeholder="Leave Your Message"
                     required></textarea>
 
                 </div>
 
 
-                <div class="form-submit">
+                <div class="submit-center">
 
                     <button
                     type="submit"
-                    class="btn btn-gold">
+                    class="btn btn-primary">
 
-                        Send Message
+                        Send Enquiry
 
                     </button>
 
@@ -1854,9 +2821,9 @@ id="contact">
 </section>
 
 
-<!-- =========================================
-FOOTER
-========================================= -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -1865,19 +2832,19 @@ FOOTER
 
         <div class="footer-col">
 
-            <h3>Quick Contact</h3>
-
-            <p>▣ Dugasta Global Earth</p>
-
-            <p>♙ Mr. Prem Singh Rajpurohit</p>
+            <h3>Dugasta Global Earth</h3>
 
             <p>
-                ⌖ 3492/2, Jindal, Balotra,
-                Rajasthan, India
+                Trusted supplier of premium natural mineral
+                products for industrial and commercial use.
             </p>
 
             <p>
-                ☎ View Mobile Number
+                📍 Balotra, Rajasthan, India
+            </p>
+
+            <p>
+                📧 info@dugastaglobal.com
             </p>
 
         </div>
@@ -1885,21 +2852,19 @@ FOOTER
 
         <div class="footer-col">
 
-            <h3>General Links</h3>
+            <h3>Quick Links</h3>
 
             <ul>
 
-                <li>› Home</li>
+                <li>Home</li>
 
-                <li>› About Us</li>
+                <li>About Us</li>
 
-                <li>› Products</li>
+                <li>Our Products</li>
 
-                <li>› Contact Us</li>
+                <li>Testimonials</li>
 
-                <li>› Testimonials</li>
-
-                <li>› Site Map</li>
+                <li>Contact Us</li>
 
             </ul>
 
@@ -1908,19 +2873,19 @@ FOOTER
 
         <div class="footer-col">
 
-            <h3>Products</h3>
+            <h3>Our Products</h3>
 
             <ul>
 
-                <li>› Bentonite Powder</li>
+                <li>Bentonite Powder</li>
 
-                <li>› Kaolin Clay Powder</li>
+                <li>Kaolin Clay Powder</li>
 
-                <li>› Multani Mitti Powder</li>
+                <li>Multani Mitti Powder</li>
 
-                <li>› Pink Multani Mitti Powder</li>
+                <li>Multani Mitti Stone</li>
 
-                <li>› Natural Minerals</li>
+                <li>Pink Multani Mitti Powder</li>
 
             </ul>
 
@@ -1932,7 +2897,7 @@ FOOTER
 
     <div class="footer-bottom">
 
-        © 2026 DUGASTA GLOBAL EARTH.
+        © 2026 Dugasta Global Earth.
         All Rights Reserved.
 
     </div>
@@ -1940,86 +2905,29 @@ FOOTER
 </footer>
 
 
-<!-- =========================================
-WHATSAPP
-========================================= -->
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
 
 <a
-href="https://wa.me/910000000000"
-target="_blank"
-class="whatsapp">
+class="whatsapp"
+href="#contact">
 
-    ☎ WhatsApp Us
+    WhatsApp Us
 
 </a>
 
 
-<!-- =========================================
-ENQUIRY MODAL
-========================================= -->
-
-<div
-class="modal"
-id="enquiryModal">
-
-    <div class="modal-box">
-
-        <button
-        class="close-modal"
-        onclick="closeEnquiry()">
-
-            ×
-
-        </button>
-
-        <h3 id="modalProduct">
-            Product Enquiry
-        </h3>
-
-
-        <form
-        class="modal-form"
-        onsubmit="sendModalForm(event)">
-
-            <input
-            type="text"
-            placeholder="Your Name"
-            required>
-
-            <input
-            type="tel"
-            placeholder="Mobile Number"
-            required>
-
-            <input
-            type="email"
-            placeholder="Email Address">
-
-            <textarea
-            placeholder="Your Requirement"></textarea>
-
-            <button
-            class="btn btn-gold"
-            type="submit">
-
-                Send Enquiry
-
-            </button>
-
-        </form>
-
-    </div>
-
-</div>
-
-
-<!-- =========================================
-JAVASCRIPT
-========================================= -->
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
-/* MOBILE MENU */
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
 
 function toggleMenu(){
 
@@ -2031,124 +2939,26 @@ function toggleMenu(){
 }
 
 
-/* CLOSE MENU */
-
-document
-.querySelectorAll(".nav-links a")
-.forEach(function(link){
-
-    link.addEventListener("click",function(){
-
-        document
-        .getElementById("navLinks")
-        .classList
-        .remove("active");
-
-    });
-
-});
-
-
-/* =========================================
-SLIDER
-========================================= */
-
-let currentSlide = 0;
-
-const slides =
-document.getElementById("slides");
-
-const dots =
-document.querySelectorAll(".dot");
-
-
-function goSlide(index){
-
-    currentSlide = index;
-
-    slides.style.transform =
-    "translateX(-" +
-    (currentSlide * 100) +
-    "%)";
-
-    dots.forEach(function(dot){
-
-        dot.classList
-        .remove("active");
-
-    });
-
-    dots[currentSlide]
-    .classList
-    .add("active");
-
-}
-
-
-/* AUTO SLIDER */
-
-setInterval(function(){
-
-    currentSlide++;
-
-    if(currentSlide >= 3){
-
-        currentSlide = 0;
-
-    }
-
-    goSlide(currentSlide);
-
-},5000);
-
-
-/* =========================================
-ENQUIRY MODAL
-========================================= */
+/* =====================================================
+   PRODUCT ENQUIRY
+===================================================== */
 
 function openEnquiry(product){
 
     document
-    .getElementById("modalProduct")
-    .innerText =
-    product + " Enquiry";
+    .getElementById("contact")
+    .scrollIntoView({
 
-    document
-    .getElementById("enquiryModal")
-    .classList
-    .add("active");
+        behavior:"smooth"
+
+    });
 
 }
 
 
-function closeEnquiry(){
-
-    document
-    .getElementById("enquiryModal")
-    .classList
-    .remove("active");
-
-}
-
-
-/* CLOSE WHEN CLICK OUTSIDE */
-
-document
-.getElementById("enquiryModal")
-.addEventListener("click",function(e){
-
-    if(e.target === this){
-
-        closeEnquiry();
-
-    }
-
-});
-
-
-/* =========================================
-FORMS
-========================================= */
+/* =====================================================
+   FORM SUBMIT
+===================================================== */
 
 function sendForm(event){
 
@@ -2163,48 +2973,126 @@ function sendForm(event){
 }
 
 
-function sendModalForm(event){
+/* =====================================================
+   TESTIMONIAL SLIDER
+===================================================== */
 
-    event.preventDefault();
+let testimonialIndex = 0;
 
-    alert(
-        "Thank you! Your product enquiry has been submitted."
+const testimonialTrack =
+
+document.getElementById(
+    "testimonialTrack"
+);
+
+const testimonialDots =
+
+document.querySelectorAll(
+    ".testimonial-dot"
+);
+
+
+function testimonialGo(index){
+
+    testimonialIndex = index;
+
+    testimonialTrack.style.transform =
+
+    "translateX(-" +
+
+    (testimonialIndex * 100) +
+
+    "%)";
+
+
+    testimonialDots.forEach(
+
+        function(dot){
+
+            dot.classList
+            .remove("active");
+
+        }
+
     );
 
-    closeEnquiry();
 
-    event.target.reset();
+    testimonialDots[
+        testimonialIndex
+    ]
+
+    .classList
+    .add("active");
 
 }
 
 
-/* =========================================
-STICKY HEADER SHADOW
-========================================= */
+/* AUTO TESTIMONIAL SLIDER */
 
-window.addEventListener("scroll",function(){
+setInterval(
 
-    const header =
-    document.querySelector("header");
+    function(){
 
-    if(window.scrollY > 20){
+        testimonialIndex++;
 
-        header.style.boxShadow =
-        "0 4px 20px rgba(0,0,0,.08)";
+        if(
+            testimonialIndex >= 5
+        ){
+
+            testimonialIndex = 0;
+
+        }
+
+        testimonialGo(
+            testimonialIndex
+        );
+
+    },
+
+    5000
+
+);
+
+
+/* =====================================================
+   HEADER SHADOW
+===================================================== */
+
+window.addEventListener(
+
+    "scroll",
+
+    function(){
+
+        const header =
+
+        document.querySelector(
+            "header"
+        );
+
+
+        if(
+            window.scrollY > 20
+        ){
+
+            header.style.boxShadow =
+
+            "0 8px 25px rgba(0,0,0,.08)";
+
+        }
+
+        else{
+
+            header.style.boxShadow =
+            "none";
+
+        }
 
     }
 
-    else{
-
-        header.style.boxShadow =
-        "none";
-
-    }
-
-});
+);
 
 </script>
 
 </body>
 </html>
-```
