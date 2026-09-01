@@ -287,97 +287,22 @@ header{
 }
 
 /* =====================================================
-   HERO PRODUCTS
+   HERO PRODUCT AUTO SLIDER
+   DESKTOP: 3 PRODUCTS | MOBILE: 1 PRODUCT
 ===================================================== */
-
-.hero-products{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:25px;
-}
-
-.hero-product{
-
-    height:300px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:10px;
-
-    background:white;
-
-    border:
-    1px solid
-    rgba(255,255,255,.3);
-
-    box-shadow:
-    0 20px 40px
-    rgba(0,0,0,.2);
-}
-
-.hero-product img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    transition:.5s;
-}
-
-.hero-product:hover img{
-
-    transform:
-    scale(1.08);
-}
-
-.hero-product::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    right:0;
-    bottom:0;
-
-    height:45%;
-
-    background:
-
-    linear-gradient(
-        transparent,
-        rgba(0,0,0,.8)
-    );
-}
-
-.hero-product span{
-
-    position:absolute;
-
-    bottom:20px;
-
-    left:0;
-
-    width:100%;
-
-    text-align:center;
-
-    color:white;
-
-    font-weight:800;
-
-    font-size:14px;
-
-    z-index:2;
-}
+.hero-slider-wrapper{position:relative;max-width:1120px;margin:auto;padding:0 18px;}
+.hero-slider{overflow:hidden;padding:8px 0 18px;}
+.hero-slider-track{display:flex;gap:25px;transition:transform .6s ease;will-change:transform;}
+.hero-product{min-width:calc((100% - 50px)/3);height:300px;position:relative;overflow:hidden;border-radius:10px;background:white;border:1px solid rgba(255,255,255,.3);box-shadow:0 20px 40px rgba(0,0,0,.2);}
+.hero-product img{width:100%;height:100%;object-fit:cover;transition:.5s;}
+.hero-product:hover img{transform:scale(1.08);}
+.hero-product::after{content:"";position:absolute;left:0;right:0;bottom:0;height:45%;background:linear-gradient(transparent,rgba(0,0,0,.8));pointer-events:none;}
+.hero-product span{position:absolute;bottom:20px;left:0;width:100%;text-align:center;color:white;font-weight:800;font-size:14px;z-index:2;}
+.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:46px;height:46px;border:none;border-radius:50%;background:white;color:var(--primary);font-size:28px;line-height:1;cursor:pointer;box-shadow:0 10px 25px rgba(0,0,0,.25);}
+.hero-arrow:hover{background:var(--blue);color:white;}
+.hero-prev{left:-8px;}.hero-next{right:-8px;}
+.hero-dots{display:flex;justify-content:center;gap:7px;margin-top:8px;}
+.hero-dot{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,.45);cursor:pointer;}.hero-dot.active{background:white;width:24px;border-radius:10px;}
 
 /* =====================================================
    COMMON SECTION
@@ -1428,30 +1353,11 @@ footer{
         font-size:10px;
     }
 
-    .hero-products{
-
-        grid-template-columns:
-        repeat(3,1fr);
-
-        gap:8px;
-    }
-
-    .hero-product{
-
-        height:150px;
-
-        border-radius:6px;
-    }
-
-    .hero-product span{
-
-        font-size:8px;
-
-        bottom:9px;
-
-        padding:
-        0 4px;
-    }
+    .hero-product{min-width:100%;height:300px;border-radius:8px;}
+    .hero-slider-wrapper{padding:0 10px;}
+    .hero-arrow{width:40px;height:40px;font-size:24px;}
+    .hero-prev{left:0;}.hero-next{right:0;}
+    .hero-product span{font-size:12px;bottom:16px;padding:0 8px;}
 
     .section-heading{
 
@@ -1720,56 +1626,25 @@ id="home">
         </div>
 
 
-        <div class="hero-products">
-
-
-            <!-- HERO PRODUCT IMAGE:
-                 BENTONITE POWDER
-                 REPLACE IMAGE SRC BELOW
-            -->
-
-            <div class="hero-product">
-
-                <img
-                src="YOUR-BENTONITE-HERO-IMAGE.jpg"
-                alt="Bentonite Powder">
-
-                <span>Bentonite Powder</span>
-
+        <!-- HERO PRODUCT AUTO SLIDER: Copy one .hero-product block to add future products -->
+        <div class="hero-slider-wrapper" id="heroSliderWrapper">
+            <button class="hero-arrow hero-prev" id="heroPrev" aria-label="Previous product">‹</button>
+            <div class="hero-slider">
+                <div class="hero-slider-track" id="heroSliderTrack">
+                    <!-- PRODUCT: BENTONITE POWDER | IMAGE SIZE: 900 x 900 PX -->
+                    <div class="hero-product"><img src="YOUR-BENTONITE-HERO-IMAGE.jpg" alt="Bentonite Powder"><span>Bentonite Powder</span></div>
+                    <!-- PRODUCT: PINK MULTANI MITTI POWDER | IMAGE SIZE: 900 x 900 PX -->
+                    <div class="hero-product"><img src="YOUR-PINK-MULTANI-HERO-IMAGE.jpg" alt="Pink Multani Mitti Powder"><span>Pink Multani Mitti</span></div>
+                    <!-- PRODUCT: MULTANI MITTI STONE | IMAGE SIZE: 900 x 900 PX -->
+                    <div class="hero-product"><img src="YOUR-MULTANI-STONE-HERO-IMAGE.jpg" alt="Multani Mitti Stone"><span>Multani Mitti Stone</span></div>
+                    <!-- PRODUCT: KAOLIN CLAY POWDER | IMAGE SIZE: 900 x 900 PX -->
+                    <div class="hero-product"><img src="YOUR-KAOLIN-HERO-IMAGE.jpg" alt="Kaolin Clay Powder"><span>Kaolin Clay Powder</span></div>
+                    <!-- PRODUCT: MULTANI MITTI POWDER | IMAGE SIZE: 900 x 900 PX -->
+                    <div class="hero-product"><img src="YOUR-MULTANI-MITTI-HERO-IMAGE.jpg" alt="Multani Mitti Powder"><span>Multani Mitti Powder</span></div>
+                </div>
             </div>
-
-
-            <!-- HERO PRODUCT IMAGE:
-                 PINK MULTANI MITTI POWDER
-                 REPLACE IMAGE SRC BELOW
-            -->
-
-            <div class="hero-product">
-
-                <img
-                src="YOUR-PINK-MULTANI-HERO-IMAGE.jpg"
-                alt="Pink Multani Mitti Powder">
-
-                <span>Pink Multani Mitti</span>
-
-            </div>
-
-
-            <!-- HERO PRODUCT IMAGE:
-                 MULTANI MITTI STONE
-                 REPLACE IMAGE SRC BELOW
-            -->
-
-            <div class="hero-product">
-
-                <img
-                src="YOUR-MULTANI-STONE-HERO-IMAGE.jpg"
-                alt="Multani Mitti Stone">
-
-                <span>Multani Mitti Stone</span>
-
-            </div>
-
+            <button class="hero-arrow hero-next" id="heroNext" aria-label="Next product">›</button>
+            <div class="hero-dots" id="heroDots"></div>
         </div>
 
     </div>
@@ -3092,6 +2967,23 @@ window.addEventListener(
 
 );
 
+
+/* HERO PRODUCT AUTO SLIDER */
+(function(){
+ const track=document.getElementById('heroSliderTrack'), prev=document.getElementById('heroPrev'), next=document.getElementById('heroNext'), dots=document.getElementById('heroDots'), wrap=document.getElementById('heroSliderWrapper');
+ if(!track) return; let index=0,timer;
+ const items=()=>Array.from(track.querySelectorAll('.hero-product'));
+ const visible=()=>window.innerWidth<=650?1:(window.innerWidth<=950?2:3);
+ function max(){return Math.max(0,items().length-visible());}
+ function renderDots(){dots.innerHTML=''; for(let i=0;i<=max();i++){let b=document.createElement('button');b.className='hero-dot'+(i===index?' active':'');b.onclick=()=>{index=i;update();restart()};dots.appendChild(b)}}
+ function update(){if(index>max())index=0; const a=items();if(!a.length)return; const gap=25; track.style.transform=`translateX(-${index*(a[0].offsetWidth+gap)}px)`; renderDots();}
+ function go(n){index=n>max()?0:n<0?max():n;update();}
+ function start(){clearInterval(timer);timer=setInterval(()=>go(index+1),3000)} function restart(){start()}
+ next&&next.addEventListener('click',()=>{go(index+1);restart()}); prev&&prev.addEventListener('click',()=>{go(index-1);restart()});
+ wrap&&wrap.addEventListener('mouseenter',()=>clearInterval(timer)); wrap&&wrap.addEventListener('mouseleave',start);
+ let sx=0; wrap&&wrap.addEventListener('touchstart',e=>sx=e.changedTouches[0].screenX,{passive:true}); wrap&&wrap.addEventListener('touchend',e=>{let ex=e.changedTouches[0].screenX;if(ex<sx-50)go(index+1);else if(ex>sx+50)go(index-1);restart()},{passive:true});
+ window.addEventListener('resize',update); window.addEventListener('load',()=>{update();start()});
+})();
 </script>
 
 </body>
