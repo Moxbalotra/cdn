@@ -1,0 +1,2294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Products | Dugasta Global Earth</title>
+
+<meta name="description"
+content="Explore premium quality Bentonite Powder, Kaolin Clay, Multani Mitti and Natural Mineral Products from Dugasta Global Earth.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================
+   ROOT COLORS
+========================================= */
+
+:root{
+
+    --primary:#062c5f;
+    --primary-dark:#041c3e;
+
+    --blue:#075bb5;
+    --blue-light:#1687ef;
+
+    --cream:#faf7f1;
+    --cream-dark:#f2ece2;
+
+    --white:#ffffff;
+
+    --text:#1d2b3a;
+    --gray:#687586;
+
+    --border:#dce5ee;
+
+    --gradient:
+    linear-gradient(
+        135deg,
+        #041c3e 0%,
+        #062c5f 40%,
+        #075bb5 70%,
+        #1687ef 100%
+    );
+
+}
+
+/* =========================================
+   RESET
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:"Manrope",sans-serif;
+
+    background:var(--cream);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+.container{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+
+}
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.top-bar{
+
+    background:#041c3e;
+
+    color:white;
+
+    font-size:11px;
+
+}
+
+.top-bar-wrap{
+
+    min-height:38px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+header{
+
+    background:white;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+    border-bottom:
+    1px solid #e8eef4;
+
+}
+
+.navbar{
+
+    min-height:78px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+
+}
+
+.logo img{
+
+    width:190px;
+
+    max-height:60px;
+
+    object-fit:contain;
+
+}
+
+.nav-links{
+
+    list-style:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+}
+
+.nav-links a{
+
+    font-size:12px;
+
+    font-weight:800;
+
+    color:#243447;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+
+    color:var(--blue);
+
+}
+
+.nav-enquiry{
+
+    background:var(--gradient);
+
+    color:white!important;
+
+    padding:12px 20px;
+
+    border-radius:5px;
+
+}
+
+.menu-btn{
+
+    display:none;
+
+    border:none;
+
+    background:none;
+
+    font-size:27px;
+
+    cursor:pointer;
+
+}
+
+/* =========================================
+   PAGE HERO
+========================================= */
+
+.page-hero{
+
+    background:var(--gradient);
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:75px 0;
+
+}
+
+.page-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+
+    height:450px;
+
+    border-radius:50%;
+
+    border:
+    1px solid
+    rgba(255,255,255,.12);
+
+    right:-150px;
+
+    top:-180px;
+
+}
+
+.page-hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.04);
+
+    left:-100px;
+
+    bottom:-170px;
+
+}
+
+.page-hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+.page-hero h1{
+
+    font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+    font-size:44px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+
+}
+
+.page-hero p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    opacity:.88;
+
+}
+
+/* =========================================
+   BREADCRUMB
+========================================= */
+
+.breadcrumb{
+
+    background:white;
+
+    border-bottom:
+    1px solid var(--border);
+
+}
+
+.breadcrumb-wrap{
+
+    padding:15px 0;
+
+    font-size:11px;
+
+    color:#718093;
+
+}
+
+.breadcrumb a{
+
+    color:var(--blue);
+
+    font-weight:700;
+
+}
+
+.breadcrumb span{
+
+    margin:0 8px;
+
+}
+
+/* =========================================
+   SECTION
+========================================= */
+
+.products-section{
+
+    padding:80px 0;
+
+}
+
+.section-heading{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.section-heading span{
+
+    display:inline-block;
+
+    color:var(--blue);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    margin-bottom:10px;
+
+}
+
+.section-heading h2{
+
+    font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+    font-size:34px;
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+}
+
+.section-heading p{
+
+    max-width:750px;
+
+    margin:auto;
+
+    font-size:12px;
+
+    line-height:1.9;
+
+    color:var(--gray);
+
+}
+
+/* =========================================
+   SEARCH & FILTER
+========================================= */
+
+.product-tools{
+
+    background:white;
+
+    padding:18px;
+
+    border-radius:10px;
+
+    box-shadow:
+    0 10px 30px
+    rgba(0,40,90,.06);
+
+    border:
+    1px solid var(--border);
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+    margin-bottom:45px;
+
+}
+
+.search-box{
+
+    flex:1;
+
+    position:relative;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    border:
+    1px solid #dbe4ed;
+
+    padding:14px 18px;
+
+    border-radius:5px;
+
+    outline:none;
+
+    font-size:11px;
+
+}
+
+.search-box input:focus{
+
+    border-color:var(--blue);
+
+}
+
+.filter-buttons{
+
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+}
+
+.filter-btn{
+
+    border:
+    1px solid #dbe4ed;
+
+    background:#fff;
+
+    color:var(--primary);
+
+    padding:11px 15px;
+
+    border-radius:4px;
+
+    cursor:pointer;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    transition:.3s;
+
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+
+    background:var(--gradient);
+
+    color:white;
+
+    border-color:transparent;
+
+}
+
+/* =========================================
+   PRODUCTS GRID
+========================================= */
+
+.products-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:28px;
+
+}
+
+.product-card{
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    border:
+    1px solid var(--border);
+
+    box-shadow:
+    0 12px 30px
+    rgba(0,40,90,.06);
+
+    transition:.35s;
+
+}
+
+.product-card:hover{
+
+    transform:
+    translateY(-8px);
+
+    box-shadow:
+    0 22px 45px
+    rgba(0,40,90,.13);
+
+}
+
+.product-image{
+
+    height:280px;
+
+    position:relative;
+
+    background:
+    #eef5fb;
+
+    overflow:hidden;
+
+}
+
+.product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.product-card:hover .product-image img{
+
+    transform:
+    scale(1.07);
+
+}
+
+/* IMAGE SIZE LABEL */
+
+.image-size-label{
+
+    position:absolute;
+
+    top:12px;
+
+    left:12px;
+
+    z-index:5;
+
+    background:
+    rgba(4,28,62,.9);
+
+    color:white;
+
+    padding:8px 11px;
+
+    border-radius:4px;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    line-height:1.6;
+
+}
+
+.product-category{
+
+    position:absolute;
+
+    bottom:12px;
+
+    right:12px;
+
+    z-index:5;
+
+    background:white;
+
+    color:var(--blue);
+
+    padding:7px 11px;
+
+    border-radius:20px;
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+.product-content{
+
+    padding:25px;
+
+}
+
+.product-content h3{
+
+    font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+    font-size:18px;
+
+    color:var(--primary);
+
+    margin-bottom:12px;
+
+}
+
+.product-content p{
+
+    font-size:10px;
+
+    line-height:1.8;
+
+    color:var(--gray);
+
+    margin-bottom:20px;
+
+}
+
+.product-specs{
+
+    list-style:none;
+
+    border-top:
+    1px solid #edf1f5;
+
+    margin-bottom:20px;
+
+}
+
+.product-specs li{
+
+    padding:8px 0;
+
+    border-bottom:
+    1px solid #edf1f5;
+
+    font-size:9px;
+
+    color:#647386;
+
+}
+
+.product-specs strong{
+
+    color:var(--primary);
+
+}
+
+.product-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.btn{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:5px;
+
+    padding:11px 10px;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.btn-primary{
+
+    background:var(--gradient);
+
+    color:white;
+
+    border:none;
+
+}
+
+.btn-outline{
+
+    background:white;
+
+    border:
+    1px solid #ccd8e4;
+
+    color:var(--primary);
+
+}
+
+.btn:hover{
+
+    transform:
+    translateY(-2px);
+
+}
+
+/* =========================================
+   CTA
+========================================= */
+
+.product-cta{
+
+    margin-top:65px;
+
+    background:var(--gradient);
+
+    padding:45px;
+
+    border-radius:15px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:30px;
+
+    color:white;
+
+}
+
+.product-cta h2{
+
+    font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+    font-size:28px;
+
+    margin-bottom:8px;
+
+}
+
+.product-cta p{
+
+    font-size:11px;
+
+    opacity:.8;
+
+}
+
+.cta-button{
+
+    background:white;
+
+    color:var(--primary);
+
+    padding:14px 25px;
+
+    border-radius:5px;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    white-space:nowrap;
+
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+
+    background:#041c3e;
+
+    color:white;
+
+}
+
+.footer-main{
+
+    padding:60px 0 40px;
+
+    display:grid;
+
+    grid-template-columns:
+    1.4fr 1fr 1fr;
+
+    gap:50px;
+
+}
+
+.footer-col h3{
+
+    font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+    font-size:15px;
+
+    margin-bottom:22px;
+
+}
+
+.footer-col p,
+.footer-col li{
+
+    color:
+    rgba(255,255,255,.7);
+
+    font-size:10px;
+
+    line-height:2;
+
+}
+
+.footer-col ul{
+
+    list-style:none;
+
+}
+
+.footer-bottom{
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.1);
+
+    text-align:center;
+
+    padding:18px;
+
+    font-size:9px;
+
+    color:
+    rgba(255,255,255,.6);
+
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:950px){
+
+    .products-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .nav-links{
+
+        position:absolute;
+
+        left:0;
+
+        top:78px;
+
+        width:100%;
+
+        background:white;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        padding:25px;
+
+        display:none;
+
+        box-shadow:
+        0 15px 30px
+        rgba(0,0,0,.1);
+
+    }
+
+    .nav-links.active{
+
+        display:flex;
+
+    }
+
+    .menu-btn{
+
+        display:block;
+
+    }
+
+}
+
+@media(max-width:650px){
+
+    .top-bar{
+
+        display:none;
+
+    }
+
+    .navbar{
+
+        min-height:68px;
+
+    }
+
+    .logo img{
+
+        width:160px;
+
+    }
+
+    .nav-links{
+
+        top:68px;
+
+    }
+
+    .page-hero{
+
+        padding:55px 0;
+
+    }
+
+    .page-hero h1{
+
+        font-size:30px;
+
+    }
+
+    .page-hero p{
+
+        font-size:11px;
+
+    }
+
+    .products-section{
+
+        padding:55px 0;
+
+    }
+
+    .section-heading h2{
+
+        font-size:26px;
+
+    }
+
+    .section-heading p{
+
+        font-size:10px;
+
+    }
+
+    .product-tools{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .filter-buttons{
+
+        justify-content:center;
+
+    }
+
+    .products-grid{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .product-image{
+
+        height:320px;
+
+    }
+
+    .product-cta{
+
+        padding:30px 22px;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .product-cta h2{
+
+        font-size:23px;
+
+    }
+
+    .footer-main{
+
+        grid-template-columns:
+        1fr;
+
+        gap:30px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================================
+     TOP BAR
+========================================= -->
+
+<div class="top-bar">
+
+    <div class="container top-bar-wrap">
+
+        <span>
+            Premium Natural Mineral Products Supplier
+        </span>
+
+        <span>
+            info@dugastaglobal.com
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+<div class="container navbar">
+
+    <a href="index.html" class="logo">
+
+        <!-- LOGO
+             RECOMMENDED SIZE: 500 x 150 PX
+             RATIO: 10:3
+        -->
+
+        <img
+        src="https://dugastaglobal.com/wp-content/uploads/2026/08/dugstalogopng.png"
+        alt="Dugasta Global Earth Logo">
+
+    </a>
+
+
+    <ul class="nav-links" id="navLinks">
+
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="about.html">
+                About Us
+            </a>
+        </li>
+
+        <li>
+            <a
+            href="products.html"
+            class="active">
+                Our Products
+            </a>
+        </li>
+
+        <li>
+            <a href="contact.html">
+                Contact Us
+            </a>
+        </li>
+
+        <li>
+            <a
+            href="contact.html"
+            class="nav-enquiry">
+                Send Enquiry
+            </a>
+        </li>
+
+    </ul>
+
+
+    <button
+    class="menu-btn"
+    onclick="toggleMenu()">
+
+        ☰
+
+    </button>
+
+</div>
+
+</header>
+
+
+<!-- =========================================
+     PAGE HERO
+========================================= -->
+
+<section class="page-hero">
+
+<div class="container page-hero-content">
+
+    <h1>Our Products</h1>
+
+    <p>
+
+        Explore our premium collection of natural mineral
+        products, carefully selected for quality, purity
+        and reliable industrial applications.
+
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     BREADCRUMB
+========================================= -->
+
+<div class="breadcrumb">
+
+<div class="container breadcrumb-wrap">
+
+    <a href="index.html">
+        Home
+    </a>
+
+    <span>/</span>
+
+    Our Products
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     PRODUCTS SECTION
+========================================= -->
+
+<section class="products-section">
+
+<div class="container">
+
+
+    <div class="section-heading">
+
+        <span>
+            PREMIUM QUALITY PRODUCTS
+        </span>
+
+        <h2>
+            Explore Our Product Range
+        </h2>
+
+        <p>
+
+            We offer a wide range of natural mineral products
+            suitable for cosmetic, skincare, industrial and
+            commercial applications.
+
+        </p>
+
+    </div>
+
+
+    <!-- =========================================
+         SEARCH & FILTER
+    ========================================= -->
+
+    <div class="product-tools">
+
+        <div class="search-box">
+
+            <input
+            type="text"
+            id="productSearch"
+            placeholder="Search Product..."
+            onkeyup="searchProducts()">
+
+        </div>
+
+
+        <div class="filter-buttons">
+
+            <button
+            class="filter-btn active"
+            onclick="filterProducts('all',this)">
+
+                All Products
+
+            </button>
+
+
+            <button
+            class="filter-btn"
+            onclick="filterProducts('powder',this)">
+
+                Powder
+
+            </button>
+
+
+            <button
+            class="filter-btn"
+            onclick="filterProducts('clay',this)">
+
+                Clay
+
+            </button>
+
+
+            <button
+            class="filter-btn"
+            onclick="filterProducts('stone',this)">
+
+                Stone
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         PRODUCTS GRID
+    ========================================= -->
+
+    <div
+    class="products-grid"
+    id="productsGrid">
+
+
+        <!-- =========================================
+             PRODUCT 1
+             
+             PRODUCT NAME:
+             BENTONITE POWDER
+
+             RECOMMENDED IMAGE SIZE:
+             900 x 900 PX
+
+             IMAGE RATIO:
+             1:1 SQUARE
+
+             BEST FORMAT:
+             WEBP / JPG
+
+             FILE NAME:
+             bentonite-powder.jpg
+        ========================================= -->
+
+        <div
+        class="product-card"
+        data-category="powder clay">
+
+            <div class="product-image">
+
+                <div class="image-size-label">
+
+                    PRODUCT: BENTONITE POWDER
+
+                    <br>
+
+                    SIZE: 900 × 900 PX
+
+                    <br>
+
+                    RATIO: 1:1
+
+                </div>
+
+
+                <div class="product-category">
+
+                    POWDER
+
+                </div>
+
+
+                <img
+                src="YOUR-BENTONITE-POWDER-IMAGE.jpg"
+                alt="Bentonite Powder">
+
+            </div>
+
+
+            <div class="product-content">
+
+                <h3>
+                    Bentonite Powder
+                </h3>
+
+                <p>
+
+                    Premium quality natural Bentonite Powder
+                    suitable for industrial and commercial
+                    applications.
+
+                </p>
+
+
+                <ul class="product-specs">
+
+                    <li>
+                        <strong>Color:</strong>
+                        Off White
+                    </li>
+
+                    <li>
+                        <strong>Purity:</strong>
+                        95-99%
+                    </li>
+
+                    <li>
+                        <strong>Packaging:</strong>
+                        25 Kg Bag
+                    </li>
+
+                </ul>
+
+
+                <div class="product-buttons">
+
+                    <a
+                    href="product-bentonite.html"
+                    class="btn btn-outline">
+
+                        View Details
+
+                    </a>
+
+
+                    <a
+                    href="#enquiry"
+                    class="btn btn-primary">
+
+                        Enquiry
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================================
+             PRODUCT 2
+             
+             PRODUCT NAME:
+             KAOLIN CLAY POWDER
+
+             RECOMMENDED IMAGE SIZE:
+             900 x 900 PX
+
+             IMAGE RATIO:
+             1:1 SQUARE
+
+             BEST FORMAT:
+             WEBP / JPG
+
+             FILE NAME:
+             kaolin-clay-powder.jpg
+        ========================================= -->
+
+        <div
+        class="product-card"
+        data-category="powder clay">
+
+            <div class="product-image">
+
+                <div class="image-size-label">
+
+                    PRODUCT: KAOLIN CLAY
+
+                    <br>
+
+                    SIZE: 900 × 900 PX
+
+                    <br>
+
+                    RATIO: 1:1
+
+                </div>
+
+
+                <div class="product-category">
+
+                    CLAY
+
+                </div>
+
+
+                <img
+                src="YOUR-KAOLIN-CLAY-IMAGE.jpg"
+                alt="Kaolin Clay Powder">
+
+            </div>
+
+
+            <div class="product-content">
+
+                <h3>
+                    Kaolin Clay Powder
+                </h3>
+
+                <p>
+
+                    High-quality Kaolin Clay Powder suitable
+                    for cosmetic, ceramic and industrial use.
+
+                </p>
+
+
+                <ul class="product-specs">
+
+                    <li>
+                        <strong>Color:</strong>
+                        Off White
+                    </li>
+
+                    <li>
+                        <strong>Packaging:</strong>
+                        25 Kg
+                    </li>
+
+                    <li>
+                        <strong>Material:</strong>
+                        Natural Kaolin
+                    </li>
+
+                </ul>
+
+
+                <div class="product-buttons">
+
+                    <a
+                    href="product-kaolin.html"
+                    class="btn btn-outline">
+
+                        View Details
+
+                    </a>
+
+
+                    <a
+                    href="#enquiry"
+                    class="btn btn-primary">
+
+                        Enquiry
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================================
+             PRODUCT 3
+
+             PRODUCT NAME:
+             MULTANI MITTI POWDER
+
+             RECOMMENDED IMAGE SIZE:
+             900 x 900 PX
+
+             IMAGE RATIO:
+             1:1 SQUARE
+
+             BEST FORMAT:
+             WEBP / JPG
+
+             FILE NAME:
+             multani-mitti-powder.jpg
+        ========================================= -->
+
+        <div
+        class="product-card"
+        data-category="powder clay">
+
+            <div class="product-image">
+
+                <div class="image-size-label">
+
+                    PRODUCT: MULTANI MITTI POWDER
+
+                    <br>
+
+                    SIZE: 900 × 900 PX
+
+                    <br>
+
+                    RATIO: 1:1
+
+                </div>
+
+
+                <div class="product-category">
+
+                    POWDER
+
+                </div>
+
+
+                <img
+                src="YOUR-MULTANI-MITTI-POWDER-IMAGE.jpg"
+                alt="Multani Mitti Powder">
+
+            </div>
+
+
+            <div class="product-content">
+
+                <h3>
+                    Multani Mitti Powder
+                </h3>
+
+                <p>
+
+                    Naturally sourced Multani Mitti Powder
+                    ideal for skincare, cosmetic and beauty
+                    product applications.
+
+                </p>
+
+
+                <ul class="product-specs">
+
+                    <li>
+                        <strong>Purity:</strong>
+                        95-99%
+                    </li>
+
+                    <li>
+                        <strong>Color:</strong>
+                        Natural Brown
+                    </li>
+
+                    <li>
+                        <strong>Packaging:</strong>
+                        25 Kg
+                    </li>
+
+                </ul>
+
+
+                <div class="product-buttons">
+
+                    <a
+                    href="product-multani-powder.html"
+                    class="btn btn-outline">
+
+                        View Details
+
+                    </a>
+
+
+                    <a
+                    href="#enquiry"
+                    class="btn btn-primary">
+
+                        Enquiry
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================================
+             PRODUCT 4
+
+             PRODUCT NAME:
+             MULTANI MITTI STONE
+
+             RECOMMENDED IMAGE SIZE:
+             900 x 900 PX
+
+             IMAGE RATIO:
+             1:1 SQUARE
+
+             BEST FORMAT:
+             WEBP / JPG
+
+             FILE NAME:
+             multani-mitti-stone.jpg
+        ========================================= -->
+
+        <div
+        class="product-card"
+        data-category="stone clay">
+
+            <div class="product-image">
+
+                <div class="image-size-label">
+
+                    PRODUCT: MULTANI MITTI STONE
+
+                    <br>
+
+                    SIZE: 900 × 900 PX
+
+                    <br>
+
+                    RATIO: 1:1
+
+                </div>
+
+
+                <div class="product-category">
+
+                    STONE
+
+                </div>
+
+
+                <img
+                src="YOUR-MULTANI-MITTI-STONE-IMAGE.jpg"
+                alt="Multani Mitti Stone">
+
+            </div>
+
+
+            <div class="product-content">
+
+                <h3>
+                    Multani Mitti Stone
+                </h3>
+
+                <p>
+
+                    Premium quality natural Multani Mitti
+                    Stone supplied for processing and
+                    industrial applications.
+
+                </p>
+
+
+                <ul class="product-specs">
+
+                    <li>
+                        <strong>Form:</strong>
+                        Natural Stone
+                    </li>
+
+                    <li>
+                        <strong>Purity:</strong>
+                        90-99%
+                    </li>
+
+                    <li>
+                        <strong>MOQ:</strong>
+                        500 Kg
+                    </li>
+
+                </ul>
+
+
+                <div class="product-buttons">
+
+                    <a
+                    href="product-multani-stone.html"
+                    class="btn btn-outline">
+
+                        View Details
+
+                    </a>
+
+
+                    <a
+                    href="#enquiry"
+                    class="btn btn-primary">
+
+                        Enquiry
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================================
+             PRODUCT 5
+
+             PRODUCT NAME:
+             PINK MULTANI MITTI POWDER
+
+             RECOMMENDED IMAGE SIZE:
+             900 x 900 PX
+
+             IMAGE RATIO:
+             1:1 SQUARE
+
+             BEST FORMAT:
+             WEBP / JPG
+
+             FILE NAME:
+             pink-multani-mitti.jpg
+        ========================================= -->
+
+        <div
+        class="product-card"
+        data-category="powder clay">
+
+            <div class="product-image">
+
+                <div class="image-size-label">
+
+                    PRODUCT: PINK MULTANI MITTI
+
+                    <br>
+
+                    SIZE: 900 × 900 PX
+
+                    <br>
+
+                    RATIO: 1:1
+
+                </div>
+
+
+                <div class="product-category">
+
+                    POWDER
+
+                </div>
+
+
+                <img
+                src="YOUR-PINK-MULTANI-MITTI-IMAGE.jpg"
+                alt="Pink Multani Mitti Powder">
+
+            </div>
+
+
+            <div class="product-content">
+
+                <h3>
+                    Pink Multani Mitti Powder
+                </h3>
+
+                <p>
+
+                    Premium natural Pink Multani Mitti Powder
+                    for cosmetic and skincare product
+                    applications.
+
+                </p>
+
+
+                <ul class="product-specs">
+
+                    <li>
+                        <strong>Color:</strong>
+                        Natural Pink
+                    </li>
+
+                    <li>
+                        <strong>Purity:</strong>
+                        95-99%
+                    </li>
+
+                    <li>
+                        <strong>Mesh:</strong>
+                        100-500 Mesh
+                    </li>
+
+                </ul>
+
+
+                <div class="product-buttons">
+
+                    <a
+                    href="product-pink-multani.html"
+                    class="btn btn-outline">
+
+                        View Details
+
+                    </a>
+
+
+                    <a
+                    href="#enquiry"
+                    class="btn btn-primary">
+
+                        Enquiry
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================================
+             PRODUCT 6
+
+             PRODUCT NAME:
+             NATURAL MINERALS
+
+             RECOMMENDED IMAGE SIZE:
+             900 x 900 PX
+
+             IMAGE RATIO:
+             1:1 SQUARE
+
+             BEST FORMAT:
+             WEBP / JPG
+
+             FILE NAME:
+             natural-minerals.jpg
+        ========================================= -->
+
+        <div
+        class="product-card"
+        data-category="clay">
+
+            <div class="product-image">
+
+                <div class="image-size-label">
+
+                    PRODUCT: NATURAL MINERALS
+
+                    <br>
+
+                    SIZE: 900 × 900 PX
+
+                    <br>
+
+                    RATIO: 1:1
+
+                </div>
+
+
+                <div class="product-category">
+
+                    MINERALS
+
+                </div>
+
+
+                <img
+                src="YOUR-NATURAL-MINERALS-IMAGE.jpg"
+                alt="Premium Natural Minerals">
+
+            </div>
+
+
+            <div class="product-content">
+
+                <h3>
+                    Premium Natural Minerals
+                </h3>
+
+                <p>
+
+                    Carefully sourced natural mineral products
+                    available for various industrial and
+                    commercial requirements.
+
+                </p>
+
+
+                <ul class="product-specs">
+
+                    <li>
+                        <strong>Grade:</strong>
+                        Premium Quality
+                    </li>
+
+                    <li>
+                        <strong>Supply:</strong>
+                        Bulk Orders
+                    </li>
+
+                    <li>
+                        <strong>Packaging:</strong>
+                        Customized
+                    </li>
+
+                </ul>
+
+
+                <div class="product-buttons">
+
+                    <a
+                    href="#"
+                    class="btn btn-outline">
+
+                        View Details
+
+                    </a>
+
+
+                    <a
+                    href="#enquiry"
+                    class="btn btn-primary">
+
+                        Enquiry
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================================
+         CTA
+    ========================================= -->
+
+    <div
+    class="product-cta"
+    id="enquiry">
+
+        <div>
+
+            <h2>
+                Looking For A Specific Product?
+            </h2>
+
+            <p>
+                Contact us for product details,
+                bulk orders and customized requirements.
+            </p>
+
+        </div>
+
+
+        <a
+        href="contact.html"
+        class="cta-button">
+
+            Send Enquiry
+
+        </a>
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+<div class="container footer-main">
+
+
+    <div class="footer-col">
+
+        <h3>
+            Dugasta Global Earth
+        </h3>
+
+        <p>
+            Trusted supplier of premium natural
+            mineral products.
+        </p>
+
+        <p>
+            📍 Balotra, Rajasthan, India
+        </p>
+
+    </div>
+
+
+    <div class="footer-col">
+
+        <h3>
+            Quick Links
+        </h3>
+
+        <ul>
+
+            <li>Home</li>
+
+            <li>About Us</li>
+
+            <li>Our Products</li>
+
+            <li>Contact Us</li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="footer-col">
+
+        <h3>
+            Contact
+        </h3>
+
+        <p>
+            📧 info@dugastaglobal.com
+        </p>
+
+        <p>
+            Premium Natural Minerals Supplier
+        </p>
+
+    </div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+    © 2026 Dugasta Global Earth.
+    All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList
+    .toggle("active");
+
+}
+
+
+/* =========================================
+   PRODUCT SEARCH
+========================================= */
+
+function searchProducts(){
+
+    let searchValue =
+
+    document
+    .getElementById("productSearch")
+    .value
+    .toLowerCase();
+
+
+    let products =
+
+    document
+    .querySelectorAll(".product-card");
+
+
+    products.forEach(
+
+        function(product){
+
+            let productName =
+
+            product
+            .innerText
+            .toLowerCase();
+
+
+            if(
+
+                productName
+                .includes(searchValue)
+
+            ){
+
+                product.style.display =
+                "block";
+
+            }
+
+            else{
+
+                product.style.display =
+                "none";
+
+            }
+
+        }
+
+    );
+
+}
+
+
+/* =========================================
+   PRODUCT FILTER
+========================================= */
+
+function filterProducts(category,button){
+
+    let products =
+
+    document
+    .querySelectorAll(".product-card");
+
+
+    products.forEach(
+
+        function(product){
+
+            let productCategory =
+
+            product
+            .getAttribute(
+                "data-category"
+            );
+
+
+            if(
+
+                category === "all"
+
+                ||
+
+                productCategory
+                .includes(category)
+
+            ){
+
+                product.style.display =
+                "block";
+
+            }
+
+            else{
+
+                product.style.display =
+                "none";
+
+            }
+
+        }
+
+    );
+
+
+    document
+    .querySelectorAll(
+        ".filter-btn"
+    )
+    .forEach(
+
+        function(btn){
+
+            btn
+            .classList
+            .remove("active");
+
+        }
+
+    );
+
+
+    button
+    .classList
+    .add("active");
+
+}
+
+</script>
+
+
+</body>
+</html>
