@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Voter List | Ward Wise</title>
+
+<!-- PDF.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<!-- PageFlip -->
+<script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#111;
+    color:white;
+}
+
+/* HEADER */
+
+header{
+    text-align:center;
+    padding:40px 20px;
+    background:linear-gradient(135deg,#111,#292929);
+}
+
+header h1{
+    color:#ffc107;
+    font-size:32px;
+}
+
+header p{
+    margin-top:10px;
+    color:#ccc;
+}
+
+
+/* WARD GRID */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.ward-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:15px;
+}
+
+.ward-card{
+    background:#222;
+    border:1px solid #333;
+    border-radius:12px;
+    padding:25px 15px;
+    text-align:center;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.ward-card:hover{
+    background:#ffc107;
+    color:#000;
+    transform:translateY(-5px);
+}
+
+.ward-number{
+    font-size:30px;
+    font-weight:bold;
+}
+
+.ward-text{
+    margin-top:8px;
+    font-size:13px;
+}
+
+
+/* HOME BUTTON */
+
+.home-section{
+    text-align:center;
+    padding:20px 20px 60px;
+}
+
+.home-btn{
+    display:inline-block;
+    padding:15px 30px;
+    background:#ffc107;
+    color:#000;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+
+/* MODAL */
+
+#flipbookModal{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:#111;
+
+    display:none;
+
+    flex-direction:column;
+
+    z-index:9999;
+
+}
+
+
+/* HEADER */
+
+.flipbook-header{
+
+    height:65px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 20px;
+
+    background:#000;
+
+}
+
+#flipbookTitle{
+
+    color:#ffc107;
+
+    font-size:18px;
+
+}
+
+.close-btn{
+
+    background:#e53935;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+}
+
+
+/* VIEWER */
+
+.flipbook-viewer{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    padding:20px;
+
+}
+
+#flipbook{
+
+    display:none;
+
+}
+
+
+/* PAGE */
+
+.page{
+
+    background:white;
+
+    overflow:hidden;
+
+}
+
+.page canvas{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+}
+
+
+/* CONTROLS */
+
+.flipbook-controls{
+
+    height:70px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:#000;
+
+}
+
+.flipbook-controls button{
+
+    background:#333;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 16px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+}
+
+.flipbook-controls button:hover{
+
+    background:#ffc107;
+
+    color:#000;
+
+}
+
+#pageInfo{
+
+    min-width:110px;
+
+    text-align:center;
+
+}
+
+
+/* LOADER */
+
+#loader{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:#111;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+}
+
+.spinner{
+
+    width:50px;
+
+    height:50px;
+
+    border:5px solid #333;
+
+    border-top:5px solid #ffc107;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    100%{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .ward-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .flipbook-controls button{
+
+        padding:8px 10px;
+
+        font-size:12px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+<h1>वोटर लिस्ट</h1>
+
+<p>Ward Number 1 से Ward Number 55 तक</p>
+
+</header>
+
+
+<div class="container">
+
+<div
+class="ward-grid"
+id="wardGrid">
+</div>
+
+</div>
+
+
+<div class="home-section">
+
+<a
+href="/"
+class="home-btn">
+
+← Return to Home
+
+</a>
+
+</div>
+
+
+
+<!-- FLIPBOOK MODAL -->
+
+<div id="flipbookModal">
+
+
+<div class="flipbook-header">
+
+<div id="flipbookTitle">
+
+Voter List
+
+</div>
+
+
+<button
+class="close-btn"
+onclick="closeFlipbook()">
+
+✕ Close
+
+</button>
+
+</div>
+
+
+
+<div class="flipbook-viewer">
+
+<div id="flipbook"></div>
+
+</div>
+
+
+
+<div class="flipbook-controls">
+
+<button onclick="previousPage()">
+
+◀ Previous
+
+</button>
+
+
+<div id="pageInfo">
+
+Page 1
+
+</div>
+
+
+<button onclick="nextPage()">
+
+Next ▶
+
+</button>
+
+</div>
+
+
+
+<div id="loader">
+
+<div class="spinner"></div>
+
+<p style="margin-top:20px">
+
+PDF Loading...
+
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<!-- SOUND -->
+
+<audio
+id="flipSound"
+preload="auto">
+
+<source
+src="https://assets.mixkit.co/active_storage/sfx/1106/1106-preview.mp3"
+type="audio/mpeg">
+
+</audio>
+
+
+
+<script>
+
+
+/* PDF.JS WORKER */
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+
+/* VARIABLES */
+
+let pageFlip = null;
+
+let totalPages = 0;
+
+let currentPDF = null;
+
+
+const wardGrid =
+document.getElementById("wardGrid");
+
+const modal =
+document.getElementById("flipbookModal");
+
+const flipbook =
+document.getElementById("flipbook");
+
+const loader =
+document.getElementById("loader");
+
+const pageInfo =
+document.getElementById("pageInfo");
+
+const flipSound =
+document.getElementById("flipSound");
+
+
+
+/* CREATE WARDS */
+
+for(let i = 1; i <= 55; i++){
+
+    const card =
+    document.createElement("div");
+
+    card.className =
+    "ward-card";
+
+    card.innerHTML = `
+
+        <div class="ward-number">
+
+        ${i}
+
+        </div>
+
+        <div class="ward-text">
+
+        WARD NUMBER
+
+        </div>
+
+    `;
+
+    card.onclick =
+    function(){
+
+        openFlipbook(i);
+
+    };
+
+    wardGrid.appendChild(card);
+
+}
+
+
+
+/* OPEN PDF */
+
+async function openFlipbook(wardNumber){
+
+
+    const pdfURL =
+
+    "https://cdn.moxrathore.com/pdf/" +
+    wardNumber +
+    ".pdf";
+
+
+    /* SHOW MODAL */
+
+    modal.style.display =
+    "flex";
+
+
+    /* TITLE */
+
+    document.getElementById(
+        "flipbookTitle"
+    ).innerText =
+
+    "Ward Number " +
+    wardNumber +
+    " - Voter List";
+
+
+    /* RESET */
+
+    flipbook.innerHTML =
+    "";
+
+    flipbook.style.display =
+    "none";
+
+    pageFlip =
+    null;
+
+
+    loader.style.display =
+    "flex";
+
+
+    loader.innerHTML = `
+
+        <div class="spinner"></div>
+
+        <p style="margin-top:20px">
+
+        PDF Loading...
+
+        </p>
+
+    `;
+
+
+    try{
+
+
+        console.log(
+            "Loading:",
+            pdfURL
+        );
+
+
+        /* LOAD PDF */
+
+        const loadingTask =
+
+        pdfjsLib.getDocument({
+
+            url:pdfURL,
+
+            disableAutoFetch:false,
+
+            disableStream:false
+
+        });
+
+
+        currentPDF =
+
+        await loadingTask.promise;
+
+
+        totalPages =
+
+        currentPDF.numPages;
+
+
+        console.log(
+            "Total Pages:",
+            totalPages
+        );
+
+
+        /* RENDER ALL PAGES */
+
+        for(
+
+            let i = 1;
+
+            i <= totalPages;
+
+            i++
+
+        ){
+
+
+            loader.querySelector("p").innerText =
+
+            "Loading Page " +
+            i +
+            " of " +
+            totalPages;
+
+
+            const pdfPage =
+
+            await currentPDF.getPage(i);
+
+
+            /* GET ORIGINAL VIEWPORT */
+
+            const originalViewport =
+
+            pdfPage.getViewport({
+
+                scale:1
+
+            });
+
+
+            /* FIXED HIGH QUALITY SCALE */
+
+            const scale =
+
+            1.5;
+
+
+            const viewport =
+
+            pdfPage.getViewport({
+
+                scale:scale
+
+            });
+
+
+            /* CREATE PAGE */
+
+            const pageDiv =
+
+            document.createElement("div");
+
+
+            pageDiv.className =
+            "page";
+
+
+            /* CREATE CANVAS */
+
+            const canvas =
+
+            document.createElement("canvas");
+
+
+            const context =
+
+            canvas.getContext(
+                "2d"
+            );
+
+
+            canvas.width =
+            viewport.width;
+
+
+            canvas.height =
+            viewport.height;
+
+
+            /* IMPORTANT */
+
+            canvas.style.width =
+            "100%";
+
+
+            canvas.style.height =
+            "100%";
+
+
+            pageDiv.appendChild(
+                canvas
+            );
+
+
+            flipbook.appendChild(
+                pageDiv
+            );
+
+
+            /* RENDER */
+
+            await pdfPage.render({
+
+                canvasContext:
+                context,
+
+                viewport:
+                viewport
+
+            }).promise;
+
+
+        }
+
+
+        /* WAIT FOR DOM */
+
+        await new Promise(
+
+            resolve =>
+
+            setTimeout(
+                resolve,
+                300
+            )
+
+        );
+
+
+        /* INITIALIZE FLIPBOOK */
+
+        initializeFlipbook();
+
+
+        /* HIDE LOADER */
+
+        loader.style.display =
+        "none";
+
+
+    }
+
+    catch(error){
+
+
+        console.error(
+            error
+        );
+
+
+        loader.innerHTML = `
+
+        <h2 style="color:#ff5252">
+
+        PDF Load Error
+
+        </h2>
+
+        <p style="margin-top:15px">
+
+        ${error.message}
+
+        </p>
+
+        <p style="margin-top:10px;color:#aaa">
+
+        Ward ${wardNumber} PDF load nahi ho rahi.
+
+        </p>
+
+        `;
+
+
+    }
+
+}
+
+
+
+/* INITIALIZE PAGE FLIP */
+
+function initializeFlipbook(){
+
+
+    const screenWidth =
+
+    window.innerWidth;
+
+
+    const screenHeight =
+
+    window.innerHeight;
+
+
+    /* BOOK SIZE */
+
+    let bookWidth =
+    500;
+
+    let bookHeight =
+    700;
+
+
+    /* MOBILE SIZE */
+
+    if(screenWidth < 600){
+
+        bookWidth =
+        screenWidth - 40;
+
+        bookHeight =
+        screenHeight - 180;
+
+    }
+
+
+    /* CREATE PAGEFLIP */
+
+    pageFlip =
+
+    new St.PageFlip(
+
+        flipbook,
+
+        {
+
+            width:bookWidth,
+
+            height:bookHeight,
+
+            size:"stretch",
+
+            minWidth:250,
+
+            maxWidth:700,
+
+            minHeight:350,
+
+            maxHeight:1000,
+
+            showCover:true,
+
+            drawShadow:true,
+
+            flippingTime:700,
+
+            usePortrait:true,
+
+            mobileScrollSupport:false,
+
+            maxShadowOpacity:0.7
+
+        }
+
+    );
+
+
+    /* LOAD PAGES */
+
+    const pages =
+
+    document.querySelectorAll(
+        "#flipbook .page"
+    );
+
+
+    pageFlip.loadFromHTML(
+        pages
+    );
+
+
+    flipbook.style.display =
+    "block";
+
+
+    updatePageInfo();
+
+
+    /* PAGE FLIP EVENT */
+
+    pageFlip.on(
+
+        "flip",
+
+        function(){
+
+            playSound();
+
+            updatePageInfo();
+
+        }
+
+    );
+
+}
+
+
+
+/* SOUND */
+
+function playSound(){
+
+
+    flipSound.currentTime =
+    0;
+
+
+    flipSound.play()
+    .catch(
+        function(){}
+    );
+
+
+}
+
+
+
+/* UPDATE PAGE INFO */
+
+function updatePageInfo(){
+
+
+    if(!pageFlip)
+    return;
+
+
+    const currentPage =
+
+    pageFlip.getCurrentPageIndex()
+    + 1;
+
+
+    pageInfo.innerText =
+
+    "Page " +
+
+    currentPage +
+
+    " / " +
+
+    totalPages;
+
+
+}
+
+
+
+/* NEXT */
+
+function nextPage(){
+
+    if(pageFlip){
+
+        pageFlip.flipNext();
+
+    }
+
+}
+
+
+
+/* PREVIOUS */
+
+function previousPage(){
+
+    if(pageFlip){
+
+        pageFlip.flipPrev();
+
+    }
+
+}
+
+
+
+/* CLOSE */
+
+function closeFlipbook(){
+
+
+    modal.style.display =
+    "none";
+
+
+    flipbook.innerHTML =
+    "";
+
+
+    pageFlip =
+    null;
+
+
+}
+
+
+
+/* KEYBOARD */
+
+document.addEventListener(
+
+    "keydown",
+
+    function(event){
+
+
+        if(!pageFlip)
+        return;
+
+
+        if(
+            event.key ===
+            "ArrowRight"
+        ){
+
+            pageFlip.flipNext();
+
+        }
+
+
+        if(
+            event.key ===
+            "ArrowLeft"
+        ){
+
+            pageFlip.flipPrev();
+
+        }
+
+
+    }
+
+);
+
+
+</script>
+
+</body>
+</html>
