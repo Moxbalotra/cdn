@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MOX.RATHORE Speed Test</title>
+<meta name="description" content="MOX.RATHORE Internet Speed Test - measure download, upload, latency and connection quality.">
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--text:#111827;--muted:#667085;--line:#e6eaf0;--accent:#2563eb;--accent2:#06b6d4;--good:#16a34a;--shadow:0 20px 60px rgba(15,23,42,.08)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -20%,#dbeafe 0,transparent 38%),var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text)}
+.wrap{max-width:1120px;margin:auto;padding:24px}
+nav{height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:900;letter-spacing:-.8px;font-size:20px}.logo span{color:var(--accent)}
+.navpill{border:1px solid var(--line);background:#fff;padding:9px 14px;border-radius:999px;font-size:13px;color:var(--muted)}
+.hero{text-align:center;padding:52px 0 28px}.eyebrow{display:inline-flex;padding:7px 12px;border-radius:999px;background:#eaf2ff;color:#155eef;font-size:12px;font-weight:800}.hero h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-4px;margin:18px 0 14px}.hero p{color:var(--muted);font-size:17px;margin:0 auto;max-width:620px}
+.panel{margin:30px auto;max-width:850px;background:var(--card);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);padding:34px}
+.meter{width:300px;height:300px;border-radius:50%;margin:0 auto 25px;background:conic-gradient(var(--accent) 0deg,#dce7f7 0deg);display:grid;place-items:center;position:relative}
+.meter:after{content:"";position:absolute;width:250px;height:250px;border-radius:50%;background:#fff}.meterin{position:relative;z-index:2;text-align:center}.value{font-size:50px;font-weight:900;letter-spacing:-2px}.unit{color:var(--muted);font-size:14px;font-weight:700}.phase{margin-top:5px;color:var(--muted);font-size:13px}
+button{border:0;cursor:pointer;font:inherit;font-weight:800;border-radius:14px;padding:14px 24px}.primary{background:#111827;color:white;box-shadow:0 10px 25px rgba(17,24,39,.16)}.primary:disabled{opacity:.5;cursor:not-allowed}.secondary{background:#eef2f7;color:#111827}
+.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.note{text-align:center;color:#98a2b3;font-size:12px;margin-top:14px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}.stat{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}.stat small{color:var(--muted);display:block;margin-bottom:8px}.stat strong{font-size:25px}.quality{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px}.qhead{display:flex;justify-content:space-between;align-items:center}.bar{height:10px;background:#edf1f5;border-radius:20px;overflow:hidden;margin-top:15px}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .5s}
+footer{padding:50px 0 20px;text-align:center;color:#98a2b3;font-size:12px}
+@media(max-width:700px){.wrap{padding:16px}.hero{padding-top:34px}.hero h1{letter-spacing:-2.5px}.panel{padding:22px;border-radius:24px}.meter{width:245px;height:245px}.meter:after{width:205px;height:205px}.value{font-size:40px}.grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><div class="logo">MOX<span>.RATHORE</span></div><div class="navpill">Internet Performance Lab</div></nav>
+
+<section class="hero">
+<div class="eyebrow">⚡ REAL-TIME NETWORK TEST</div>
+<h1>How fast is<br>your internet?</h1>
+<p>Measure your connection with download speed, upload speed, latency and network quality in one clean dashboard.</p>
+</section>
+
+<section class="panel">
+<div class="meter" id="meter"><div class="meterin"><div class="value" id="speed">0.0</div><div class="unit">Mbps</div><div class="phase" id="phase">Ready to test</div></div></div>
+<div class="actions">
+<button class="primary" id="start">Start Speed Test</button>
+<button class="secondary" id="share">Share Results</button>
+</div>
+<div class="note">For the most accurate result, pause downloads and close heavy background apps.</div>
+</section>
+
+<section class="grid">
+<div class="stat"><small>Download</small><strong id="download">—</strong></div>
+<div class="stat"><small>Upload</small><strong id="upload">—</strong></div>
+<div class="stat"><small>Latency</small><strong id="ping">—</strong></div>
+<div class="stat"><small>Jitter</small><strong id="jitter">—</strong></div>
+</section>
+
+<section class="quality">
+<div class="qhead"><div><strong>Network Quality</strong><div style="color:#667085;font-size:13px;margin-top:4px">Based on measured performance</div></div><strong id="score">— / 100</strong></div>
+<div class="bar"><i id="bar"></i></div>
+</section>
+
+<footer>© <span id="year"></span> MOX.RATHORE · Built for fast, simple network diagnostics.</footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+$("year").textContent=new Date().getFullYear();
+let result={};
+
+function setMeter(pct){$("meter").style.background=`conic-gradient(#2563eb ${pct*3.6}deg,#dce7f7 ${pct*3.6}deg)`}
+
+async function latencyTest(){
+  const times=[];
+  for(let i=0;i<5;i++){
+    const t=performance.now();
+    try{await fetch("https://www.cloudflare.com/cdn-cgi/trace?x="+Math.random(),{cache:"no-store",mode:"cors"});times.push(performance.now()-t)}catch(e){}
+  }
+  if(!times.length)return null;
+  const avg=times.reduce((a,b)=>a+b,0)/times.length;
+  const jit=times.length>1?Math.sqrt(times.reduce((s,x)=>s+(x-avg)**2,0)/times.length):0;
+  return {avg,jit};
+}
+async function downloadTest(){
+  const sizes=[1,2,5].map(x=>x*1024*1024);
+  let total=0, start=performance.now();
+  for(const size of sizes){
+    const t=performance.now();
+    try{
+      const r=await fetch("https://speed.cloudflare.com/__down?bytes="+size+"&x="+Math.random(),{cache:"no-store"});
+      const b=await r.arrayBuffer(); total+=b.byteLength;
+      const sec=(performance.now()-t)/1000;
+      const mbps=(b.byteLength*8/sec)/1e6;
+      $("speed").textContent=mbps.toFixed(1); setMeter(Math.min(100,mbps/1000*100));
+    }catch(e){}
+  }
+  const sec=(performance.now()-start)/1000;
+  return total?total*8/sec/1e6:null;
+}
+async function uploadTest(){
+  const data=new Uint8Array(2*1024*1024);
+  const t=performance.now();
+  try{
+    await fetch("https://speed.cloudflare.com/__up",{method:"POST",body:data,cache:"no-store"});
+    return data.byteLength*8/((performance.now()-t)/1000)/1e6;
+  }catch(e){return null}
+}
+function score(d,u,p,j){let s=0;if(d)s+=Math.min(40,d/25);if(u)s+=Math.min(30,u/15);if(p)s+=Math.max(0,20-p/5);if(j)s+=Math.max(0,10-j/3);return Math.round(Math.max(0,Math.min(100,s)))}
+$("start").onclick=async()=>{
+  $("start").disabled=true;$("phase").textContent="Measuring latency…";setMeter(0);
+  const l=await latencyTest();if(l){$("ping").textContent=l.avg.toFixed(0)+" ms";$("jitter").textContent=l.jit.toFixed(0)+" ms"}
+  $("phase").textContent="Testing download…";
+  const d=await downloadTest();if(d)$("download").textContent=d.toFixed(1)+" Mbps";
+  $("phase").textContent="Testing upload…";
+  const u=await uploadTest();if(u)$("upload").textContent=u.toFixed(1)+" Mbps";
+  const sc=score(d,u,l?.avg,l?.jit);$("score").textContent=sc+" / 100";$("bar").style.width=sc+"%";
+  result={download:d,upload:u,ping:l?.avg,jitter:l?.jit,score:sc};
+  $("speed").textContent=d?d.toFixed(1):"0.0";$("phase").textContent="Test complete";
+  setMeter(Math.min(100,sc));$("start").disabled=false;
+};
+$("share").onclick=async()=>{
+  const text=`MOX.RATHORE Speed Test\nDownload: ${$("download").textContent}\nUpload: ${$("upload").textContent}\nLatency: ${$("ping").textContent}\nJitter: ${$("jitter").textContent}\nScore: ${$("score").textContent}`;
+  if(navigator.share){try{await navigator.share({title:"MOX.RATHORE Speed Test",text})}catch(e){}}
+  else{await navigator.clipboard.writeText(text);alert("Results copied to clipboard.");}
+};
+</script>
+</body>
+</html>
