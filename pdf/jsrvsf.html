@@ -69,12 +69,22 @@
     }
 
     .brand-logo{
-      width:54px;height:54px;
+      width:58px;height:58px;
       border-radius:50%;
-      object-fit:cover;
+      object-fit:contain;
       border:2px solid var(--gold);
-      background:#fff;
-      box-shadow:0 4px 12px rgba(0,0,0,.12);
+      background:linear-gradient(145deg,#fffdf7,#f5e6c5);
+      padding:3px;
+      box-shadow:
+        0 0 0 3px rgba(199,154,69,.12),
+        0 6px 18px rgba(91,20,12,.18);
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .brand:hover .brand-logo{
+      transform:scale(1.05) rotate(-2deg);
+      box-shadow:
+        0 0 0 4px rgba(199,154,69,.18),
+        0 8px 24px rgba(91,20,12,.24);
     }
 
     .brand-text h1{
@@ -424,6 +434,132 @@
       color:#bfa991;
     }
 
+
+    /* ---------- CREATIVE TEMPLE DECOR ---------- */
+    .heritage-strip{
+      position:relative;
+      height:112px;
+      margin-top:-2px;
+      overflow:hidden;
+      background:
+        linear-gradient(to bottom, transparent 0 35%, rgba(199,154,69,.12) 36%, transparent 38%),
+        linear-gradient(180deg,#fff8e9,#f4e3c4);
+      border-top:1px solid rgba(199,154,69,.35);
+      border-bottom:1px solid rgba(123,17,24,.16);
+    }
+    .heritage-strip:before{
+      content:"";
+      position:absolute;
+      left:0;right:0;bottom:0;
+      height:82px;
+      background:
+        linear-gradient(to top,rgba(78,7,12,.16),transparent);
+      pointer-events:none;
+    }
+    .temple-art{
+      position:absolute;
+      left:50%;
+      bottom:-3px;
+      transform:translateX(-50%);
+      width:min(920px,96%);
+      height:100px;
+      opacity:.92;
+    }
+
+    .ornament{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      margin:18px auto 0;
+      color:var(--gold);
+    }
+    .ornament:before,.ornament:after{
+      content:"";
+      height:1px;
+      width:min(160px,22vw);
+      background:linear-gradient(90deg,transparent,var(--gold));
+    }
+    .ornament:after{background:linear-gradient(90deg,var(--gold),transparent)}
+    .ornament span{
+      width:10px;height:10px;
+      transform:rotate(45deg);
+      border:1px solid var(--gold);
+      background:#fff8e9;
+    }
+
+    .reader{
+      position:relative;
+      isolation:isolate;
+    }
+    .reader:before{
+      content:"";
+      position:absolute;
+      inset:8px;
+      border:1px solid rgba(242,204,118,.18);
+      border-radius:21px;
+      pointer-events:none;
+      z-index:-1;
+    }
+    .reader-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:7px 11px;
+      border-radius:999px;
+      background:rgba(242,204,118,.11);
+      border:1px solid rgba(242,204,118,.24);
+      color:#f5d994;
+      font-size:12px;
+      font-weight:800;
+    }
+
+    .flip-hint{
+      text-align:center;
+      color:#e9cf9d;
+      font-size:12px;
+      margin-top:11px;
+      opacity:.9;
+    }
+
+    .floating-help{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:1100;
+      width:52px;height:52px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(145deg,#d9ad58,#9c6d25);
+      color:#fff;
+      box-shadow:0 10px 25px rgba(72,25,8,.25);
+      border:2px solid #f7d98d;
+      font-size:21px;
+      transition:.2s ease;
+    }
+    .floating-help:hover{transform:translateY(-3px) rotate(-4deg)}
+
+    .contact-card,.info-card{
+      position:relative;
+      overflow:hidden;
+    }
+    .contact-card:after,.info-card:after{
+      content:"✦";
+      position:absolute;
+      right:18px;
+      top:14px;
+      color:rgba(199,154,69,.24);
+      font-size:45px;
+      transform:rotate(15deg);
+    }
+
+    @media(max-width:520px){
+      .heritage-strip{height:80px}
+      .temple-art{height:75px}
+      .floating-help{right:14px;bottom:14px;width:48px;height:48px}
+    }
+
     /* ---------- MOBILE ---------- */
     @media(max-width:850px){
       .nav-links{
@@ -449,7 +585,7 @@
     @media(max-width:520px){
       .brand-text h1{font-size:15px}
       .brand-text span{font-size:10px}
-      .brand-logo{width:46px;height:46px}
+      .brand-logo{width:48px;height:48px}
       .hero{padding:0 13px}
       .section{padding:0 13px;margin:55px auto}
       .hero-card{border-radius:20px}
@@ -467,7 +603,7 @@
   <nav class="nav">
     <a href="#home" class="brand">
       <!-- अपना logo यहाँ रखें -->
-      <img class="brand-logo" src="logo.png" alt="जय श्रीराम वैष्णव समाज फाउंडेशन Logo">
+      <img class="brand-logo" src="https://cdn.moxrathore.com/pdf/jsrlogo.png" alt="जय श्रीराम वैष्णव समाज फाउंडेशन Logo">
       <div class="brand-text">
         <h1>जय श्रीराम वैष्णव समाज फाउंडेशन</h1>
         <span>समाज की सेवा • हमारा संकल्प</span>
@@ -545,7 +681,10 @@
 
     <div class="reader">
       <div class="reader-toolbar">
-        <div class="hint">📖 किताब की तरह पेज पलटें</div>
+        <div>
+          <span class="reader-badge">📖 डिजिटल ग्रंथ • Flip Book</span>
+          <div class="hint" style="margin-top:7px;">पन्ने के कोने पर क्लिक करें या मोबाइल पर swipe करें</div>
+        </div>
         <div class="reader-actions">
           <button class="tool-btn" id="prevBtn">‹ पिछला</button>
           <button class="tool-btn" id="nextBtn">अगला ›</button>
@@ -565,8 +704,9 @@
         <div id="flipbook" style="display:none;"></div>
       </div>
 
+      <div class="flip-hint">✦ हर पन्ने के साथ real page-turn animation • Touch / Mouse / Buttons supported ✦</div>
       <div class="pdf-note">
-        PDF बदलने के लिए केवल <b>foundation.pdf</b> नाम की अपनी PDF इसी HTML file के साथ रखें।
+        यह Flip Book आपकी CDN PDF से live document load करता है।
       </div>
     </div>
   </section>
@@ -651,6 +791,47 @@
 
 </main>
 
+
+<div class="heritage-strip" aria-hidden="true">
+  <svg class="temple-art" viewBox="0 0 920 100" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#6f171d" opacity=".92">
+      <path d="M0 94h920v6H0z"/>
+      <path d="M105 94V65h34v29h-34zm-6-29h46l-23-15z"/>
+      <path d="M118 50h8V34h-8zM104 66h36v-5h-36z"/>
+      <path d="M76 94V55h92v39h-92zm-8-39h108l-54-30z"/>
+      <path d="M91 55h12v39H91zm50 0h12v39h-12z"/>
+      <path d="M72 55h100v-6H72z"/>
+      <path d="M110 48h24v-10h-24z"/>
+      <path d="M116 38h12V25h-12z"/>
+      <path d="M111 25h22l-11-12z"/>
+      <path d="M114 13h16v-6h-16z"/>
+      <path d="M118 7h8V0h-8z"/>
+    </g>
+    <g fill="#7b1118" opacity=".48">
+      <path d="M280 94V61h360v33z"/>
+      <path d="M260 61h400L460 25z"/>
+      <path d="M315 60h20v34h-20zm65 0h20v34h-20zm65 0h20v34h-20zm65 0h20v34h-20zm65 0h20v34h-20z"/>
+      <path d="M442 25h36V14h-36z"/>
+      <path d="M449 14h22V2h-22z"/>
+      <path d="M444 2h32L460-12z"/>
+    </g>
+    <g fill="#6f171d" opacity=".9">
+      <path d="M770 94V64h35v30z"/>
+      <path d="M762 64h51l-25-18z"/>
+      <path d="M779 46h16V32h-16z"/>
+      <path d="M774 32h26L787 18z"/>
+      <path d="M0 94h55V70h-55z"/>
+      <path d="M-8 70h70L27 47z"/>
+      <path d="M20 47h14V34H20z"/>
+      <path d="M15 34h24L27 20z"/>
+    </g>
+    <g fill="none" stroke="#c79a45" stroke-width="1" opacity=".6">
+      <path d="M0 92h920"/>
+      <path d="M0 86h920"/>
+    </g>
+  </svg>
+</div>
+
 <footer>
   <div class="footer-inner">
     <div>
@@ -695,11 +876,10 @@
   import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs";
 
   // ==========================================================
-  // IMPORTANT:
-  // अपनी PDF का नाम यहाँ बदल सकते हैं।
-  // Example: "my-foundation-pdf.pdf"
+  // PDF SOURCE:
+  // आपकी CDN पर hosted PDF
   // ==========================================================
-  const PDF_URL = "foundation.pdf";
+  const PDF_URL = "https://cdn.moxrathore.com/pdf/jsrvf.pdf";
 
   // PDF.js worker
   pdfjsLib.GlobalWorkerOptions.workerSrc =
@@ -818,5 +998,6 @@
   createFlipBook();
 </script>
 
+<a class="floating-help" href="#contact" aria-label="Contact Us" title="Contact Us">☎</a>
 </body>
 </html>
