@@ -436,6 +436,35 @@
 
 
     /* ---------- CREATIVE TEMPLE DECOR ---------- */
+
+    .temple-vector-img{
+      position:absolute;
+      left:50%;
+      bottom:-1px;
+      transform:translateX(-50%);
+      width:min(1280px,108%);
+      height:auto;
+      max-height:150px;
+      object-fit:contain;
+      object-position:center bottom;
+      pointer-events:none;
+      user-select:none;
+      opacity:.94;
+      mix-blend-mode:multiply;
+      filter:drop-shadow(0 3px 2px rgba(94,34,8,.08));
+    }
+
+    .heritage-strip .temple-glow{
+      position:absolute;
+      width:220px;
+      height:70px;
+      left:50%;
+      bottom:8px;
+      transform:translateX(-50%);
+      background:radial-gradient(ellipse,rgba(239,194,92,.18),transparent 70%);
+      pointer-events:none;
+    }
+
     .heritage-strip{
       position:relative;
       height:112px;
@@ -557,6 +586,7 @@
     @media(max-width:520px){
       .heritage-strip{height:80px}
       .temple-art{height:75px}
+      .temple-vector-img{width:125%;max-height:95px;bottom:0}
       .floating-help{right:14px;bottom:14px;width:48px;height:48px}
     }
 
@@ -793,43 +823,13 @@
 
 
 <div class="heritage-strip" aria-hidden="true">
-  <svg class="temple-art" viewBox="0 0 920 100" xmlns="http://www.w3.org/2000/svg">
-    <g fill="#6f171d" opacity=".92">
-      <path d="M0 94h920v6H0z"/>
-      <path d="M105 94V65h34v29h-34zm-6-29h46l-23-15z"/>
-      <path d="M118 50h8V34h-8zM104 66h36v-5h-36z"/>
-      <path d="M76 94V55h92v39h-92zm-8-39h108l-54-30z"/>
-      <path d="M91 55h12v39H91zm50 0h12v39h-12z"/>
-      <path d="M72 55h100v-6H72z"/>
-      <path d="M110 48h24v-10h-24z"/>
-      <path d="M116 38h12V25h-12z"/>
-      <path d="M111 25h22l-11-12z"/>
-      <path d="M114 13h16v-6h-16z"/>
-      <path d="M118 7h8V0h-8z"/>
-    </g>
-    <g fill="#7b1118" opacity=".48">
-      <path d="M280 94V61h360v33z"/>
-      <path d="M260 61h400L460 25z"/>
-      <path d="M315 60h20v34h-20zm65 0h20v34h-20zm65 0h20v34h-20zm65 0h20v34h-20zm65 0h20v34h-20z"/>
-      <path d="M442 25h36V14h-36z"/>
-      <path d="M449 14h22V2h-22z"/>
-      <path d="M444 2h32L460-12z"/>
-    </g>
-    <g fill="#6f171d" opacity=".9">
-      <path d="M770 94V64h35v30z"/>
-      <path d="M762 64h51l-25-18z"/>
-      <path d="M779 46h16V32h-16z"/>
-      <path d="M774 32h26L787 18z"/>
-      <path d="M0 94h55V70h-55z"/>
-      <path d="M-8 70h70L27 47z"/>
-      <path d="M20 47h14V34H20z"/>
-      <path d="M15 34h24L27 20z"/>
-    </g>
-    <g fill="none" stroke="#c79a45" stroke-width="1" opacity=".6">
-      <path d="M0 92h920"/>
-      <path d="M0 86h920"/>
-    </g>
-  </svg>
+  <div class="temple-glow"></div>
+  <img
+    class="temple-vector-img"
+    src="jsrvf_temple_vector_transparent.png"
+    alt=""
+    loading="lazy"
+  >
 </div>
 
 <footer>
