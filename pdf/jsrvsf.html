@@ -1,1 +1,822 @@
-hallo
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7a0f17">
+  <title>जय श्रीराम वैष्णव समाज फाउंडेशन</title>
+
+  <!-- PDF.js: PDF को browser में render करने के लिए -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs" type="module"></script>
+
+  <!-- StPageFlip: किताब जैसी page-turn animation -->
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+
+  <style>
+    :root{
+      --maroon:#7b1118;
+      --dark-maroon:#4e070c;
+      --gold:#c79a45;
+      --cream:#fff8e9;
+      --paper:#fffdf7;
+      --ink:#2b1713;
+      --muted:#75635d;
+      --green:#16834b;
+      --shadow:0 18px 45px rgba(62,18,10,.18);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%,rgba(199,154,69,.12),transparent 25%),
+        radial-gradient(circle at 90% 20%,rgba(123,17,24,.08),transparent 25%),
+        var(--cream);
+      line-height:1.55;
+    }
+
+    a{text-decoration:none;color:inherit}
+
+    /* ---------- HEADER ---------- */
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,253,247,.94);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(123,17,24,.14);
+      box-shadow:0 5px 24px rgba(50,10,5,.07);
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+      padding:10px 22px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .brand-logo{
+      width:54px;height:54px;
+      border-radius:50%;
+      object-fit:cover;
+      border:2px solid var(--gold);
+      background:#fff;
+      box-shadow:0 4px 12px rgba(0,0,0,.12);
+    }
+
+    .brand-text h1{
+      color:var(--maroon);
+      font-size:20px;
+      line-height:1.1;
+      font-weight:900;
+    }
+    .brand-text span{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:5px;
+      list-style:none;
+    }
+    .nav-links a{
+      padding:9px 13px;
+      border-radius:10px;
+      font-weight:700;
+      font-size:14px;
+      color:#43251e;
+    }
+    .nav-links a:hover{
+      background:#fff1d2;
+      color:var(--maroon);
+    }
+
+    .menu-btn{
+      display:none;
+      border:0;
+      background:var(--maroon);
+      color:#fff;
+      width:44px;height:44px;
+      border-radius:10px;
+      font-size:21px;
+      cursor:pointer;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero{
+      max-width:1200px;
+      margin:28px auto 0;
+      padding:0 22px;
+    }
+
+    .hero-card{
+      position:relative;
+      overflow:hidden;
+      min-height:330px;
+      border-radius:28px;
+      padding:58px 55px;
+      color:#fff;
+      background:
+        radial-gradient(circle at 85% 15%,rgba(255,222,140,.24),transparent 20%),
+        radial-gradient(circle at 15% 90%,rgba(255,222,140,.12),transparent 25%),
+        linear-gradient(135deg,#4b070c,#7b1118 48%,#9c2327);
+      box-shadow:var(--shadow);
+      border:1px solid rgba(199,154,69,.5);
+    }
+
+    .hero-card:before,
+    .hero-card:after{
+      content:"";
+      position:absolute;
+      width:260px;height:260px;
+      border:1px solid rgba(255,221,140,.25);
+      border-radius:50%;
+    }
+    .hero-card:before{right:-80px;top:-100px}
+    .hero-card:after{left:-100px;bottom:-150px}
+
+    .hero-content{position:relative;z-index:2;max-width:800px}
+    .eyebrow{
+      color:#ffe4a4;
+      font-size:14px;
+      font-weight:800;
+      letter-spacing:.4px;
+      margin-bottom:10px;
+    }
+    .hero h2{
+      font-size:clamp(30px,5vw,58px);
+      line-height:1.1;
+      margin-bottom:18px;
+      font-weight:950;
+    }
+    .hero p{
+      max-width:720px;
+      color:#fff4df;
+      font-size:17px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:26px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:46px;
+      padding:0 19px;
+      border-radius:12px;
+      border:1px solid transparent;
+      font-weight:850;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-gold{
+      background:linear-gradient(135deg,#f1cf7c,#c7943d);
+      color:#43100c;
+    }
+    .btn-light{
+      background:rgba(255,255,255,.09);
+      border-color:rgba(255,255,255,.32);
+      color:#fff;
+    }
+
+    /* ---------- SECTION ---------- */
+    section{scroll-margin-top:100px}
+    .section{
+      max-width:1200px;
+      margin:78px auto;
+      padding:0 22px;
+    }
+    .section-head{
+      text-align:center;
+      margin-bottom:28px;
+    }
+    .section-kicker{
+      color:var(--gold);
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      font-size:12px;
+    }
+    .section-head h2{
+      margin-top:5px;
+      font-size:clamp(27px,4vw,42px);
+      color:var(--maroon);
+    }
+    .section-head p{
+      margin:7px auto 0;
+      color:var(--muted);
+      max-width:700px;
+    }
+
+    /* ---------- FLIPBOOK ---------- */
+    .reader{
+      background:
+        radial-gradient(circle at center,#5e1217 0,#35070a 65%,#1c0405 100%);
+      border-radius:28px;
+      padding:25px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(199,154,69,.55);
+    }
+
+    .reader-toolbar{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:20px;
+      color:#fff;
+    }
+    .reader-toolbar .hint{
+      color:#f7ddaa;
+      font-size:13px;
+    }
+    .reader-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .tool-btn{
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.09);
+      color:#fff;
+      border-radius:9px;
+      padding:8px 12px;
+      cursor:pointer;
+      font-weight:700;
+    }
+    .tool-btn:hover{background:rgba(255,255,255,.16)}
+
+    #flipbook-wrap{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:560px;
+      overflow:hidden;
+      border-radius:18px;
+      background:
+        linear-gradient(90deg,rgba(255,255,255,.04),transparent 50%,rgba(255,255,255,.04)),
+        #260507;
+    }
+
+    #flipbook{
+      margin:auto;
+    }
+
+    .page{
+      background:var(--paper);
+      overflow:hidden;
+    }
+    .page canvas{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      background:#fff;
+    }
+
+    .loader{
+      color:#fff;
+      text-align:center;
+      padding:70px 20px;
+      width:100%;
+    }
+    .spinner{
+      width:45px;height:45px;
+      border:4px solid rgba(255,255,255,.2);
+      border-top-color:#f2cc76;
+      border-radius:50%;
+      animation:spin .8s linear infinite;
+      margin:0 auto 15px;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    .pdf-note{
+      text-align:center;
+      margin-top:14px;
+      color:#f4dca9;
+      font-size:12px;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:25px;
+    }
+
+    .contact-card,.info-card{
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(123,17,24,.12);
+      border-radius:22px;
+      padding:28px;
+      box-shadow:0 12px 35px rgba(65,17,9,.08);
+    }
+
+    .contact-card h3,.info-card h3{
+      color:var(--maroon);
+      font-size:25px;
+      margin-bottom:18px;
+    }
+
+    .person{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:16px 0;
+      border-bottom:1px dashed #dcc9ad;
+    }
+    .person:last-child{border-bottom:0}
+    .avatar{
+      flex:0 0 52px;
+      width:52px;height:52px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,#fff0c9,#e6bd6d);
+      color:var(--maroon);
+      font-size:22px;
+      border:1px solid var(--gold);
+    }
+    .person h4{font-size:17px}
+    .person small{color:var(--muted)}
+    .contact-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:8px;
+    }
+    .mini-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:7px 10px;
+      border-radius:8px;
+      font-size:12px;
+      font-weight:800;
+    }
+    .call{background:#eaf6ef;color:#106b3d}
+    .whatsapp{background:#e8f8ef;color:#0c7844}
+
+    .detail{
+      padding:12px 0;
+      border-bottom:1px solid #eee2d2;
+    }
+    .detail:last-child{border-bottom:0}
+    .detail strong{
+      display:block;
+      color:#70564c;
+      font-size:12px;
+      margin-bottom:2px;
+    }
+    .detail span{
+      font-weight:750;
+      color:#2c1a16;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer{
+      margin-top:70px;
+      background:#320609;
+      color:#f9e9c9;
+      padding:45px 22px 22px;
+    }
+    .footer-inner{
+      max-width:1200px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:1.2fr .8fr .8fr;
+      gap:35px;
+    }
+    footer h3{color:#f0cc7d;margin-bottom:12px}
+    footer p, footer li{font-size:13px;color:#ddcbb1}
+    footer ul{list-style:none;display:grid;gap:7px}
+    footer a:hover{color:#fff}
+    .copyright{
+      max-width:1200px;
+      margin:30px auto 0;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.12);
+      text-align:center;
+      font-size:12px;
+      color:#bfa991;
+    }
+
+    /* ---------- MOBILE ---------- */
+    @media(max-width:850px){
+      .nav-links{
+        display:none;
+        position:absolute;
+        left:15px;right:15px;top:70px;
+        background:#fffdf7;
+        padding:10px;
+        border-radius:14px;
+        box-shadow:0 15px 35px rgba(0,0,0,.15);
+        flex-direction:column;
+        align-items:stretch;
+      }
+      .nav-links.show{display:flex}
+      .nav-links a{display:block}
+      .menu-btn{display:block}
+      .hero-card{padding:42px 28px;min-height:360px}
+      .contact-grid,.footer-inner{grid-template-columns:1fr}
+      .reader{padding:14px}
+      #flipbook-wrap{min-height:440px}
+    }
+
+    @media(max-width:520px){
+      .brand-text h1{font-size:15px}
+      .brand-text span{font-size:10px}
+      .brand-logo{width:46px;height:46px}
+      .hero{padding:0 13px}
+      .section{padding:0 13px;margin:55px auto}
+      .hero-card{border-radius:20px}
+      .hero p{font-size:14px}
+      .reader{border-radius:18px}
+      .reader-toolbar{align-items:flex-start}
+      .contact-card,.info-card{padding:20px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#home" class="brand">
+      <!-- अपना logo यहाँ रखें -->
+      <img class="brand-logo" src="logo.png" alt="जय श्रीराम वैष्णव समाज फाउंडेशन Logo">
+      <div class="brand-text">
+        <h1>जय श्रीराम वैष्णव समाज फाउंडेशन</h1>
+        <span>समाज की सेवा • हमारा संकल्प</span>
+      </div>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">होम</a></li>
+      <li><a href="#about">संस्था</a></li>
+      <li><a href="#yojana">योजनाएँ</a></li>
+      <li><a href="#document">पीडीएफ / नियम</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="home">
+
+  <section class="hero">
+    <div class="hero-card">
+      <div class="hero-content">
+        <div class="eyebrow">जय श्रीराम वैष्णव समाज फाउंडेशन</div>
+        <h2>समाज की सेवा,<br>हमारा संकल्प।</h2>
+        <p>
+          संस्था से संबंधित योजनाएँ, नियम एवं आवश्यक जानकारी
+          एक ही स्थान पर देखें। नीचे दी गई PDF को किताब की तरह
+          पन्ने पलटकर पढ़ा जा सकता है।
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn btn-gold" href="#document">📖 PDF देखें</a>
+          <a class="btn btn-light" href="#contact">📞 Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-head">
+      <div class="section-kicker">About Foundation</div>
+      <h2>संस्था के बारे में</h2>
+      <p>
+        जय श्रीराम वैष्णव समाज फाउंडेशन सामाजिक सदस्यों एवं लाभार्थियों
+        से संबंधित योजनाओं और सहयोग की जानकारी उपलब्ध कराने के लिए यह
+        डिजिटल पेज प्रस्तुत करता है।
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="yojana">
+    <div class="section-head">
+      <div class="section-kicker">Our Schemes</div>
+      <h2>हमारी प्रमुख योजनाएँ</h2>
+      <p>योजनाओं के विस्तृत नियम और शर्तें नीचे दी गई PDF में देखें।</p>
+    </div>
+
+    <div class="contact-card" style="text-align:center">
+      <div class="hero-buttons" style="justify-content:center">
+        <a class="btn btn-gold" href="#document">पुत्र-पुत्री विवाह योजना</a>
+        <a class="btn btn-gold" href="#document">मायरा योजना</a>
+        <a class="btn btn-gold" href="#document">सुरक्षा सहयोग योजना</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- PDF FLIPBOOK ---------- -->
+  <section class="section" id="document">
+    <div class="section-head">
+      <div class="section-kicker">Digital Document</div>
+      <h2>संस्था की PDF • Flip Book</h2>
+      <p>पन्ना पलटने के लिए किनारों पर क्लिक करें या मोबाइल पर swipe करें।</p>
+    </div>
+
+    <div class="reader">
+      <div class="reader-toolbar">
+        <div class="hint">📖 किताब की तरह पेज पलटें</div>
+        <div class="reader-actions">
+          <button class="tool-btn" id="prevBtn">‹ पिछला</button>
+          <button class="tool-btn" id="nextBtn">अगला ›</button>
+          <button class="tool-btn" id="fullscreenBtn">⛶ Fullscreen</button>
+
+          <!-- PDF डाउनलोड लिंक -->
+          <a class="tool-btn" href="foundation.pdf" download>⬇ PDF Download</a>
+        </div>
+      </div>
+
+      <div id="flipbook-wrap">
+        <div class="loader" id="loader">
+          <div class="spinner"></div>
+          <div>PDF को Flip Book में तैयार किया जा रहा है...</div>
+        </div>
+
+        <div id="flipbook" style="display:none;"></div>
+      </div>
+
+      <div class="pdf-note">
+        PDF बदलने के लिए केवल <b>foundation.pdf</b> नाम की अपनी PDF इसी HTML file के साथ रखें।
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- CONTACT ---------- -->
+  <section class="section" id="contact">
+    <div class="section-head">
+      <div class="section-kicker">Contact Us</div>
+      <h2>संपर्क करें</h2>
+      <p>संस्था से संबंधित जानकारी के लिए नीचे दिए गए संपर्क नंबर पर बात करें।</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <h3>संस्थापक / संपर्क व्यक्ति</h3>
+
+        <div class="person">
+          <div class="avatar">ॐ</div>
+          <div>
+            <h4>तुलसीदास रामावत</h4>
+            <small>संस्थापक</small>
+            <div class="contact-buttons">
+              <a class="mini-btn call" href="tel:+919414282293">📞 Call</a>
+              <a class="mini-btn whatsapp"
+                 href="https://wa.me/919414282293?text=नमस्कार%2C%20मुझे%20जय%20श्रीराम%20वैष्णव%20समाज%20फाउंडेशन%20के%20बारे%20में%20जानकारी%20चाहिए।"
+                 target="_blank" rel="noopener">💬 WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="person">
+          <div class="avatar">ॐ</div>
+          <div>
+            <h4>गोपालदास निबार्क</h4>
+            <small>संस्थापक</small>
+            <div class="contact-buttons">
+              <a class="mini-btn call" href="tel:+919166488200">📞 Call</a>
+              <a class="mini-btn whatsapp"
+                 href="https://wa.me/919166488200?text=नमस्कार%2C%20मुझे%20जय%20श्रीराम%20वैष्णव%20समाज%20फाउंडेशन%20के%20बारे%20में%20जानकारी%20चाहिए।"
+                 target="_blank" rel="noopener">💬 WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h3>संस्था की जानकारी</h3>
+
+        <div class="detail">
+          <strong>पता</strong>
+          <span>ऑफिस नंबर 5, 2nd फ्लोर, नीलम टॉवर, सिनेमा हॉल के सामने, बालोतरा</span>
+        </div>
+
+        <div class="detail">
+          <strong>मोबाइल नंबर</strong>
+          <span>9414282293, 9166488200</span>
+        </div>
+
+        <div class="detail">
+          <strong>फाउंडेशन रजिस्ट्रेशन नंबर</strong>
+          <span>U88900RJ2026NPL117856</span>
+        </div>
+
+        <div class="detail">
+          <strong>लाइसेंस नंबर</strong>
+          <span>191708</span>
+        </div>
+
+        <div class="detail">
+          <strong>त्वरित संपर्क</strong>
+          <div class="contact-buttons">
+            <a class="btn btn-gold" href="tel:+919414282293">📞 Call Now</a>
+            <a class="btn" style="background:#e8f8ef;color:#0c7844"
+               href="https://wa.me/919414282293" target="_blank" rel="noopener">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h3>जय श्रीराम वैष्णव समाज फाउंडेशन</h3>
+      <p>समाज की सेवा • हमारा संकल्प</p>
+      <p style="margin-top:10px">
+        ऑफिस नंबर 5, 2nd फ्लोर, नीलम टॉवर, सिनेमा हॉल के सामने, बालोतरा
+      </p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#home">होम</a></li>
+        <li><a href="#about">संस्था</a></li>
+        <li><a href="#yojana">योजनाएँ</a></li>
+        <li><a href="#document">PDF Flip Book</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Registration</h3>
+      <p>Registration No.</p>
+      <p><b>U88900RJ2026NPL117856</b></p>
+      <p style="margin-top:8px">License No. <b>191708</b></p>
+    </div>
+  </div>
+
+  <div class="copyright">
+    © <span id="year"></span> जय श्रीराम वैष्णव समाज फाउंडेशन. All Rights Reserved.
+    <span style="margin:0 8px;opacity:.45;">|</span>
+    Designed &amp; Developed by
+    <a href="https://www.morihix.com/" target="_blank" rel="noopener noreferrer"
+       style="color:#f0cc7d;font-weight:800;text-decoration:none;">
+      Morihix Private Limited
+    </a>
+  </div>
+</footer>
+
+<script type="module">
+  import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs";
+
+  // ==========================================================
+  // IMPORTANT:
+  // अपनी PDF का नाम यहाँ बदल सकते हैं।
+  // Example: "my-foundation-pdf.pdf"
+  // ==========================================================
+  const PDF_URL = "foundation.pdf";
+
+  // PDF.js worker
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
+
+  const loader = document.getElementById("loader");
+  const flipbook = document.getElementById("flipbook");
+  const wrap = document.getElementById("flipbook-wrap");
+
+  let pageFlip = null;
+
+  async function createFlipBook() {
+    try {
+      const pdf = await pdfjsLib.getDocument(PDF_URL).promise;
+
+      flipbook.innerHTML = "";
+
+      // PDF के हर page को canvas में render करके flipbook page बनाया जाएगा
+      for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+        const page = await pdf.getPage(pageNumber);
+        const viewport = page.getViewport({ scale: 1.5 });
+
+        const pageDiv = document.createElement("div");
+        pageDiv.className = "page";
+        pageDiv.dataset.density = "soft";
+
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+
+        canvas.width = Math.ceil(viewport.width);
+        canvas.height = Math.ceil(viewport.height);
+
+        await page.render({
+          canvasContext: context,
+          viewport: viewport
+        }).promise;
+
+        pageDiv.appendChild(canvas);
+        flipbook.appendChild(pageDiv);
+      }
+
+      loader.style.display = "none";
+      flipbook.style.display = "block";
+
+      const firstCanvas = flipbook.querySelector("canvas");
+      const ratio = firstCanvas ? firstCanvas.height / firstCanvas.width : 1.414;
+
+      const availableWidth = Math.min(wrap.clientWidth - 20, 650);
+      const pageWidth = Math.max(260, Math.floor(availableWidth));
+      const pageHeight = Math.floor(pageWidth * ratio);
+
+      pageFlip = new St.PageFlip(flipbook, {
+        width: pageWidth,
+        height: Math.min(pageHeight, 900),
+
+        size: "stretch",
+        minWidth: 260,
+        maxWidth: 650,
+        minHeight: 360,
+        maxHeight: 900,
+
+        drawShadow: true,
+        flippingTime: 850,
+        usePortrait: true,
+        autoSize: true,
+        showCover: true,
+        mobileScrollSupport: true,
+        maxShadowOpacity: 0.45,
+        startPage: 0
+      });
+
+      pageFlip.loadFromHTML(document.querySelectorAll(".page"));
+
+    } catch (error) {
+      console.error(error);
+      loader.innerHTML = `
+        <div style="font-size:42px">📄</div>
+        <h3 style="margin:10px 0">PDF Load नहीं हो सकी</h3>
+        <p style="color:#f4dca9">
+          कृपया check करें कि <b>foundation.pdf</b> इसी folder में मौजूद है।
+        </p>
+      `;
+    }
+  }
+
+  document.getElementById("prevBtn").addEventListener("click", () => {
+    if (pageFlip) pageFlip.flipPrev();
+  });
+
+  document.getElementById("nextBtn").addEventListener("click", () => {
+    if (pageFlip) pageFlip.flipNext();
+  });
+
+  document.getElementById("fullscreenBtn").addEventListener("click", () => {
+    const reader = document.querySelector(".reader");
+    if (!document.fullscreenElement) {
+      reader.requestFullscreen?.();
+    } else {
+      document.exitFullscreen?.();
+    }
+  });
+
+  // Mobile navigation
+  document.getElementById("menuBtn").addEventListener("click", () => {
+    document.getElementById("navLinks").classList.toggle("show");
+  });
+
+  document.querySelectorAll("#navLinks a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.getElementById("navLinks").classList.remove("show");
+    });
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  createFlipBook();
+</script>
+
+</body>
+</html>
