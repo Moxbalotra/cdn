@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aai Nath Gaushala | गौ सेवा एवं गौ चिकित्सालय | Balotra Rajasthan</title>
+
+    <meta name="description"
+        content="Aai Nath Gaushala Balotra, Rajasthan. गौ सेवा, निराश्रित एवं दुर्घटनाग्रस्त गौ माता की सेवा, गौ चिकित्सालय और एम्बुलेंस सुविधा।">
+
+    <meta name="theme-color" content="#6b3f1d">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Noto Sans Devanagari", "Segoe UI", Arial, sans-serif;
+            background: #fffaf1;
+            color: #342318;
+            line-height: 1.7;
+        }
+
+        :root {
+            --brown: #6b3f1d;
+            --dark-brown: #3d2413;
+            --gold: #d49b3a;
+            --cream: #fff8e8;
+            --light: #fffdf8;
+            --green: #557338;
+            --orange: #c86f24;
+        }
+
+        /* TOP BAR */
+
+        .topbar {
+            background: var(--dark-brown);
+            color: #fff;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .top-contact {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .top-contact a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: rgba(255, 253, 248, 0.96);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 25px rgba(55, 32, 15, .08);
+        }
+
+        .navbar {
+            width: 90%;
+            max-width: 1250px;
+            margin: auto;
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--brown);
+        }
+
+        .logo-icon {
+            width: 53px;
+            height: 53px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #f4c968, #9b5b20);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 27px;
+            box-shadow: 0 5px 15px rgba(107, 63, 29, .22);
+        }
+
+        .logo-text strong {
+            display: block;
+            font-size: 19px;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 11px;
+            color: #7c654d;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #47301f;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: var(--orange);
+        }
+
+        .nav-donate {
+            background: var(--brown);
+            color: #fff !important;
+            padding: 11px 20px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(107, 63, 29, .2);
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 650px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background:
+                linear-gradient(90deg,
+                rgba(39, 22, 10, .90) 0%,
+                rgba(66, 39, 18, .70) 47%,
+                rgba(65, 35, 13, .18) 100%),
+                url("https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            left: -5%;
+            width: 110%;
+            height: 140px;
+            background: #fffaf1;
+            transform: rotate(-3deg);
+        }
+
+        .hero-content {
+            width: 90%;
+            max-width: 1250px;
+            margin: auto;
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            padding: 70px 0;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 16px;
+            border: 1px solid rgba(255,255,255,.35);
+            border-radius: 30px;
+            background: rgba(255,255,255,.10);
+            backdrop-filter: blur(8px);
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            max-width: 720px;
+            font-size: clamp(42px, 6vw, 75px);
+            line-height: 1.08;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: #f6c969;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #f8eee1;
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 25px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: .3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #efb84c, #c77b20);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(213, 142, 42, .3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,.55);
+            color: #fff;
+            background: rgba(255,255,255,.08);
+        }
+
+        .btn-outline:hover {
+            background: #fff;
+            color: var(--brown);
+        }
+
+        /* STATS */
+
+        .stats {
+            position: relative;
+            z-index: 5;
+            margin-top: -55px;
+        }
+
+        .stats-grid {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            background: #fff;
+            border-radius: 22px;
+            padding: 28px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            box-shadow: 0 15px 50px rgba(74, 42, 19, .12);
+        }
+
+        .stat {
+            text-align: center;
+            padding: 10px;
+            border-right: 1px solid #eee3d4;
+        }
+
+        .stat:last-child {
+            border: 0;
+        }
+
+        .stat-icon {
+            font-size: 29px;
+            margin-bottom: 5px;
+        }
+
+        .stat h3 {
+            color: var(--brown);
+            font-size: 20px;
+        }
+
+        .stat p {
+            font-size: 13px;
+            color: #756452;
+        }
+
+        /* COMMON */
+
+        section {
+            padding: 95px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 750px;
+            margin: auto auto 50px;
+        }
+
+        .section-title small {
+            color: var(--orange);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            color: var(--dark-brown);
+            font-size: clamp(30px, 4vw, 45px);
+            line-height: 1.2;
+            margin: 10px 0 15px;
+        }
+
+        .section-title p {
+            color: #75695d;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #fffaf1;
+        }
+
+        .about-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 480px;
+            border-radius: 30px;
+            background:
+                linear-gradient(180deg, transparent 45%, rgba(45, 24, 10, .75)),
+                url("https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?auto=format&fit=crop&w=1000&q=85")
+                center/cover;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(68, 38, 14, .18);
+        }
+
+        .image-badge {
+            position: absolute;
+            left: 25px;
+            bottom: 25px;
+            right: 25px;
+            background: rgba(255,255,255,.94);
+            padding: 18px;
+            border-radius: 17px;
+            color: var(--brown);
+        }
+
+        .image-badge strong {
+            display: block;
+            font-size: 20px;
+        }
+
+        .about-content h3 {
+            font-size: 30px;
+            color: var(--brown);
+            margin-bottom: 15px;
+        }
+
+        .about-content p {
+            color: #695c50;
+            margin-bottom: 18px;
+        }
+
+        .check-list {
+            list-style: none;
+            margin-top: 22px;
+        }
+
+        .check-list li {
+            margin: 12px 0;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .check-list span {
+            background: #e9f0dc;
+            color: var(--green);
+            width: 25px;
+            height: 25px;
+            min-width: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+        }
+
+        /* SERVICES */
+
+        .services {
+            background: #f7f0e3;
+        }
+
+        .cards {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 22px;
+            padding: 30px;
+            border: 1px solid #eee2d1;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 40px rgba(76, 41, 15, .11);
+        }
+
+        .card-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 18px;
+            background: #fff2d4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: var(--brown);
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #75685b;
+            font-size: 14px;
+        }
+
+        /* STORY */
+
+        .story {
+            background: #fff;
+        }
+
+        .story-box {
+            max-width: 1050px;
+            margin: auto;
+            padding: 45px;
+            background:
+                linear-gradient(135deg, #fff8e9, #fffdf9);
+            border: 1px solid #eadbc7;
+            border-radius: 28px;
+            position: relative;
+        }
+
+        .quote {
+            font-size: 65px;
+            color: #e5b45d;
+            line-height: .6;
+            margin-bottom: 20px;
+        }
+
+        .story-box p {
+            color: #63574c;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .timeline {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #e7dac9;
+        }
+
+        .year {
+            background: var(--brown);
+            color: #fff;
+            padding: 10px 17px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        /* DONATE */
+
+        .donate {
+            background:
+                radial-gradient(circle at 15% 20%, rgba(255,255,255,.12) 0 2px, transparent 3px),
+                linear-gradient(135deg, #4b2b16, #7a481e);
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .donate::before {
+            content: "ॐ";
+            position: absolute;
+            font-size: 320px;
+            opacity: .035;
+            right: 3%;
+            top: -90px;
+        }
+
+        .donate .section-title h2,
+        .donate .section-title p {
+            color: #fff;
+        }
+
+        .donation-box {
+            max-width: 750px;
+            margin: auto;
+            background: rgba(255,255,255,.10);
+            border: 1px solid rgba(255,255,255,.18);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 35px;
+        }
+
+        .upi-box {
+            background: #fff;
+            color: var(--brown);
+            border-radius: 17px;
+            padding: 17px;
+            margin: 20px 0;
+        }
+
+        .upi-label {
+            font-size: 12px;
+            color: #8a765f;
+        }
+
+        .upi-id {
+            font-size: 20px;
+            font-weight: 800;
+            word-break: break-all;
+        }
+
+        .donation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: #fffaf1;
+        }
+
+        .contact-grid {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #eee0cd;
+        }
+
+        .contact-card .icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .contact-card h3 {
+            color: var(--brown);
+            margin-bottom: 6px;
+        }
+
+        .contact-card a {
+            color: #66594e;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #2f1c0f;
+            color: #ddd;
+            padding: 55px 5% 20px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        footer h3 {
+            color: #fff;
+            margin-bottom: 14px;
+        }
+
+        footer p,
+        footer li {
+            color: #c8b9aa;
+            font-size: 14px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin: 7px 0;
+        }
+
+        footer a {
+            color: #d9c9b8;
+            text-decoration: none;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 35px auto 0;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,255,255,.1);
+            text-align: center;
+            font-size: 12px;
+            color: #9f8f80;
+        }
+
+        /* FLOATING BUTTONS */
+
+        .floating-actions {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .float-btn {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            font-size: 22px;
+            box-shadow: 0 8px 22px rgba(0,0,0,.2);
+        }
+
+        .call {
+            background: #26743b;
+        }
+
+        .donate-float {
+            background: #c77c20;
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 900px) {
+
+            .topbar {
+                display: none;
+            }
+
+            .navbar {
+                min-height: 70px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 70px;
+                background: #fff;
+                display: none;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 15px 25px rgba(0,0,0,.1);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+                padding: 8px;
+            }
+
+            .hero {
+                min-height: 620px;
+            }
+
+            .hero-content {
+                padding-top: 40px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat {
+                border-right: 0;
+                border-bottom: 1px solid #eee3d4;
+                padding-bottom: 20px;
+            }
+
+            .stat:last-child {
+                border-bottom: 0;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 380px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media(max-width: 550px) {
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .story-box {
+                padding: 28px 22px;
+            }
+
+            .timeline {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <div class="top-contact">
+        <a href="tel:7726983654">📞 7726983654</a>
+        <a href="tel:9461521861">📞 9461521861</a>
+        <a href="mailto:aainathgaushala@gmail.com">
+            ✉ aainathgaushala@gmail.com
+        </a>
+    </div>
+
+    <div>
+        Balotra, Rajasthan
+    </div>
+</div>
+
+
+<!-- NAVIGATION -->
+<header>
+    <div class="navbar">
+
+        <a href="#home" class="logo">
+            <div class="logo-icon">🐄</div>
+
+            <div class="logo-text">
+                <strong>Aai Nath Gaushala</strong>
+                <span>गौ सेवा • गौ चिकित्सालय • सेवा</span>
+            </div>
+        </a>
+
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+        <nav id="nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">सेवाएँ</a>
+            <a href="#story">हमारी कहानी</a>
+            <a href="#contact">Contact</a>
+            <a href="#donate" class="nav-donate">❤️ Donate</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            🐄 Aai Nath Gaushala • Balotra Rajasthan
+        </div>
+
+        <h1>
+            गौ सेवा ही
+            <span>सबसे बड़ी सेवा</span>
+        </h1>
+
+        <p>
+            अंधी, विकलांग, निराश्रित एवं दुर्घटनाग्रस्त गौ माता की
+            सेवा और उपचार के लिए समर्पित Aai Nath Gaushala.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#donate" class="btn btn-primary">
+                ❤️ गौ सेवा में योगदान
+            </a>
+
+            <a href="tel:7726983654" class="btn btn-outline">
+                📞 Call Now
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+<div class="stats">
+
+    <div class="stats-grid">
+
+        <div class="stat">
+            <div class="stat-icon">🐄</div>
+            <h3>गौ सेवा</h3>
+            <p>निराश्रित गौ माता की सेवा</p>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🏥</div>
+            <h3>गौ चिकित्सालय</h3>
+            <p>बीमार एवं घायल गौ माता का उपचार</p>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🚑</div>
+            <h3>एम्बुलेंस सेवा</h3>
+            <p>दुर्घटनाग्रस्त गौ माता के लिए सुविधा</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+    <div class="section-title">
+        <small>हमारे बारे में</small>
+
+        <h2>
+            गौ माता की सेवा के लिए एक समर्पित प्रयास
+        </h2>
+
+        <p>
+            सेवा, संरक्षण और उपचार के उद्देश्य से निरंतर कार्यरत।
+        </p>
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-image">
+
+            <div class="image-badge">
+                <strong>गौ सेवा • मानव सेवा</strong>
+                <span>
+                    Aai Nath Gaushala, Balotra
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="about-content">
+
+            <h3>हमारा उद्देश्य</h3>
+
+            <p>
+                Aai Nath Gaushala राजस्थान के बालोतरा क्षेत्र में
+                गौ माता की सेवा और संरक्षण के लिए कार्यरत है।
+            </p>
+
+            <p>
+                यहां अंधी, विकलांग एवं निराश्रित गायों की सेवा की जाती है।
+                दुर्घटनाग्रस्त गौ माता को उपचार के लिए लाने हेतु
+                एम्बुलेंस सुविधा भी उपलब्ध कराई जाती है।
+            </p>
+
+            <ul class="check-list">
+
+                <li>
+                    <span>✓</span>
+                    <div>
+                        <strong>निराश्रित गौ माता की सेवा</strong><br>
+                        जरूरतमंद गौ माता के संरक्षण एवं देखभाल का प्रयास।
+                    </div>
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    <div>
+                        <strong>गौ चिकित्सालय</strong><br>
+                        बीमार एवं घायल गौ माता के उपचार की सुविधा।
+                    </div>
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    <div>
+                        <strong>एम्बुलेंस सुविधा</strong><br>
+                        दुर्घटनाग्रस्त गौ माता को सहायता पहुंचाने का प्रयास।
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section class="services" id="services">
+
+    <div class="section-title">
+
+        <small>हमारी सेवाएँ</small>
+
+        <h2>
+            सेवा के कई रूप, उद्देश्य एक
+        </h2>
+
+        <p>
+            गौ माता के संरक्षण, उपचार और देखभाल के लिए विभिन्न सेवाएँ।
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">🐄</div>
+
+            <h3>गौ संरक्षण</h3>
+
+            <p>
+                निराश्रित और असहाय गौ माता के संरक्षण एवं देखभाल
+                के लिए निरंतर प्रयास।
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🏥</div>
+
+            <h3>गौ चिकित्सालय</h3>
+
+            <p>
+                बीमार, घायल और दुर्घटनाग्रस्त गौ माता के उपचार
+                और देखभाल की सुविधा।
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🚑</div>
+
+            <h3>गौ एम्बुलेंस</h3>
+
+            <p>
+                दुर्घटनाग्रस्त गौ माता को सुरक्षित रूप से
+                उपचार केंद्र तक पहुंचाने में सहायता।
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🌿</div>
+
+            <h3>गौ आधारित कृषि</h3>
+
+            <p>
+                गौ आधारित उत्पादों और प्राकृतिक कृषि के महत्व
+                के प्रति जागरूकता का प्रयास।
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">❤️</div>
+
+            <h3>निराश्रित गौ सेवा</h3>
+
+            <p>
+                ऐसी गौ माता जिनकी देखभाल करने वाला कोई नहीं,
+                उनके लिए सेवा और संरक्षण।
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🙏</div>
+
+            <h3>जन सहयोग</h3>
+
+            <p>
+                भामाशाहों और समाज के सहयोग से गौ सेवा के कार्यों
+                को आगे बढ़ाने का प्रयास।
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STORY -->
+<section class="story" id="story">
+
+    <div class="section-title">
+
+        <small>हमारी कहानी</small>
+
+        <h2>
+            एक छोटे प्रयास से सेवा का बड़ा सफर
+        </h2>
+
+    </div>
+
+
+    <div class="story-box">
+
+        <div class="quote">“</div>
+
+        <p>
+            अरावली की सुरम्य पहाड़ियों और राजस्थान की पवित्र धरती
+            से जुड़ी Aai Nath Gaushala आज बालोतरा क्षेत्र में
+            गौ सेवा के कार्यों के लिए जानी जाती है।
+        </p>
+
+        <p>
+            गौशाला की स्थापना <strong>30 जनवरी 2010</strong> को
+            साधु-संतों के कर कमलों द्वारा की गई। समय के साथ
+            भामाशाहों और दानदाताओं के सहयोग से सेवा का विस्तार हुआ।
+        </p>
+
+        <p>
+            गौशाला में अंधी, विकलांग और निराश्रित गौ माता की सेवा
+            के साथ-साथ दुर्घटनाग्रस्त गौ माता के लिए एम्बुलेंस
+            सुविधा भी उपलब्ध कराई गई।
+        </p>
+
+        <div class="timeline">
+
+            <div class="year">30 जनवरी 2010</div>
+
+            <div>
+                <strong>गौशाला की स्थापना</strong><br>
+                <span>
+                    सेवा और संरक्षण की यात्रा का आरंभ।
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DONATION -->
+<section class="donate" id="donate">
+
+    <div class="section-title">
+
+        <small style="color:#f3c66c;">
+            गौ सेवा में सहयोग
+        </small>
+
+        <h2>
+            आपका छोटा सहयोग,<br>
+            गौ माता के लिए बड़ी सेवा
+        </h2>
+
+        <p>
+            गौ सेवा के इस कार्य में अपना योगदान दें।
+        </p>
+
+    </div>
+
+
+    <div class="donation-box">
+
+        <div class="upi-box">
+
+            <div class="upi-label">
+                UPI ID
+            </div>
+
+            <div class="upi-id">
+                7726983654@sbi
+            </div>
+
+        </div>
+
+
+        <div class="donation-buttons">
+
+            <!-- UPI DONATION -->
+            <a
+                href="upi://pay?pa=7726983654@sbi&pn=Aai%20Nath%20Gaushala&cu=INR"
+                class="btn btn-primary">
+                ❤️ UPI से Donate करें
+            </a>
+
+
+            <!-- CALL -->
+            <a
+                href="tel:7726983654"
+                class="btn btn-outline">
+                📞 Call for Donation
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="section-title">
+
+        <small>संपर्क करें</small>
+
+        <h2>
+            Aai Nath Gaushala से जुड़ें
+        </h2>
+
+        <p>
+            गौ सेवा से संबंधित जानकारी के लिए हमसे संपर्क करें।
+        </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+        <div class="contact-card">
+
+            <div class="icon">📍</div>
+
+            <h3>पता</h3>
+
+            <a href="#">
+                Balotra, Barmer, Rajasthan, India
+            </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <div class="icon">📞</div>
+
+            <h3>फोन</h3>
+
+            <a href="tel:7726983654">
+                7726983654
+            </a>
+
+            <br>
+
+            <a href="tel:9461521861">
+                9461521861
+            </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <div class="icon">✉️</div>
+
+            <h3>Email</h3>
+
+            <a href="mailto:aainathgaushala@gmail.com">
+                aainathgaushala@gmail.com
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>🐄 Aai Nath Gaushala</h3>
+
+            <p>
+                गौ माता की सेवा, संरक्षण और उपचार के लिए
+                समर्पित एक सेवा प्रयास।
+            </p>
+
+            <br>
+
+            <p>
+                Balotra, Rajasthan
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">सेवाएँ</a></li>
+                <li><a href="#story">हमारी कहानी</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>सेवा से जुड़ें</h3>
+
+            <ul>
+                <li>
+                    <a href="tel:7726983654">
+                        📞 7726983654
+                    </a>
+                </li>
+
+                <li>
+                    <a href="mailto:aainathgaushala@gmail.com">
+                        ✉ Email Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#donate">
+                        ❤️ Donate
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Aai Nath Gaushala. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- FLOATING BUTTONS -->
+
+<div class="floating-actions">
+
+    <a
+        href="tel:7726983654"
+        class="float-btn call"
+        title="Call Now">
+        📞
+    </a>
+
+    <a
+        href="upi://pay?pa=7726983654@sbi&pn=Aai%20Nath%20Gaushala&cu=INR"
+        class="float-btn donate-float"
+        title="Donate">
+        ❤️
+    </a>
+
+</div>
+
+
+<script>
+
+    function toggleMenu() {
+        document.getElementById("nav").classList.toggle("active");
+    }
+
+    document.querySelectorAll("nav a").forEach(function(link) {
+        link.addEventListener("click", function() {
+            document.getElementById("nav").classList.remove("active");
+        });
+    });
+
+</script>
+
+</body>
+</html>
